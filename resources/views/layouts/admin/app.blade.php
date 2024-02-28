@@ -20,6 +20,7 @@
       <meta name="description" content="Updates and statistics"/>
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
       <!--begin::Fonts-->
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"/>
       <!--end::Fonts-->
       <!--begin::Page Vendors Styles(used by this page)-->
@@ -41,6 +42,7 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.css" integrity="sha512-In/+MILhf6UMDJU4ZhDL0R0fEpsp4D3Le23m6+ujDWXwl3whwpucJG1PEmI3B07nyJx+875ccs+yX2CqQJUxUw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
       <!--end::Layout Themes-->
       <link rel="shortcut icon" href="{{asset('admin_assets')}}/media/logos/favicon.ico"/>
+      @stack('css')
    </head>
    <!--end::Head-->
    <!--begin::Body-->
@@ -394,8 +396,8 @@
       <script src="{{asset('admin_assets')}}/js/pages/widgets.js?v=7.0.6"></script>
       <script src="{{asset('admin_assets')}}/js/custom/index.js"></script>
       <script src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.min.js" type="text/javascript"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js" integrity="sha512-8QFTrG0oeOiyWo/VM9Y8kgxdlCryqhIxVeRpWSezdRRAvarxVtwLnGroJgnVW9/XBRduxO/z1GblzPrMQoeuew==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+      <link rel="stylesheet" href="{{asset('admin_assets/uploadMultiImages/image-uploader.min.css')}}">
+      <script src="{{asset('admin_assets/uploadMultiImages/image-uploader.min.js')}}"></script>
       <script>
          $(function () {
 

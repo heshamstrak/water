@@ -1,4 +1,4 @@
-@php $name = 'products' @endphp
+@php $name = 'categories' @endphp
 @extends('layouts.admin.app')
 @section('content')
 
@@ -25,7 +25,7 @@
                             </svg>
                             <!--end::Svg Icon-->
                         </span>
-                        New Product
+                        New Category
                     </a>
                 @endif
 
@@ -65,11 +65,7 @@
                                         </label>
                                     </div>
                                 </th>
-                                <th>Image</th>
                                 <th>Name</th>
-                                <th>Category</th>
-                                <th>Count</th>
-                                <th>Visitors</th>
                                 <th>Created at</th>
                                 <th>Action</th>
                             </tr>
@@ -93,7 +89,7 @@
 
     <script>
 
-            let productsTable = $('#{{$name}}-table').DataTable({
+            let categoryTable = $('#{{$name}}-table').DataTable({
                 dom: "tiplr",
                 serverSide: true,
                 processing: true,
@@ -102,11 +98,7 @@
                 },
             columns: [
                 {data: 'record_select', name: 'record_select', searchable: false, sortable: false, width: '1%'},
-                {data: 'poster', name: 'poster', searchable: false},  
                 {data: 'name', name: 'name'},
-                {data: 'category', name: 'category'},
-                {data: 'count', name: 'count'},
-                {data: 'visitor', name: 'visitor'},
                 {data: 'created_at', name: 'created_at', searchable: false},
                 {data: 'actions', name: 'actions', searchable: false, sortable: false, width: '20%'},
             ],
@@ -120,7 +112,7 @@
         });
 
         $('#data-table-search').keyup(function () {
-            productsTable.search(this.value).draw();
+            categoryTable.search(this.value).draw();
         })
     </script>
 

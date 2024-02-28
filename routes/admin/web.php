@@ -47,9 +47,9 @@ Route::middleware([
             Route::resource('categories', 'CategoryController');
 
             //Product routes
-            Route::get('/products/data', 'CategoryController@data')->name('products.data');
-            Route::delete('/products/bulk_delete', 'CategoryController@bulkDelete')->name('products.bulk_delete');
-            Route::resource('products', 'CategoryController');
+            Route::get('/products/data', 'ProductController@data')->name('products.data');
+            Route::delete('/products/bulk_delete', 'ProductController@bulkDelete')->name('products.bulk_delete');
+            Route::resource('products', 'ProductController');
 
 
 

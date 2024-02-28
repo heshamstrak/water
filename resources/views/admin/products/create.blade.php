@@ -14,24 +14,68 @@
                 @csrf
                 @method('post')
                 @include('admin.partials._errors')
-                
-                {{-- Title --}}
+                {{-- Name --}}
+                @php $nameInput = 'name' @endphp
                 <div class="form-group">
-                    <label>Title <span class="text-danger">*</span></label>
-                    <input type="text" name="title" autofocus class="form-control" value="{{ old('title') }}" required>
+                    <label class="text-capitalize">{{$nameInput}} <span class="text-danger">*</span></label>
+                    <input type="text" name="{{$nameInput}}" autofocus class="form-control" value="{{ old($nameInput) }}" required>
                 </div>
 
-                {{--description--}}
+                {{--Main Description--}}
+                @php $nameInput = 'main_description' @endphp
                 <div class="form-group">
-                    <label>Description <span class="text-danger">*</span></label>
-                    <textarea name="description" class="form-control" cols="30" rows="10">{{ old('description') }}</textarea>
+                    <label class="text-capitalize">Main Description <span class="text-danger">*</span></label>
+                    <textarea name="{{$nameInput}}" class="form-control" cols="30" rows="10">{{ old($nameInput) }}</textarea>
                 </div>
 
-                {{--poster--}}
+                {{--Description--}}
+                @php $nameInput = 'description' @endphp
                 <div class="form-group">
-                    <label class="text-capitalize">Poster</label>
-                    <input type="file" name="poster" id="input-file-now" class="dropify" data-show-remove="false"  data-height="355"/>
+                    <label class="text-capitalize">>{{$nameInput}} <span class="text-danger">*</span></label>
+                    <textarea name="{{$nameInput}}" class="form-control" cols="30" rows="10">{{ old($nameInput) }}</textarea>
                 </div>
+
+                <div class="row">
+                    <div class="col-4">
+                        {{-- Count --}}
+                        @php $nameInput = 'count' @endphp
+                        <div class="form-group">
+                            <label class="text-capitalize">{{$nameInput}} <span class="text-danger">*</span></label>
+                            <input type="text" name="{{$nameInput}}" autofocus class="form-control" value="{{ old($nameInput) }}" required>
+                        </div>
+ 
+                    </div>
+                    <div class="col-4">
+                        {{-- Price --}}
+                        @php $nameInput = 'price' @endphp
+                        <div class="form-group">
+                            <label class="text-capitalize">{{$nameInput}} <span class="text-danger">*</span></label>
+                            <input type="text" name="{{$nameInput}}" autofocus class="form-control" value="{{ old($nameInput) }}" required>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        {{-- discount --}}
+                        @php $nameInput = 'discount' @endphp
+                        <div class="form-group">
+                            <label class="text-capitalize">{{$nameInput}}</label>
+                            <input type="text" name="{{$nameInput}}" autofocus class="form-control" value="{{ old($nameInput) }}" required>
+                        </div> 
+                    </div>
+                </div>
+
+                {{-- Category --}}
+                @php $nameInput = 'category_id' @endphp
+                <div class="form-group">
+                    <label class="text-capitalize">Category</label>
+                    <select name="{{$nameInput}}" class="form-control">
+                        <option value="">Select Category</option>
+                        @foreach ($categories as $category)
+                            <option value="{{$category->id}}" {{$category->id == old($nameInput) ? 'selected' : ''}}>{{$category->name}}</option>
+                        @endforeach
+                    </select>
+                </div> 
+
+                <div class="input-images-2" style="padding-top: .5rem;padding-bottom: .5rem;"></div>
 
             </div>
 
@@ -42,11 +86,19 @@
                     </div>
                 </div>
             </div>
+
         </form>
     </div>
 </div>
 @endsection
+@push('js')
+<script>
+    $('.input-images-2').imageUploader({
+        imagesInputName: 'photos',
+        preloadedInputName: 'old'
+    });
+</script>
 
-
+@endpush
 
 

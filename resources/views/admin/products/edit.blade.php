@@ -15,24 +15,66 @@
                 @method('put')
                 @include('admin.partials._errors')
 
-                {{--Title--}}
+                {{-- Name --}}
+                @php $nameInput = 'name' @endphp
                 <div class="form-group">
-                    <label>Title <span class="text-danger">*</span></label>
-                    <input type="text" name="title" autofocus class="form-control" value="{{ old('title', $product->title) }}" required>
+                    <label class="text-capitalize">{{$nameInput}} <span class="text-danger">*</span></label>
+                    <input type="text" name="{{$nameInput}}" autofocus class="form-control" value="{{ old($nameInput, $product->{$nameInput}) }}" required>
                 </div>
 
-                {{--description--}}
+                {{--Main Description--}}
+                @php $nameInput = 'main_description' @endphp
                 <div class="form-group">
-                    <label>Description <span class="text-danger">*</span></label>
-                    <textarea name="description" class="form-control" cols="30" rows="10">{{ old('description', $product->description) }}</textarea>
+                    <label class="text-capitalize">>Main Description <span class="text-danger">*</span></label>
+                    <textarea name="{{$nameInput}}" class="form-control" cols="30" rows="10">{{ old($nameInput, $product->{$nameInput}) }}</textarea>
                 </div>
 
-
-                {{--image--}}
+                {{--Description--}}
+                @php $nameInput = 'description' @endphp
                 <div class="form-group">
-                    <label class="text-capitalize">Poster</label>
-                    <input type="file" name="poster" id="input-file-now" class="dropify" @if(isset($product)) data-default-file="{{$product->poster_path}}" data-show-remove="false" @endif data-height="585"/>
+                    <label class="text-capitalize">>{{$nameInput}} <span class="text-danger">*</span></label>
+                    <textarea name="{{$nameInput}}" class="form-control" cols="30" rows="10">{{ old($nameInput, $product->{$nameInput}) }}</textarea>
                 </div>
+
+                <div class="row">
+                    <div class="col-4">
+                        {{-- Count --}}
+                        @php $nameInput = 'count' @endphp
+                        <div class="form-group">
+                            <label class="text-capitalize">{{$nameInput}} <span class="text-danger">*</span></label>
+                            <input type="text" name="{{$nameInput}}" autofocus class="form-control" value="{{ old($nameInput, $product->{$nameInput}) }}" required>
+                        </div>
+
+                    </div>
+                    <div class="col-4">
+                        {{-- Price --}}
+                        @php $nameInput = 'price' @endphp
+                        <div class="form-group">
+                            <label class="text-capitalize">{{$nameInput}} <span class="text-danger">*</span></label>
+                            <input type="text" name="{{$nameInput}}" autofocus class="form-control" value="{{ old($nameInput, $product->{$nameInput}) }}" required>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        {{-- discount --}}
+                        @php $nameInput = 'discount' @endphp
+                        <div class="form-group">
+                            <label class="text-capitalize">{{$nameInput}}</label>
+                            <input type="text" name="{{$nameInput}}" autofocus class="form-control" value="{{ old($nameInput, $product->{$nameInput}) }}" required>
+                        </div> 
+                    </div>
+                </div>
+
+                {{-- Category --}}
+                @php $nameInput = 'category_id' @endphp
+                <div class="form-group">
+                    <label class="text-capitalize">Category</label>
+                    <select name="{{$nameInput}}" class="form-control">
+                        <option value="">Select Category</option>
+                        @foreach ($categories as $category)
+                            <option value="{{$category->id}}" {{$category->id == old($nameInput, $product->{$nameInput}) ? 'selected' : ''}}>{{$category->name}}</option>
+                        @endforeach
+                    </select>
+                </div> 
             
             </div>
 

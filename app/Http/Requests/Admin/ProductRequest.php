@@ -24,9 +24,13 @@ class ProductRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'title'       => 'required',
-            'description' => 'required',
-            'poster'      => 'required|mimes:jpeg,png,jpg,gif,svg,webp',     
+            'name'              => 'required',
+            'main_description'  => 'required',
+            'description'       => 'required',
+            'count'             => 'required',
+            'price'             => 'required',
+            'discount'          => 'sometimes|nullable',
+            'category_id'       => 'required',
         ];
 
         if (in_array($this->method(), ['PUT', 'PATCH'])) {

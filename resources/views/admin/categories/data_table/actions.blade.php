@@ -1,4 +1,4 @@
-@php $name = 'blogs' @endphp
+@php $name = 'categories' @endphp
 @if (auth()->user()->hasPermission('update_'.$name))
     <a href="{{ route('admin.'.$name.'.edit', $id) }}" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i> Edit</a>
 @endif

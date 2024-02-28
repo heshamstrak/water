@@ -5,23 +5,25 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\ProductRequest;
 use App\Models\Product;
+use App\Models\Category;
 use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
+    private $name = 'products';
     public function __construct()
     {
-        $this->middleware('permission:read_products')->only(['index']);
-        $this->middleware('permission:create_products')->only(['create', 'store']);
-        $this->middleware('permission:update_products')->only(['edit', 'update']);
-        $this->middleware('permission:delete_products')->only(['delete', 'bulk_delete']);
+        $this->middleware('permission:read_'.$this->name)->only(['index']);
+        $this->middleware('permission:create_'.$this->name)->only(['create', 'store']);
+        $this->middleware('permission:update_'.$this->name)->only(['edit', 'update']);
+        $this->middleware('permission:delete_'.$this->name)->only(['delete', 'bulk_delete']);
 
     }// end of __construct
 
     public function index()
     {
-         return view('admin.products.index');
+         return view('admin.'.$this->name.'.index');
 
     }// end of index
 
@@ -30,14 +32,17 @@ class ProductController extends Controller
         $products = Product::get();
 
         return DataTables::of($products)
-            ->addColumn('record_select', 'admin.products.data_table.record_select')
+            ->addColumn('record_select', 'admin.'.$this->name.'.data_table.record_select')
             ->addColumn('poster', function (Product $product) {
-                return view('admin.products.data_table.poster', compact('product'));
+                return view('admin.'.$this->name.'.data_table.poster', compact('product'));
+            })
+            ->addColumn('category', function (Product $product) {
+                return $product->category->name;
             })
             ->editColumn('created_at', function (Product $product) {
                 return $product->created_at->format('Y-m-d');
             })
-            ->addColumn('actions', 'admin.products.data_table.actions')
+            ->addColumn('actions', 'admin.'.$this->name.'.data_table.actions')
             ->rawColumns(['record_select', 'actions'])
             ->toJson();
 
@@ -45,44 +50,34 @@ class ProductController extends Controller
 
     public function create()
     {
-        return view('admin.products.create');
+        $categories = Category::get();
+        return view('admin.'.$this->name.'.create', compact('categories'));
 
     }// end of create
 
     public function store(ProductRequest $request)
     {
         $requestData = $request->validated();
-        if ($request->poster) {
-            $request->poster->store('public/uploads/products');
-            $requestData['poster'] = $request->poster->hashName();
-        }
-
         Product::create($requestData);
         session()->flash('success', 'Added Successfully');
-        return redirect()->route('admin.products.index');
+        return redirect()->route('admin.'.$this->name.'.index');
 
     }// end of store
 
     public function edit(Product $product)
     {
-        return view('admin.products.edit', compact('product'));
+        $categories = Category::get();
+        return view('admin.'.$this->name.'.edit', compact('product', 'categories'));
 
     }// end of edit
 
     public function update(ProductRequest $request, Product $product)
     {
         $requestData = $request->validated();
-
-        if ($request->poster) {
-            Storage::disk('local')->delete('public/uploads/products/' . $product->poster);
-            $request->poster->store('public/uploads/products/');
-            $requestData['poster'] = $request->poster->hashName();
-        }
-
         $product->update($requestData);
 
         session()->flash('success', __('Update Successfully'));
-        return redirect()->route('admin.products.index');
+        return redirect()->route('admin.'.$this->name.'.index');
 
     }// end of update
 
@@ -97,10 +92,8 @@ class ProductController extends Controller
     public function bulkDelete()
     {
         foreach (json_decode(request()->record_ids) as $recordId) {
-
             $product = Product::FindOrFail($recordId);
             $this->delete($product);
-
         }//end of for each
 
         session()->flash('success', __('site.deleted_successfully'));
@@ -110,7 +103,7 @@ class ProductController extends Controller
 
     private function delete(Product $product)
     {
-        Storage::disk('local')->delete('public/uploads/products/' . $product->poster);
+        Storage::disk('local')->delete('public/uploads/'.$this->name.'/' . $product->poster);
 
         $product->delete();
 

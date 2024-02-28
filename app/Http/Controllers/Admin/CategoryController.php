@@ -10,18 +10,21 @@ use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
+
+    private $name = 'categories';
+
     public function __construct()
     {
-        $this->middleware('permission:read_categories')->only(['index']);
-        $this->middleware('permission:create_categories')->only(['create', 'store']);
-        $this->middleware('permission:update_categories')->only(['edit', 'update']);
-        $this->middleware('permission:delete_categories')->only(['delete', 'bulk_delete']);
+        $this->middleware('permission:read_'.$this->name)->only(['index']);
+        $this->middleware('permission:create_'.$this->name)->only(['create', 'store']);
+        $this->middleware('permission:update_'.$this->name)->only(['edit', 'update']);
+        $this->middleware('permission:delete_'.$this->name)->only(['delete', 'bulk_delete']);
 
     }// end of __construct
 
     public function index()
     {
-         return view('admin.categories.index');
+         return view('admin.'.$this->name.'.index');
 
     }// end of index
 
@@ -30,11 +33,11 @@ class CategoryController extends Controller
         $categories = Category::get();
 
         return DataTables::of($categories)
-            ->addColumn('record_select', 'admin.categories.data_table.record_select')
+            ->addColumn('record_select', 'admin.'.$this->name.'.data_table.record_select')
             ->editColumn('created_at', function (Category $category) {
                 return $category->created_at->format('Y-m-d');
             })
-            ->addColumn('actions', 'admin.categories.data_table.actions')
+            ->addColumn('actions', 'admin.'.$this->name.'.data_table.actions')
             ->rawColumns(['record_select', 'actions'])
             ->toJson();
 
@@ -42,42 +45,31 @@ class CategoryController extends Controller
 
     public function create()
     {
-        return view('admin.categories.create');
+        return view('admin.'.$this->name.'.create');
 
     }// end of create
 
     public function store(CategoryRequest $request)
     {
         $requestData = $request->validated();
-        if ($request->image) {
-            $request->image->store('public/uploads/categories/');
-            $requestData['image'] = $request->image->hashName();
-        }
-
         Category::create($requestData);
         session()->flash('success', 'Added Successfully');
-        return redirect()->route('admin.categories.index');
+        return redirect()->route('admin.'.$this->name.'.index');
 
     }// end of store
 
     public function edit(Category $category)
     {
-        return view('admin.categories.edit', compact('category'));
+        return view('admin.'.$this->name.'.edit', compact('category'));
 
     }// end of edit
 
     public function update(CategoryRequest $request, Category $category)
     {
         $requestData = $request->validated();
-        if ($request->image) {
-            Storage::disk('local')->delete('public/uploads/categories/' . $category->image);
-            $request->poster->store('public/uploads/categories/');
-            $requestData['image'] = $request->image->hashName();
-        }
-
         $category->update($requestData);
         session()->flash('success', __('Update Successfully'));
-        return redirect()->route('admin.categories.index');
+        return redirect()->route('admin.'.$this->name.'.index');
 
     }// end of update
 
@@ -105,9 +97,7 @@ class CategoryController extends Controller
 
     private function delete(Category $category)
     {
-        Storage::disk('local')->delete('public/uploads/categories/' . $category->image);
         $category->delete();
-
     }// end of delete
 
 }//end of controller
