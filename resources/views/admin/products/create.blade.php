@@ -31,12 +31,12 @@
                 {{--Description--}}
                 @php $nameInput = 'description' @endphp
                 <div class="form-group">
-                    <label class="text-capitalize">>{{$nameInput}} <span class="text-danger">*</span></label>
+                    <label class="text-capitalize">{{$nameInput}} <span class="text-danger">*</span></label>
                     <textarea name="{{$nameInput}}" class="form-control" cols="30" rows="10">{{ old($nameInput) }}</textarea>
                 </div>
 
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-3">
                         {{-- Count --}}
                         @php $nameInput = 'count' @endphp
                         <div class="form-group">
@@ -45,7 +45,7 @@
                         </div>
  
                     </div>
-                    <div class="col-4">
+                    <div class="col-3">
                         {{-- Price --}}
                         @php $nameInput = 'price' @endphp
                         <div class="form-group">
@@ -53,7 +53,18 @@
                             <input type="text" name="{{$nameInput}}" autofocus class="form-control" value="{{ old($nameInput) }}" required>
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-3">
+                        @php $nameInput = 'discount_type' @endphp
+                        <div class="form-group">
+                            <label class="text-capitalize">{{$nameInput}} <span class="text-danger">*</span></label>
+                            <select name="{{$nameInput}}" class=form-control>
+                                <option value="">Select Your Discount Type</option>
+                                <option value="0">Percent</option>
+                                <option value="1">Amount</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-3">
                         {{-- discount --}}
                         @php $nameInput = 'discount' @endphp
                         <div class="form-group">
@@ -94,7 +105,7 @@
 @push('js')
 <script>
     $('.input-images-2').imageUploader({
-        imagesInputName: 'photos',
+        imagesInputName: 'images',
         preloadedInputName: 'old'
     });
 </script>

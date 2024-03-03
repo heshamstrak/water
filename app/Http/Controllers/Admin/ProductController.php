@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\ProductRequest;
 use App\Models\Product;
+use App\Models\File;
 use App\Models\Category;
 use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\Storage;
@@ -58,7 +59,14 @@ class ProductController extends Controller
     public function store(ProductRequest $request)
     {
         $requestData = $request->validated();
-        Product::create($requestData);
+        $product = Product::create($requestData);
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                $image->store('public/uploads/products/'.$product->id.'/');
+                $imageName = $image->hashName();
+                File::create(['image'=>$imageName, 'product_id' => $product->id]); 
+            }
+        }
         session()->flash('success', 'Added Successfully');
         return redirect()->route('admin.'.$this->name.'.index');
 

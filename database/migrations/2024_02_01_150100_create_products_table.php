@@ -20,6 +20,7 @@ return new class extends Migration
             $table->bigInteger('visitor')->default(0);
             $table->integer('price');
             $table->integer('discount')->null();
+            $table->boolean('discount_type')->null();
             $table->unsignedBigInteger("category_id")->nullable();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->timestamps();

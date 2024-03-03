@@ -30,11 +30,12 @@ class ProductRequest extends FormRequest
             'count'             => 'required',
             'price'             => 'required',
             'discount'          => 'sometimes|nullable',
+            'discount_type'     => 'sometimes|nullable',
             'category_id'       => 'required',
         ];
 
         if (in_array($this->method(), ['PUT', 'PATCH'])) {
-            $rules['poster'] = 'sometimes|nullable';
+            $rules['images'] = 'sometimes|nullable';
         }//end of if
  
         return $rules;
