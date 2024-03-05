@@ -7,6 +7,8 @@ use App\Http\Requests\Admin\ProductRequest;
 use App\Models\Product;
 use App\Models\File;
 use App\Models\Category;
+use App\Models\Ingredient;
+use App\Models\Weight;
 use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\Storage;
 
@@ -52,7 +54,9 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Category::get();
-        return view('admin.'.$this->name.'.create', compact('categories'));
+        $ingredients = Ingredient::get();
+        $weights = Weight::get();
+        return view('admin.'.$this->name.'.create', compact('categories', 'ingredients' ,'weights'));
 
     }// end of create
 
@@ -60,6 +64,8 @@ class ProductController extends Controller
     {
         $requestData = $request->validated();
         $product = Product::create($requestData);
+        $product->ingredients()->sync($request->ingredients);
+        $product->weights()->sync($request->weights);
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $image) {
                 $image->store('public/uploads/products/'.$product->id.'/');
@@ -75,7 +81,9 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         $categories = Category::get();
-        return view('admin.'.$this->name.'.edit', compact('product', 'categories'));
+        $ingredients = Ingredient::get();
+        $weights = Weight::get();
+        return view('admin.'.$this->name.'.edit', compact('product', 'categories', 'ingredients' ,'weights'));
 
     }// end of edit
 
@@ -83,7 +91,8 @@ class ProductController extends Controller
     {
         $requestData = $request->validated();
         $product->update($requestData);
-
+        $product->ingredients()->sync($request->ingredients);
+        $product->weights()->sync($request->weights);
         session()->flash('success', __('Update Successfully'));
         return redirect()->route('admin.'.$this->name.'.index');
 
@@ -94,7 +103,6 @@ class ProductController extends Controller
         $this->delete($product);
         session()->flash('success', __('site.deleted_successfully'));
         return response(__('site.deleted_successfully'));
-
     }// end of destroy
 
     public function bulkDelete()
@@ -103,18 +111,14 @@ class ProductController extends Controller
             $product = Product::FindOrFail($recordId);
             $this->delete($product);
         }//end of for each
-
         session()->flash('success', __('site.deleted_successfully'));
         return response(__('site.deleted_successfully'));
-
     }// end of bulkDelete
 
     private function delete(Product $product)
     {
         Storage::disk('local')->delete('public/uploads/'.$this->name.'/' . $product->poster);
-
         $product->delete();
-
     }// end of delete
 
 }//end of controller

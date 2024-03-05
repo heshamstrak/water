@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('main_description');
             $table->text('description')->null();
+            $table->text('shipping_description')->null();
             $table->integer('count');
             $table->bigInteger('visitor')->default(0);
             $table->integer('price');

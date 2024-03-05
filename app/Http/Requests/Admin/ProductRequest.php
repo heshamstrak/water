@@ -24,14 +24,17 @@ class ProductRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'name'              => 'required',
-            'main_description'  => 'required',
-            'description'       => 'required',
-            'count'             => 'required',
-            'price'             => 'required',
-            'discount'          => 'sometimes|nullable',
-            'discount_type'     => 'sometimes|nullable',
-            'category_id'       => 'required',
+            'name'                  => 'required',
+            'main_description'      => 'required',
+            'description'           => 'required',
+            'shipping_description'  => 'required',
+            'count'                 => 'required',
+            'price'                 => 'required',
+            'discount'              => 'sometimes|nullable',
+            'discount_type'         => 'sometimes|nullable',
+            'category_id'           => 'required',
+            'ingredients'           => 'sometimes|nullable',
+            'weights'               => 'sometimes|nullable',
         ];
 
         if (in_array($this->method(), ['PUT', 'PATCH'])) {

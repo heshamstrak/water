@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'main_description', 'description', 'count', 'visitor', 'price', 'discount', 'discount_type', 'category_id'];
+    protected $fillable = ['name', 'main_description', 'description', 'shipping_description', 'count', 'visitor', 'price', 'discount', 'discount_type', 'category_id'];
     protected $appends = ['calculate_discount'];
 
     public function category()
@@ -21,14 +21,11 @@ class Product extends Model
         return $this->hasMany(File::class);
     }
 
-
     //attr
     public function getCalculateDiscountAttribute()
     {
-        $price = '';
         if($this->discount_type == 0) {
-            $discountPercent = (($this->price - $this->discount) / $this->price) * 100;
-            $discountPercent = round($discountPercent, 2);
+            $discountPercent = (($this->price - $this->discount) * 100) / $this->price;
             return $discountPercent;
         } elseif ($this->discount_type == 1) {
             return $price = $this->price - $this->discount;
@@ -36,6 +33,14 @@ class Product extends Model
         
     }// end of getCalculateDiscountAttribute
 
+    public function ingredients()
+    {
+        return $this->belongsToMany(Ingredient::class);
+    }
 
+    public function weights()
+    {
+        return $this->belongsToMany(Weight::class);
+    }
 
 }

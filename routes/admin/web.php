@@ -46,6 +46,16 @@ Route::middleware([
             Route::delete('/categories/bulk_delete', 'CategoryController@bulkDelete')->name('categories.bulk_delete');
             Route::resource('categories', 'CategoryController');
 
+            //Ingredient routes
+            Route::get('/ingredients/data', 'IngredientController@data')->name('ingredients.data');
+            Route::delete('/ingredients/bulk_delete', 'IngredientController@bulkDelete')->name('ingredients.bulk_delete');
+            Route::resource('ingredients', 'IngredientController');
+
+            //Weight routes
+            Route::get('/weights/data', 'WeightController@data')->name('weights.data');
+            Route::delete('/weights/bulk_delete', 'WeightController@bulkDelete')->name('weights.bulk_delete');
+            Route::resource('weights', 'WeightController');
+
             //Product routes
             Route::get('/products/data', 'ProductController@data')->name('products.data');
             Route::delete('/products/bulk_delete', 'ProductController@bulkDelete')->name('products.bulk_delete');

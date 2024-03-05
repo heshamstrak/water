@@ -24,24 +24,27 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"/>
       <!--end::Fonts-->
       <!--begin::Page Vendors Styles(used by this page)-->
-      <link href="{{asset('admin_assets')}}/plugins/custom/fullcalendar/fullcalendar.bundle.css?v=7.0.6" rel="stylesheet" type="text/css"/>
+      <link href="{{asset('admin_assets')}}/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css"/>
       <!--end::Page Vendors Styles-->
       <!--begin::Global Theme Styles(used by all pages)-->
-      <link href="{{asset('admin_assets')}}/plugins/global/plugins.bundle.css?v=7.0.6" rel="stylesheet" type="text/css"/>
-      <link href="{{asset('admin_assets')}}/plugins/custom/prismjs/prismjs.bundle.css?v=7.0.6" rel="stylesheet" type="text/css"/>
-      <link href="{{asset('admin_assets')}}/css/style.bundle.css?v=7.0.6" rel="stylesheet" type="text/css"/>
+      <link href="{{asset('admin_assets')}}/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css"/>
+      <link href="{{asset('admin_assets')}}/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css"/>
+      <link href="{{asset('admin_assets')}}/css/style.bundle.css" rel="stylesheet" type="text/css"/>
       <!--end::Global Theme Styles-->
       <!--begin::Layout Themes(used by all pages)-->
-      <link href="{{asset('admin_assets')}}/css/themes/layout/header/base/light.css?v=7.0.6" rel="stylesheet" type="text/css"/>
-      <link href="{{asset('admin_assets')}}/css/themes/layout/header/menu/light.css?v=7.0.6" rel="stylesheet" type="text/css"/>
-      <link href="{{asset('admin_assets')}}/css/themes/layout/brand/dark.css?v=7.0.6" rel="stylesheet" type="text/css"/>
-      <link href="{{asset('admin_assets')}}/css/themes/layout/aside/dark.css?v=7.0.6" rel="stylesheet" type="text/css"/>
+      <link href="{{asset('admin_assets')}}/css/themes/layout/header/base/light.css" rel="stylesheet" type="text/css"/>
+      <link href="{{asset('admin_assets')}}/css/themes/layout/header/menu/light.css" rel="stylesheet" type="text/css"/>
+      <link href="{{asset('admin_assets')}}/css/themes/layout/brand/dark.css" rel="stylesheet" type="text/css"/>
+      <link href="{{asset('admin_assets')}}/css/themes/layout/aside/dark.css" rel="stylesheet" type="text/css"/>
       <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.0/css/jquery.dataTables.min.css">
       <link rel="stylesheet" href="{{ asset('admin_assets/plugins/noty/noty.css') }}">
       <script src="{{ asset('admin_assets/plugins/noty/noty.min.js') }}"></script>
+      <script src="{{ asset('admin_assets/plugins/custom/ckeditor/ckeditor-classic.bundle.js') }}"></script>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.css" integrity="sha512-In/+MILhf6UMDJU4ZhDL0R0fEpsp4D3Le23m6+ujDWXwl3whwpucJG1PEmI3B07nyJx+875ccs+yX2CqQJUxUw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
       <!--end::Layout Themes-->
       <link rel="shortcut icon" href="{{asset('admin_assets')}}/media/logos/favicon.ico"/>
+      <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+      <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
       @stack('css')
    </head>
    <!--end::Head-->
@@ -385,15 +388,15 @@
 
       <script>var HOST_URL = "https://preview.keenthemes.com/metronic/theme/html/tools/preview";</script>
       <!--begin::Global Theme Bundle(used by all pages)-->
-      <script src="{{asset('admin_assets')}}/plugins/global/plugins.bundle.js?v=7.0.6"></script>
-      <script src="{{asset('admin_assets')}}/plugins/custom/prismjs/prismjs.bundle.js?v=7.0.6"></script>
-      <script src="{{asset('admin_assets')}}/js/scripts.bundle.js?v=7.0.6"></script>
+      <script src="{{asset('admin_assets')}}/plugins/global/plugins.bundle.js"></script>
+      <script src="{{asset('admin_assets')}}/plugins/custom/prismjs/prismjs.bundle.js"></script>
+      <script src="{{asset('admin_assets')}}/js/scripts.bundle.js"></script>
       <!--end::Global Theme Bundle-->
       <!--begin::Page Vendors(used by this page)-->
-      <script src="{{asset('admin_assets')}}/plugins/custom/fullcalendar/fullcalendar.bundle.js?v=7.0.6"></script>
+      <script src="{{asset('admin_assets')}}/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
       <!--end::Page Vendors-->
       <!--begin::Page Scripts(used by this page)-->
-      <script src="{{asset('admin_assets')}}/js/pages/widgets.js?v=7.0.6"></script>
+      <script src="{{asset('admin_assets')}}/js/pages/widgets.js"></script>
       <script src="{{asset('admin_assets')}}/js/custom/index.js"></script>
       <script src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.min.js" type="text/javascript"></script>
       <link rel="stylesheet" href="{{asset('admin_assets/uploadMultiImages/image-uploader.min.css')}}">
