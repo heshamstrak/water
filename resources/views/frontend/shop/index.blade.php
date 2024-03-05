@@ -62,10 +62,10 @@
                                                     <a class="image" href="{{$routeName}}" title="{{$product->name}}">
                                                         <div class="product-thumb-overlay"></div>
                                                         <div class="primary-image">
-                                                            <img decoding="async" src="{{ Storage::url('uploads/products/'.$product->id.'/'.$product->images->first()->image) }}" alt="Shop Primary Image" title="Shop Primary Image"/>
+                                                            <img decoding="async" src="{{ Storage::url('uploads/products/'.$product->id.'/'.$product->images->first()->image) }}" alt="Shop Primary Image" title="Shop Primary Image" style="width: 100%; height:100%"/>
                                                         </div>
                                                         <div class="secondary-image">
-                                                            <img decoding="async" src="{{ Storage::url('uploads/products/'.$product->id.'/'.$product->images->first()->image) }}" alt="Shop Secondary Image" title="Shop Secondary Image"/>
+                                                            <img decoding="async" src="{{ Storage::url('uploads/products/'.$product->id.'/'.$product->images->sortByDesc('id')->first()->image ) }}" alt="Latest Image" style="width: 100%; height:100%">
                                                         </div>
                                                     </a>
                                                 </div>
@@ -75,7 +75,7 @@
                                                     </div>
                                                     <div class="product-price">
                                                         <span class="price">
-                                                            @if($product->discount_type != null)
+                                                            @if($product->discount_type == 0)
                                                             <del aria-hidden="true">
                                                                 <span class="woocommerce-Price-amount amount">
                                                                     <bdi><span class="woocommerce-Price-currencySymbol">&#8377;</span>{{$product->price}}</bdi>
@@ -83,7 +83,7 @@
                                                             </del>
                                                             <ins>
                                                                 <span class="woocommerce-Price-amount amount">
-                                                                    <bdi><span class="woocommerce-Price-currencySymbol">&#8377;</span>{{$product->discount_type == 0 ? $product->discount : $product->price - $product->discount}}</bdi>
+                                                                    <bdi><span class="woocommerce-Price-currencySymbol">&#8377;</span>{{$product->calculate_discount}}</bdi>
                                                                 </span>
                                                             </ins>
                                                             @else
@@ -118,26 +118,6 @@
 </section>
 @endsection
 @push('css')
-        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
-        <link rel="alternate" type="application/rss+xml" title="Milmaa &raquo; Feed" href="https://milmaa.wpengine.com/feed/" />
-        <link rel="alternate" type="application/rss+xml" title="Milmaa &raquo; Comments Feed" href="https://milmaa.wpengine.com/comments/feed/" />
-        <link rel="alternate" type="application/rss+xml" title="Milmaa &raquo; Products Feed" href="https://milmaa.wpengine.com/shop/feed/" />
-        <link rel="stylesheet" id="wpacu-combined-css-head-1" href="https://milmaa.wpengine.com/wp-content/cache/asset-cleanup/css/head-a59dbf73830404f1cf47d8b4217da8b65727af59.css" type="text/css" media="all" />
-        <link rel="stylesheet" id="woocommerce-smallscreen-css" href="https://milmaa.wpengine.com/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css?ver=6.2.2" type="text/css" media="only screen and (max-width: 768px)" />
-        <link rel="stylesheet" id="bf420a116b69a7b8244224c70b72a816-css" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700,800,900&#038;subset=latin-ext" type="text/css" media="all" />
-        <link rel="stylesheet" id="e9a1e001934af7121d3283b538999bad-css" href="//fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900&#038;subset=latin-ext" type="text/css" media="all" />
-        <link rel="stylesheet" id="1d9aa0e7b7a043548d134f3d89fd753b-css" href="//fonts.googleapis.com/css?family=Merriweather:400&#038;subset=latin-ext" type="text/css" media="all" />
-        <link rel="stylesheet" id="61f180e65cb9280b339502ab077d40fc-css" href="//fonts.googleapis.com/css?family=Sen:400,700,800&#038;subset=latin-ext" type="text/css" media="all" />
-        <link rel="stylesheet" id="f562e241c1c8b24ab7a4dd36af4e492b-css" href="//fonts.googleapis.com/css?family=Lilita+One:400&#038;subset=latin-ext" type="text/css" media="all" />
-        <link rel="stylesheet" id="5d5cd0aadc8ea00aad005f6044700045-css" href="//fonts.googleapis.com/css?family=Sen:400&#038;subset=latin-ext" type="text/css" media="all" />
-        <script id="wpacu-combined-js-head-group-1" type="text/javascript" src="https://milmaa.wpengine.com/wp-content/cache/asset-cleanup/js/head-12613d092f994a1d5c75d6f766f20c3ee4c2eb1c.js"></script>
-        <link rel="https://api.w.org/" href="https://milmaa.wpengine.com/wp-json/" />
-        <link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://milmaa.wpengine.com/xmlrpc.php?rsd" />
-
-        <link rel="icon" href="https://milmaa.wpengine.com/wp-content/uploads/2021/12/favicon.png" sizes="32x32" />
-        <link rel="icon" href="https://milmaa.wpengine.com/wp-content/uploads/2021/12/favicon.png" sizes="192x192" />
-        <link rel="apple-touch-icon" href="https://milmaa.wpengine.com/wp-content/uploads/2021/12/favicon.png" />
-        <meta name="msapplication-TileImage" content="https://milmaa.wpengine.com/wp-content/uploads/2021/12/favicon.png" />
 <link rel="stylesheet" href="{{asset('frontend/css/style.css')}}">
 
 @endpush
