@@ -192,6 +192,11 @@
                     <div class="container">
                         <!-- ** Primary ** -->
                         <section id="primary" class="content-full-width">
+                            @if (session('success'))
+                            <div class="woocommerce-notices-wrapper">
+                                <div class="woocommerce-message" role="alert"><a href="{{route('view_cart')}}" tabindex="1" class="button wc-forward">View cart</a> “{{$product->name}}” {{session('success')}}.	</div>
+                            </div>
+                            @endif
                             <div class="woocommerce-notices-wrapper"></div>
                             <div id="product-72" class="product-grid-view product type-product post-72 status-publish first instock product_cat-music has-post-thumbnail sale shipping-taxable purchasable product-type-variable">
                                 <div data-elementor-type="wp-post" data-elementor-id="72" class="elementor elementor-72" data-elementor-settings="[]">
@@ -291,26 +296,29 @@
                                                                     <div class="product-buttons-wrapper product-button product-button-cart style-bgfill align-inline hide-button-text">
                                                                         <div class="wc_inline_buttons">
                                                                             <div class="wcwl_btn_wrapper wc_btn_inline">
-                                                                                <form class="variations_form cart" action="https://milmaa.wpengine.com/product/almond-milk/" method="post" enctype="multipart/form-data">
+                                                                                <form class="variations_form cart" id="addToCartForm" action="{{route('add_to_cart')}}" method="post" enctype="multipart/form-data">
+                                                                                   @csrf @method('post')
                                                                                     <table class="variations" cellspacing="0">
                                                                                         <tbody>
                                                                                             <tr>
                                                                                                 <th class="label"><label for="ingredients">Ingredients</label></th>
                                                                                                 <td class="value">
-                                                                                                    <select id="ingredients" class="" name="attribute_ingredients" data-attribute_name="attribute_ingredients" data-show_option_none="yes">
+                                                                                                    <select id="ingredients" class="" name="ingredients" data-attribute_name="attribute_ingredients" data-show_option_none="yes">
                                                                                                         <option value="">Choose an option</option>
-                                                                                                        <option value="Almond">Almond</option>
-                                                                                                        <option value="Butter">Butter</option>
+                                                                                                        @foreach($product->ingredients as $row)
+                                                                                                            <option value="{{$row->id}}">{{$row->name}}</option>
+                                                                                                        @endforeach
                                                                                                     </select>
                                                                                                 </td>
                                                                                             </tr>
                                                                                             <tr>
                                                                                                 <th class="label"><label for="weight">Weight</label></th>
                                                                                                 <td class="value">
-                                                                                                    <select id="weight" class="" name="attribute_weight" data-attribute_name="attribute_weight" data-show_option_none="yes">
+                                                                                                    <select id="weight" class="" name="weight" data-attribute_name="attribute_weight" data-show_option_none="yes">
                                                                                                         <option value="">Choose an option</option>
-                                                                                                        <option value="100 ml">100 ml</option>
-                                                                                                        <option value="150 ml">150 ml</option>
+                                                                                                        @foreach($product->weights as $row)
+                                                                                                            <option value="{{$row->id}}">{{$row->name}}</option>
+                                                                                                        @endforeach
                                                                                                     </select>
                                                                                                     <a class="reset_variations" href="#">Clear</a>
                                                                                                 </td>
@@ -330,8 +338,8 @@
                                                                                             <button type="submit" class="single_add_to_cart_button button alt">Add to cart</button>
 
                                                                                             <input type="hidden" name="add-to-cart" value="72" />
-                                                                                            <input type="hidden" name="product_id" value="72" />
-                                                                                            <input type="hidden" name="variation_id" class="variation_id" value="0" />
+                                                                                            <input type="hidden" name="product_id" value="{{$product->id}}" />
+                                                                                            <input type="hidden" name="price" class="variation_id" value="{{$product->calculate_discount}}" />
                                                                                         </div>
                                                                                     </div>
                                                                                 </form>

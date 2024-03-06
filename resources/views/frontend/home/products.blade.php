@@ -27,114 +27,56 @@
                         <div class="mfx-products-container woocommerce">
                             <ul class="products products-apply-isotope product-style-default product-hover-fade-skinborder product-hover-secimage-fade product-overlay-dark-bgcolor product-with-space product-padding-default default-shop false product-label-circle false product-thumb-alignment-top product-thumb-iconsgroup-style-simple product-thumb-buttonelement-style-bgfill-rounded product-content-alignment-center product-content-iconsgroup-style-simple product-content-buttonelement-style-simple">
                                 <li class="product isotope-grid-sizer"><div class="mfx-col mfx-col-xs-12 mfx-col-sm-6 mfx-col-md-6 mfx-col-qxlg-4 mfx-col-hxlg-4 mfx-col-lg-4"></div></li>
+                              @foreach ($products as $product)
+                                @php
+                                    $routeName = route('shop.single', ['slug' => str_replace(' ', '-', $product->name), 'product' => $product->id] );
+                                @endphp
                                 <li class="product-grid-view product-with-secondary-image product type-product post-22167 status-publish first instock product_cat-flavored-milk has-post-thumbnail sale shipping-taxable purchasable product-type-variable">
                                     <div class="mfx-col mfx-col-xs-12 mfx-col-sm-6 mfx-col-md-6 mfx-col-qxlg-4 mfx-col-hxlg-4 mfx-col-lg-4">
                                         <div class="product-wrapper">
                                             <div class="product-thumb">
-                                                <a class="image" href="https://milmaa.wpengine.com/product/oats-milk/" title="Oats Milk">
+                                                <a class="image" href="{{$routeName}}" title="{{$product->name}}">
                                                     <div class="product-thumb-overlay"></div>
                                                     <div class="primary-image">
-                                                        <img decoding="async" src="https://milmaa.wpengine.com/wp-content/uploads/2021/12/product-1.png" alt="Shop Primary Image" title="Shop Primary Image"/>
+                                                        <img decoding="async" src="{{ Storage::url('uploads/products/'.$product->id.'/'.$product->images->first()->image) }}" alt="Shop Primary Image" title="Shop Primary Image" style="width: 100%; height:100%"/>
                                                     </div>
                                                     <div class="secondary-image">
-                                                        <img decoding="async" src="https://milmaa.wpengine.com/wp-content/uploads/2021/12/product-3.png" alt="Shop Secondary Image" title="Shop Secondary Image"/>
+                                                        <img decoding="async" src="{{ Storage::url('uploads/products/'.$product->id.'/'.$product->images->sortByDesc('id')->first()->image ) }}" alt="Latest Image" style="width: 100%; height:100%">
                                                     </div>
                                                 </a>
                                             </div>
                                             <div class="product-details">
                                                 <div class="product-title">
-                                                    <h5><a href="https://milmaa.wpengine.com/product/oats-milk/">Oats Milk</a></h5>
+                                                    <h5><a href="{{$routeName}}">{{$product->name}}</a></h5>
                                                 </div>
                                                 <div class="product-price">
                                                     <span class="price">
+                                                        @if($product->discount_type == 0)
                                                         <del aria-hidden="true">
                                                             <span class="woocommerce-Price-amount amount">
-                                                                <bdi><span class="woocommerce-Price-currencySymbol">&#8377;</span>100.00</bdi>
+                                                                <bdi><span class="woocommerce-Price-currencySymbol">&#8377;</span>{{$product->price}}</bdi>
                                                             </span>
                                                         </del>
                                                         <ins>
                                                             <span class="woocommerce-Price-amount amount">
-                                                                <bdi><span class="woocommerce-Price-currencySymbol">&#8377;</span>90.00</bdi>
+                                                                <bdi><span class="woocommerce-Price-currencySymbol">&#8377;</span>{{$product->calculate_discount}}</bdi>
                                                             </span>
                                                         </ins>
+                                                        @else
+                                                            <ins>
+                                                                <span class="woocommerce-Price-amount amount">
+                                                                    <bdi><span class="woocommerce-Price-currencySymbol">&#8377;</span>{{$product->price}}</bdi>
+                                                                </span>
+                                                            </ins>
+                                                        @endif
+                                                
                                                     </span>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </li>
-                                <li class="product-grid-view product-with-secondary-image product type-product post-22164 status-publish instock product_cat-organic-milk has-post-thumbnail sale shipping-taxable purchasable product-type-variable">
-                                    <div class="mfx-col mfx-col-xs-12 mfx-col-sm-6 mfx-col-md-6 mfx-col-qxlg-4 mfx-col-hxlg-4 mfx-col-lg-4">
-                                        <div class="product-wrapper">
-                                            <div class="product-thumb">
-                                                <a class="image" href="https://milmaa.wpengine.com/product/soya-milk/" title="Soya Milk">
-                                                    <div class="product-thumb-overlay"></div>
-                                                    <div class="primary-image">
-                                                        <img decoding="async" src="https://milmaa.wpengine.com/wp-content/uploads/2021/12/product-2.png" alt="Shop Primary Image" title="Shop Primary Image"/>
-                                                    </div>
-                                                    <div class="secondary-image">
-                                                        <img decoding="async" src="https://milmaa.wpengine.com/wp-content/uploads/2021/12/product-3.png" alt="Shop Secondary Image" title="Shop Secondary Image"/>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="product-details">
-                                                <div class="product-title">
-                                                    <h5><a href="https://milmaa.wpengine.com/product/soya-milk/">Soya Milk</a></h5>
-                                                </div>
-                                                <div class="product-price">
-                                                    <span class="price">
-                                                        <del aria-hidden="true">
-                                                            <span class="woocommerce-Price-amount amount">
-                                                                <bdi><span class="woocommerce-Price-currencySymbol">&#8377;</span>50.00</bdi>
-                                                            </span>
-                                                        </del>
-                                                        <ins>
-                                                            <span class="woocommerce-Price-amount amount">
-                                                                <bdi><span class="woocommerce-Price-currencySymbol">&#8377;</span>20.00</bdi>
-                                                            </span>
-                                                        </ins>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="product-grid-view product-with-secondary-image product type-product post-22161 status-publish last instock product_cat-flavored-milk has-post-thumbnail sale shipping-taxable purchasable product-type-variable">
-                                    <div class="mfx-col mfx-col-xs-12 mfx-col-sm-6 mfx-col-md-6 mfx-col-qxlg-4 mfx-col-hxlg-4 mfx-col-lg-4">
-                                        <div class="product-wrapper">
-                                            <div class="product-thumb">
-                                                <a class="image" href="https://milmaa.wpengine.com/product/banana-milk/" title="Banana Milk">
-                                                    <div class="product-thumb-overlay"></div>
-                                                    <div class="primary-image">
-                                                        <img decoding="async" src="https://milmaa.wpengine.com/wp-content/uploads/2022/01/shop-4.png" alt="Shop Primary Image" title="Shop Primary Image" />
-                                                    </div>
-                                                    <div class="secondary-image">
-                                                        <img decoding="async" src="https://milmaa.wpengine.com/wp-content/uploads/2021/12/product-3.png" alt="Shop Secondary Image" title="Shop Secondary Image" />
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="product-details">
-                                                <div class="product-title">
-                                                    <h5><a href="https://milmaa.wpengine.com/product/banana-milk/">Banana Milk</a></h5>
-                                                </div>
-                                                <div class="product-price">
-                                                    <span class="price">
-                                                        <del aria-hidden="true">
-                                                            <span class="woocommerce-Price-amount amount">
-                                                                <bdi><span class="woocommerce-Price-currencySymbol">&#8377;</span>100.00</bdi>
-                                                            </span>
-                                                        </del>
-                                                        <ins>
-                                                            <span class="woocommerce-Price-amount amount">
-                                                                <bdi><span class="woocommerce-Price-currencySymbol">&#8377;</span>90.00</bdi>
-                                                            </span>
-                                                        </ins>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
+                              @endforeach
                             </ul>
                         </div>
                     </div>

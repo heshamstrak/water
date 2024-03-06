@@ -31,13 +31,13 @@
                                                             <a href="https://milmaa.wpengine.com/about-us/"><span>About us</span></a>
                                                         </li>
                                                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-22240 menu-item-depth-0">
-                                                            <a href="https://milmaa.wpengine.com/blog/"><span>Blog</span></a>
+                                                            <a href="{{route('blog.index')}}"><span>Blog</span></a>
                                                         </li>
                                                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-22212 menu-item-depth-0">
                                                             <a href="{{route('shop')}}"><span>Shop</span></a>
                                                         </li>
                                                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1870 menu-item-depth-0">
-                                                            <a href="https://milmaa.wpengine.com/contact-us/"><span>Contact us</span></a>
+                                                            <a href="{{route('contact')}}"><span>Contact us</span></a>
                                                         </li>
                                                     </ul>
                                                     <div class="sub-menu-overlay"></div>
@@ -74,9 +74,9 @@
                                                 </div>
                                                 <div class="mfx-header-icons-list-item cart-item">
                                                     <div class="mfx-shop-menu-icon">
-                                                        <a href="https://milmaa.wpengine.com/cart/">
+                                                        <a href="{{route('view_cart')}}">
                                                             <span class="mfx-shop-menu-icon-wrapper">
-                                                                <span class="mfx-shop-menu-cart-inner"><span class="mfx-shop-menu-cart-icon"></span><span class="mfx-shop-menu-cart-number">0</span></span>
+                                                                <span class="mfx-shop-menu-cart-inner"><span class="mfx-shop-menu-cart-icon"></span><span class="mfx-shop-menu-cart-number">{{auth()->user()->carts()->count()}}</span></span>
                                                                 <span class="mfx-shop-menu-cart-totals"></span>
                                                             </span>
                                                         </a>
