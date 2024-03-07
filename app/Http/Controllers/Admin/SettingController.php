@@ -44,18 +44,29 @@ class SettingController extends Controller
 
         $requestData = $request->except(['_token', '_method']);
 
-        if ($request->logo_header) {
-            Storage::disk('local')->delete('public/uploads/' . setting('logo_header'));
-            $request->logo_header->store('public/uploads/settings/');
-            $requestData['logo_header'] = $request->logo_header->hashName();
+        if ($request->logo_image) {
+            
+            setting('logo_image') != null ? Storage::disk('local')->delete('public/uploads/' . setting('logo_image')) : '';
+            $request->logo_image->store('public/uploads/settings/');
+            $requestData['logo_image'] = $request->logo_image->hashName();
         }
 
-        if ($request->logo_footer) {
-            Storage::disk('local')->delete('public/uploads/settings/' . setting('logo_footer'));
-            $request->logo_footer->store('public/uploads/settings');
-            $requestData['logo_footer'] = $request->logo_footer->hashName();
+        if ($request->header_image) {
+            setting('header_image') != null ? Storage::disk('local')->delete('public/uploads/settings/' . setting('header_image')) : '';
+            $request->header_image->store('public/uploads/settings');
+            $requestData['header_image'] = $request->header_image->hashName();
+        }
+        if ($request->contact_image) {
+            setting('contact_image') != null ? Storage::disk('local')->delete('public/uploads/' . setting('contact_image')) : '';
+            $request->contact_image->store('public/uploads/settings/');
+            $requestData['contact_image'] = $request->contact_image->hashName();
         }
 
+        if ($request->about_image) {
+            setting('about_image') != null ? Storage::disk('local')->delete('public/uploads/settings/' . setting('about_image')) : '';
+            $request->about_image->store('public/uploads/settings');
+            $requestData['about_image'] = $request->about_image->hashName();
+        }
         setting($requestData)->save();
         session()->flash('success', __('Update Successfully'));
         return redirect()->back();

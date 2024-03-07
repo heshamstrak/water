@@ -62,8 +62,8 @@
                <!--begin::Brand-->
                <div class="brand flex-column-auto " id="kt_brand">
                   <!--begin::Logo-->
-                  <a href="index.html" class="brand-logo">
-                  <img alt="Logo" src="{{asset('admin_assets')}}/media/logos/logo-light.png"/>
+                  <a href="{{route('admin.home')}}" class="brand-logo">
+                  <img alt="Logo" src="{{Storage::url('public/uploads/settings/'.setting('logo_image'))}}"/>
                   </a>
                   <!--end::Logo-->
                   <!--begin::Toggle-->
@@ -401,6 +401,7 @@
       <script src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.min.js" type="text/javascript"></script>
       <link rel="stylesheet" href="{{asset('admin_assets/uploadMultiImages/image-uploader.min.css')}}">
       <script src="{{asset('admin_assets/uploadMultiImages/image-uploader.min.js')}}"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js" integrity="sha512-8QFTrG0oeOiyWo/VM9Y8kgxdlCryqhIxVeRpWSezdRRAvarxVtwLnGroJgnVW9/XBRduxO/z1GblzPrMQoeuew==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
       <script>
          $(function () {
 

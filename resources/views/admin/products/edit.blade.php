@@ -130,6 +130,26 @@
                                     @endforeach
                                 </select>
                             </div>
+                            @php $nameInput = 'type' @endphp
+                            <label for="" class="text-capitalize">{{$nameInput}}</label>
+                            <div class="form-check form-check-custom form-check-solid">
+                                <input class="form-check-input" type="radio" value="1" id="flexRadioDefault1" name="{{$nameInput}}" {{$product->{$nameInput} == 1 ? 'checked' : ''}} />
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Master
+                                </label>
+                            </div>
+                            <div class="form-check form-check-custom form-check-solid">
+                                <input class="form-check-input" type="radio" value="2" id="flexRadioDefault2" name="{{$nameInput}}" {{$product->{$nameInput} == 2 ? 'checked' : ''}} />
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    Main
+                                </label>
+                            </div>
+                            <div class="form-check form-check-custom form-check-solid">
+                                <input class="form-check-input" type="radio" value="3" id="flexRadioDefault3" name="{{$nameInput}}" {{$product->{$nameInput} == 3 ? 'checked' : ''}} />
+                                <label class="form-check-label" for="flexRadioDefault3">
+                                    About
+                                </label>
+                            </div>
                         </div>
                         <div class="tab-pane fade" id="kt_tab_pane_2_4" role="tabpanel" aria-labelledby="kt_tab_pane_1_4">
                             <h4>Shipping</h4>
@@ -143,8 +163,23 @@
                         <div class="tab-pane fade" id="kt_tab_pane_6_4" role="tabpanel" aria-labelledby="kt_tab_pane_6_4">
                             <h4>Image</h4>
                             <div class="input-images" style="padding-top: 0.5rem; padding-bottom: 0.5rem;"></div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label class="text-capitalize">Icon</label>
+                                        <input type="file" name="icon" id="input-file-now" class="dropify" @if(isset($product)) data-default-file="{{$product->icon_path}}" @endif data-show-remove="false"  data-height="255"/>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label class="text-capitalize">Small Image</label>
+                                        <input type="file" name="small_image" id="input-file-now" class="dropify" @if(isset($product)) data-default-file="{{$product->image_path}}" @endif  data-show-remove="false"  data-height="255"/>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                        </div>
+                 
                 </div>
                 <div class="card-footer">
                     <div class="row">

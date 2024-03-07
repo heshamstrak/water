@@ -4,12 +4,28 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Product extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'main_description', 'description', 'shipping_description', 'count', 'visitor', 'price', 'discount', 'discount_type', 'category_id'];
-    protected $appends = ['calculate_discount'];
+    protected $fillable = ['name', 'main_description', 'description', 'shipping_description', 'small_image', 'icon','type','count', 'visitor', 'price', 'discount', 'discount_type', 'category_id'];
+    protected $appends = ['calculate_discount', 'icon_path', 'image_path'];
+
+    //attr
+    public function getImagePathAttribute()
+    {
+        return Storage::url('uploads/products/' . $this->small_image);
+        
+    }// end of getImagePathAttribute
+
+    public function getIconPathAttribute()
+    {
+        return Storage::url('uploads/products/' . $this->icon);
+        
+    }// end of getImagePathAttribute
+
+
 
     public function category()
     {

@@ -88,7 +88,7 @@
                                     {{-- Count --}} @php $nameInput = 'count' @endphp
                                     <div class="form-group">
                                         <label class="text-capitalize">{{$nameInput}} <span class="text-danger">*</span></label>
-                                        <input type="text" name="{{$nameInput}}" autofocus class="form-control" value="{{ old($nameInput) }}" required />
+                                        <input type="text" name="{{$nameInput}}" autofocus class="form-control" value="{{ old($nameInput) }}" required >
                                     </div>
                                 </div>
                                 <div class="col-3">
@@ -128,6 +128,27 @@
                                     @endforeach
                                 </select>
                             </div>
+
+                            @php $nameInput = 'type' @endphp
+                            <label for="" class="text-capitalize">{{$nameInput}}</label>
+                            <div class="form-check form-check-custom form-check-solid">
+                                <input class="form-check-input" type="radio" value="1" id="flexRadioDefault1" name="{{$nameInput}}"/>
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Master
+                                </label>
+                            </div>
+                            <div class="form-check form-check-custom form-check-solid">
+                                <input class="form-check-input" type="radio" value="2" id="flexRadioDefault2" name="{{$nameInput}}"/>
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    Main
+                                </label>
+                            </div>
+                            <div class="form-check form-check-custom form-check-solid">
+                                <input class="form-check-input" type="radio" value="3" id="flexRadioDefault3" name="{{$nameInput}}"/>
+                                <label class="form-check-label" for="flexRadioDefault3">
+                                    About
+                                </label>
+                            </div>
                         </div>
                         <div class="tab-pane fade" id="kt_tab_pane_2_4" role="tabpanel" aria-labelledby="kt_tab_pane_1_4">
                             <h4>Shipping</h4>
@@ -141,7 +162,22 @@
                         <div class="tab-pane fade" id="kt_tab_pane_6_4" role="tabpanel" aria-labelledby="kt_tab_pane_6_4">
                             <h4>Image</h4>
                             <div class="input-images-2" style="padding-top: 0.5rem; padding-bottom: 0.5rem;"></div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label class="text-capitalize">Icon</label>
+                                        <input type="file" name="icon" id="input-file-now" class="dropify" data-show-remove="false"  data-height="255"/>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label class="text-capitalize">Small Image</label>
+                                        <input type="file" name="small_image" id="input-file-now" class="dropify" data-show-remove="false"  data-height="255"/>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+              
                     </div>
                 </div>
                 <div class="card-footer">
@@ -163,6 +199,7 @@
 <script>
     $(document).ready(function() {
         $('.js-example-basic-multiple').select2();
+        $('.dropify').dropify();
     });
     ClassicEditor.create(document.querySelector("#editor"));
     ClassicEditor.create(document.querySelector("#editor2"));

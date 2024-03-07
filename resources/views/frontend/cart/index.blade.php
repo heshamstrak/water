@@ -6378,7 +6378,7 @@
                                                         <label>Price</label>
                                                         <span class="woocommerce-Price-amount amount">
                                                             <bdi>
-                                                                <span class="woocommerce-Price-currencySymbol">&#8377;</span>
+                                                                <span class="woocommerce-Price-currencySymbol">£</span>
                                                                 {{$cart->price}}
                                                             </bdi>
                                                         </span>
@@ -6403,7 +6403,7 @@
                                                         <label>Subtotal</label>
                                                         <span class="woocommerce-Price-amount amount">
                                                             <bdi>
-                                                                <span class="woocommerce-Price-currencySymbol">&#8377;</span>
+                                                                <span class="woocommerce-Price-currencySymbol">£</span>
                                                                 {{$cart->price}}
                                                             </bdi>
                                                         </span>
@@ -6440,7 +6440,7 @@
                                                 <td data-title="Subtotal">
                                                     <span class="woocommerce-Price-amount amount">
                                                         <bdi>
-                                                            <span class="woocommerce-Price-currencySymbol">&#8377;</span>
+                                                            <span class="woocommerce-Price-currencySymbol">£</span>
                                                             90.00
                                                         </bdi>
                                                     </span>
@@ -6466,7 +6466,7 @@
                                                     <strong>
                                                         <span class="woocommerce-Price-amount amount">
                                                             <bdi>
-                                                                <span class="woocommerce-Price-currencySymbol">&#8377;</span>
+                                                                <span class="woocommerce-Price-currencySymbol">£</span>
                                                                 90.00
                                                             </bdi>
                                                         </span>

@@ -17,7 +17,10 @@ return new class extends Migration
             $table->text('main_description');
             $table->text('description')->null();
             $table->text('shipping_description')->null();
+            $table->text('small_image')->null();
+            $table->text('icon')->null();
             $table->integer('count');
+            $table->integer('type')->default(1);
             $table->bigInteger('visitor')->default(0);
             $table->integer('price');
             $table->integer('discount')->null();

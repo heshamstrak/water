@@ -33,12 +33,17 @@ class ProductRequest extends FormRequest
             'discount'              => 'sometimes|nullable',
             'discount_type'         => 'sometimes|nullable',
             'category_id'           => 'required',
+            'type'                  => 'required',
+            'icon'                  => 'sometimes|nullable',
+            'small_image'           => 'sometimes|nullable',
             'ingredients'           => 'sometimes|nullable',
             'weights'               => 'sometimes|nullable',
         ];
 
         if (in_array($this->method(), ['PUT', 'PATCH'])) {
             $rules['images'] = 'sometimes|nullable';
+            $rules['icon'] = 'sometimes|nullable';
+            $rules['small_image'] = 'sometimes|nullable';
         }//end of if
  
         return $rules;

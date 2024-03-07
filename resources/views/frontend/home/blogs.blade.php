@@ -4,7 +4,7 @@
             <div class="elementor-widget-wrap elementor-element-populated">
                 <div class="elementor-element elementor-element-784e7ed has-primary-color big-title animated-slow elementor-invisible elementor-widget elementor-widget-heading" data-id="784e7ed" data-element_type="widget" data-settings='{"_animation":"fadeIn","_animation_delay":500}' data-widget_type="heading.default">
                     <div class="elementor-widget-container">
-                        <h2 class="elementor-heading-title elementor-size-default">Our Blog</h2>
+                        <h2 class="elementor-heading-title elementor-size-default">{{setting('title_blog')}}</h2>
                     </div>
                 </div>
                 <div class="elementor-element elementor-element-41cd351 elementor-widget elementor-widget-spacer" data-id="41cd351" data-element_type="widget" data-widget_type="spacer.default">

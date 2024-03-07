@@ -63,6 +63,17 @@ class ProductController extends Controller
     public function store(ProductRequest $request)
     {
         $requestData = $request->validated();
+
+        if ($request->hasFile('icon')) {
+            $request->icon->store('public/uploads/products');
+            $requestData['icon'] = $request->icon->hashName();
+        }
+
+        if ($request->hasFile('small_image')) {
+            $request->small_image->store('public/uploads/products');
+            $requestData['small_image'] = $request->small_image->hashName();
+        }
+
         $product = Product::create($requestData);
         $product->ingredients()->sync($request->ingredients);
         $product->weights()->sync($request->weights);
@@ -90,6 +101,17 @@ class ProductController extends Controller
     public function update(ProductRequest $request, Product $product)
     {
         $requestData = $request->validated();
+        if ($request->hasFile('icon')) {
+            Storage::disk('local')->delete('public/uploads/products/' . $product->icon);
+            $request->icon->store('public/uploads/products');
+            $requestData['icon'] = $request->icon->hashName();
+        }
+
+        if ($request->hasFile('small_image')) {
+            Storage::disk('local')->delete('public/uploads/products/' . $product->small_image);
+            $request->small_image->store('public/uploads/products');
+            $requestData['small_image'] = $request->small_image->hashName();
+        }
         $product->update($requestData);
         $product->ingredients()->sync($request->ingredients);
         $product->weights()->sync($request->weights);

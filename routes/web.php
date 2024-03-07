@@ -21,10 +21,13 @@ Route::get('/shop', [App\Http\Controllers\ShopController::class, 'index'])->name
 Route::get('/shop/{product}/{slug}', [App\Http\Controllers\ShopController::class, 'single'])->name('shop.single');
 
 //Cart Route
-Route::post('/add/cart', [App\Http\Controllers\CartController::class, 'addToCart'])->name('add_to_cart');
-Route::get('/cart', [App\Http\Controllers\CartController::class, 'index'])->name('view_cart');
-Route::get('/cart/remove/{id}', [App\Http\Controllers\CartController::class, 'remove'])->name('cart.remove');
-Route::post('/cart/update', [App\Http\Controllers\CartController::class, 'update'])->name('cart.update');
+Route::middleware(['auth','role:admin|super_admin'])->group(function () {
+    Route::post('/add/cart', [App\Http\Controllers\CartController::class, 'addToCart'])->name('add_to_cart');
+    Route::get('/cart', [App\Http\Controllers\CartController::class, 'index'])->name('view_cart');
+    Route::get('/cart/remove/{id}', [App\Http\Controllers\CartController::class, 'remove'])->name('cart.remove');
+    Route::post('/cart/update', [App\Http\Controllers\CartController::class, 'update'])->name('cart.update');
+    
+});
 
 //Blog Route
 Route::get('blog', [App\Http\Controllers\BlogController::class, 'index'])->name('blog.index');

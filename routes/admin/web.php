@@ -1,13 +1,6 @@
 <?php
 
-Route::middleware([
-    // 'localeSessionRedirect',
-    // 'localizationRedirect',
-    // 'localeViewPath',
-    'auth',
-    'role:admin|super_admin',
-])
-    ->group(function () {
+Route::middleware(['auth','role:admin|super_admin'])->group(function () {
 
         Route::name('admin.')->prefix('admin')->group(function () {
 

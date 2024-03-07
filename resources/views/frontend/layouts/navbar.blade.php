@@ -10,7 +10,7 @@
                                     <div class="elementor-element elementor-element-51e6d15 elementor-align-left elementor-mobile-align-center elementor-mobile_extra-align-center elementor-widget elementor-widget-mfx-logo" data-id="51e6d15" data-element_type="widget" data-widget_type="mfx-logo.default" >
                                         <div class="elementor-widget-container">
                                             <div id="milmaa-51e6d15" class="mfx-logo-container">
-                                                <a href="https://milmaa.wpengine.com/" rel="home"><img src="https://milmaa.wpengine.com/wp-content/uploads/2022/02/logo.png" alt="Milmaa" /></a>
+                                                <a href="{{route('home')}}" rel="home"><img src="{{Storage::url('public/uploads/settings/'.setting('logo_image'))}}" alt="water" /></a>
                                             </div>
                                         </div>
                                     </div>

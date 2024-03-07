@@ -4,7 +4,7 @@
             <div class="elementor-widget-wrap elementor-element-populated">
                 <div class="elementor-element elementor-element-65bd9cc fullwidth-title animated-slow elementor-invisible elementor-widget elementor-widget-heading" data-id="65bd9cc" data-element_type="widget" data-settings='{"_animation":"bounceIn","_animation_delay":600}' data-widget_type="heading.default">
                     <div class="elementor-widget-container">
-                        <h2 class="elementor-heading-title elementor-size-default">Plant based milk for everyone at any age</h2>
+                        <h2 class="elementor-heading-title elementor-size-default">{{setting('title_slogan')}}</h2>
                     </div>
                 </div>
             </div>
@@ -54,18 +54,18 @@
                                                         @if($product->discount_type == 0)
                                                         <del aria-hidden="true">
                                                             <span class="woocommerce-Price-amount amount">
-                                                                <bdi><span class="woocommerce-Price-currencySymbol">&#8377;</span>{{$product->price}}</bdi>
+                                                                <bdi><span class="woocommerce-Price-currencySymbol">£</span>{{$product->price}}</bdi>
                                                             </span>
                                                         </del>
                                                         <ins>
                                                             <span class="woocommerce-Price-amount amount">
-                                                                <bdi><span class="woocommerce-Price-currencySymbol">&#8377;</span>{{$product->calculate_discount}}</bdi>
+                                                                <bdi><span class="woocommerce-Price-currencySymbol">£</span>{{$product->calculate_discount}}</bdi>
                                                             </span>
                                                         </ins>
                                                         @else
                                                             <ins>
                                                                 <span class="woocommerce-Price-amount amount">
-                                                                    <bdi><span class="woocommerce-Price-currencySymbol">&#8377;</span>{{$product->price}}</bdi>
+                                                                    <bdi><span class="woocommerce-Price-currencySymbol">£</span>{{$product->price}}</bdi>
                                                                 </span>
                                                             </ins>
                                                         @endif
