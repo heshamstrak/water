@@ -352,22 +352,25 @@
                                                                             <i class="fa fa-eye"></i>Real Time <span id="ai-visitors-count" class="ai-visitors-count" data-min-visitors="" data-max-visitors="">0</span> Visitors Right Now
                                                                         </li>
                                                                     </ul> --}}
+                                                                    @php
+                                                                        $routeName = route('shop.single', ['slug' => str_replace(' ', '-', $product->name), 'product' => $product->id] );
+                                                                    @endphp
                                                                     <div class="mfx-single-product-share-container style-bgfill radius-circle align-inline">
                                                                         <a class="mfx-single-product-share-item-icon">Share:</a>
                                                                         <ul class="mfx-single-product-share-list">
                                                                             <li>
-                                                                                <a href="//www.facebook.com/sharer.php?u=https://milmaa.wpengine.com/product/almond-milk/&amp;t=Almond+Milk" title="facebook" target="_blank">
+                                                                                <a href="//www.facebook.com/sharer.php?u={{$routeName}}" title="facebook" target="_blank">
                                                                                     <span class="mfxicon-facebook"></span>
                                                                                 </a>
                                                                             </li>
                                                                             <li>
-                                                                                <a href="//twitter.com/home/?status=https://milmaa.wpengine.com/product/almond-milk/:Almond+Milk" title="twitter" target="_blank">
+                                                                                <a href="//twitter.com/home/?status={{$routeName}}" title="twitter" target="_blank">
                                                                                     <span class="mfxicon-twitter"></span>
                                                                                 </a>
                                                                             </li>
                                                                             <li>
                                                                                 <a
-                                                                                    href="//www.linkedin.com/shareArticle?mini=true&amp;title=Almond+Milk&amp;url=https://milmaa.wpengine.com/product/almond-milk/"
+                                                                                    href="//www.linkedin.com/shareArticle?mini=true&amp;title=Almond+Milk&amp;url={{$routeName}}"
                                                                                     title="linkedin"
                                                                                     target="_blank"
                                                                                 >
@@ -376,7 +379,7 @@
                                                                             </li>
                                                                             <li>
                                                                                 <a
-                                                                                    href="//pinterest.com/pin/create/button/?url=https://milmaa.wpengine.com/product/almond-milk/&amp;media=https://milmaa.wpengine.com/wp-content/uploads/2021/12/product-3.png"
+                                                                                    href="//pinterest.com/pin/create/button/?url={{$routeName}}&amp;media={{$product->id.'/'.$product->images->first()->image)}}"
                                                                                     title="pinterest"
                                                                                     target="_blank"
                                                                                 >

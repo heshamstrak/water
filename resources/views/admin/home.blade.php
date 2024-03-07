@@ -1,4 +1,4 @@
 @extends('layouts.admin.app')
 @section('content')
-   Heloo
+   <h1>Welcome To Dashboard</h1>
 @endsection

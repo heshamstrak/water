@@ -7,7 +7,7 @@ Route::middleware(['auth','role:admin|super_admin'])->group(function () {
             //home
             Route::get('/home/top_statistics', 'HomeController@topStatistics')->name('home.top_statistics');
             Route::get('/home/movies_chart', 'HomeController@moviesChart')->name('home.movies_chart');
-            Route::get('/home', 'HomeController@index')->name('home');
+            Route::get('/', 'HomeController@index')->name('home');
 
             //role routes
             Route::get('/roles/data', 'RoleController@data')->name('roles.data');
