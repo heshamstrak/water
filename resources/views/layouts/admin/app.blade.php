@@ -109,31 +109,7 @@
                         <!--begin::Header Menu-->
                         <div id="kt_header_menu" class="header-menu header-menu-mobile  header-menu-layout-default " >
                            <!--begin::Header Nav-->
-                           <ul class="menu-nav ">
-                              <li class="menu-item  menu-item-open menu-item-here menu-item-submenu menu-item-rel menu-item-open menu-item-here menu-item-active"  data-menu-toggle="click" aria-haspopup="true">
-                                 <a  href="javascript:;" class="menu-link menu-toggle"><span class="menu-text">Pages</span><i class="menu-arrow"></i></a>
-                                 <div class="menu-submenu menu-submenu-classic menu-submenu-left" >
-                                    <ul class="menu-subnav">
-                                       <li class="menu-item  menu-item-active "  aria-haspopup="true">
-                                          <a  href="index.html" class="menu-link ">
-                                             <span class="svg-icon menu-icon">
-                                                <!--begin::Svg Icon | path:{{asset('admin_assets')}}/media/svg/icons/Clothes/Briefcase.svg-->
-                                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                                   <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                      <rect x="0" y="0" width="24" height="24"/>
-                                                      <path d="M5.84026576,8 L18.1597342,8 C19.1999115,8 20.0664437,8.79732479 20.1528258,9.83390904 L20.8194924,17.833909 C20.9112219,18.9346631 20.0932459,19.901362 18.9924919,19.9930915 C18.9372479,19.9976952 18.8818364,20 18.8264009,20 L5.1735991,20 C4.0690296,20 3.1735991,19.1045695 3.1735991,18 C3.1735991,17.9445645 3.17590391,17.889153 3.18050758,17.833909 L3.84717425,9.83390904 C3.93355627,8.79732479 4.80008849,8 5.84026576,8 Z M10.5,10 C10.2238576,10 10,10.2238576 10,10.5 L10,11.5 C10,11.7761424 10.2238576,12 10.5,12 L13.5,12 C13.7761424,12 14,11.7761424 14,11.5 L14,10.5 C14,10.2238576 13.7761424,10 13.5,10 L10.5,10 Z" fill="#000000"/>
-                                                      <path d="M10,8 L8,8 L8,7 C8,5.34314575 9.34314575,4 11,4 L13,4 C14.6568542,4 16,5.34314575 16,7 L16,8 L14,8 L14,7 C14,6.44771525 13.5522847,6 13,6 L11,6 C10.4477153,6 10,6.44771525 10,7 L10,8 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
-                                                   </g>
-                                                </svg>
-                                                <!--end::Svg Icon-->
-                                             </span>
-                                             <span class="menu-text">My Account</span>
-                                          </a>
-                                       </li>
-                                    </ul>
-                                 </div>
-                              </li>
-                           </ul>
+                        
                            <!--end::Header Nav-->
                         </div>
                         <!--end::Header Menu-->
@@ -146,9 +122,9 @@
                         <div class="topbar-item">
                            <div class="btn btn-icon btn-icon-mobile w-auto btn-clean d-flex align-items-center btn-lg px-2" id="kt_quick_user_toggle">
                               <span class="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1">Hi,</span>
-                              <span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">Sean</span>
+                              <span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">{{auth()->user()->name}}</span>
                               <span class="symbol symbol-lg-35 symbol-25 symbol-light-success">
-                              <span class="symbol-label font-size-h5 font-weight-bold">S</span>
+                              <span class="symbol-label font-size-h5 font-weight-bold">{{substr(auth()->user()->name, 0, 1)}}</span>
                               </span>
                            </div>
                         </div>
@@ -182,76 +158,7 @@
                            </a>
                            <!--end::Daterange-->
                            <!--begin::Dropdowns-->
-                           <div class="dropdown dropdown-inline" data-toggle="tooltip" title="Quick actions" data-placement="left">
-                              <a href="#" class="btn btn-sm btn-clean btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                 <span class="svg-icon svg-icon-success svg-icon-lg">
-                                    <!--begin::Svg Icon | path:{{asset('admin_assets')}}/media/svg/icons/Files/File-plus.svg-->
-                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                       <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                          <polygon points="0 0 24 0 24 24 0 24"/>
-                                          <path d="M5.85714286,2 L13.7364114,2 C14.0910962,2 14.4343066,2.12568431 14.7051108,2.35473959 L19.4686994,6.3839416 C19.8056532,6.66894833 20,7.08787823 20,7.52920201 L20,20.0833333 C20,21.8738751 19.9795521,22 18.1428571,22 L5.85714286,22 C4.02044787,22 4,21.8738751 4,20.0833333 L4,3.91666667 C4,2.12612489 4.02044787,2 5.85714286,2 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
-                                          <path d="M11,14 L9,14 C8.44771525,14 8,13.5522847 8,13 C8,12.4477153 8.44771525,12 9,12 L11,12 L11,10 C11,9.44771525 11.4477153,9 12,9 C12.5522847,9 13,9.44771525 13,10 L13,12 L15,12 C15.5522847,12 16,12.4477153 16,13 C16,13.5522847 15.5522847,14 15,14 L13,14 L13,16 C13,16.5522847 12.5522847,17 12,17 C11.4477153,17 11,16.5522847 11,16 L11,14 Z" fill="#000000"/>
-                                       </g>
-                                    </svg>
-                                    <!--end::Svg Icon-->
-                                 </span>
-                              </a>
-                              <div class="dropdown-menu p-0 m-0 dropdown-menu-md dropdown-menu-right py-3">
-                                 <!--begin::Navigation-->
-                                 <ul class="navi navi-hover py-5">
-                                    <li class="navi-item">
-                                       <a href="#" class="navi-link">
-                                       <span class="navi-icon"><i class="flaticon2-drop"></i></span>
-                                       <span class="navi-text">New Group</span>
-                                       </a>
-                                    </li>
-                                    <li class="navi-item">
-                                       <a href="#" class="navi-link">
-                                       <span class="navi-icon"><i class="flaticon2-list-3"></i></span>
-                                       <span class="navi-text">Contacts</span>
-                                       </a>
-                                    </li>
-                                    <li class="navi-item">
-                                       <a href="#" class="navi-link">
-                                       <span class="navi-icon"><i class="flaticon2-rocket-1"></i></span>
-                                       <span class="navi-text">Groups</span>
-                                       <span class="navi-link-badge">
-                                       <span class="label label-light-primary label-inline font-weight-bold">new</span>
-                                       </span>
-                                       </a>
-                                    </li>
-                                    <li class="navi-item">
-                                       <a href="#" class="navi-link">
-                                       <span class="navi-icon"><i class="flaticon2-bell-2"></i></span>
-                                       <span class="navi-text">Calls</span>
-                                       </a>
-                                    </li>
-                                    <li class="navi-item">
-                                       <a href="#" class="navi-link">
-                                       <span class="navi-icon"><i class="flaticon2-gear"></i></span>
-                                       <span class="navi-text">Settings</span>
-                                       </a>
-                                    </li>
-                                    <li class="navi-separator my-3"></li>
-                                    <li class="navi-item">
-                                       <a href="#" class="navi-link">
-                                       <span class="navi-icon"><i class="flaticon2-magnifier-tool"></i></span>
-                                       <span class="navi-text">Help</span>
-                                       </a>
-                                    </li>
-                                    <li class="navi-item">
-                                       <a href="#" class="navi-link">
-                                       <span class="navi-icon"><i class="flaticon2-bell-2"></i></span>
-                                       <span class="navi-text">Privacy</span>
-                                       <span class="navi-link-badge">
-                                       <span class="label label-light-danger label-rounded font-weight-bold">5</span>
-                                       </span>
-                                       </a>
-                                    </li>
-                                 </ul>
-                                 <!--end::Navigation-->
-                              </div>
-                           </div>
+
                            <!--end::Dropdowns-->
                         </div>
                         <!--end::Toolbar-->
@@ -299,11 +206,9 @@
                      <i class="symbol-badge bg-success"></i>
                </div>
                <div class="d-flex flex-column">
-                     <a href="#" class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">
-                       Indigo Media
-                     </a>
+                     <a href="#" class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">{{auth()->user()->name}}</a>
                      <div class="text-muted mt-1">
-                        Admin
+                        {{auth()->user()->type}}
                      </div>
                      <div class="navi mt-2">
                         <a href="#" class="navi-item">
@@ -324,11 +229,15 @@
                                        <!--end::Svg Icon-->
                                     </span>
                                  </span>
-                                 <span class="navi-text text-muted text-hover-primary">info@indigomedia.co</span>
+                                 <span class="navi-text text-muted text-hover-primary">{{auth()->user()->email}}</span>
                            </span>
                         </a>
 
-                        <a href="custom/pages/login/login-3/signin.html" class="btn btn-sm btn-light-primary font-weight-bolder py-2 px-5">Sign Out</a>
+                        <a class="btn btn-sm btn-light-primary font-weight-bolder py-2 px-5" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Sign Out') }}</a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                              @csrf
+                        </form>
+
                      </div>
                </div>
             </div>
@@ -340,39 +249,7 @@
 
             <!--begin::Nav-->
             <div class="navi navi-spacer-x-0 p-0">
-               <!--begin::Item-->
-               <a href="custom/apps/user/profile-1/personal-information.html" class="navi-item">
-                     <div class="navi-link">
-                        <div class="symbol symbol-40 bg-light mr-3">
-                           <div class="symbol-label">
-                                 <span class="svg-icon svg-icon-md svg-icon-success">
-                                    <!--begin::Svg Icon | path:{{asset('admin_assets')}}/media/svg/icons/General/Notification2.svg-->
-                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                       <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                             <rect x="0" y="0" width="24" height="24" />
-                                             <path
-                                                d="M13.2070325,4 C13.0721672,4.47683179 13,4.97998812 13,5.5 C13,8.53756612 15.4624339,11 18.5,11 C19.0200119,11 19.5231682,10.9278328 20,10.7929675 L20,17 C20,18.6568542 18.6568542,20 17,20 L7,20 C5.34314575,20 4,18.6568542 4,17 L4,7 C4,5.34314575 5.34314575,4 7,4 L13.2070325,4 Z"
-                                                fill="#000000"
-                                             />
-                                             <circle fill="#000000" opacity="0.3" cx="18.5" cy="5.5" r="2.5" />
-                                       </g>
-                                    </svg>
-                                    <!--end::Svg Icon-->
-                                 </span>
-                           </div>
-                        </div>
-                        <div class="navi-text">
-                           <div class="font-weight-bold">
-                                 My Profile
-                           </div>
-                           <div class="text-muted">
-                                 Account settings and more
-                                 <span class="label label-light-danger label-inline font-weight-bold">update</span>
-                           </div>
-                        </div>
-                     </div>
-               </a>
-               <!--end:Item-->
+
             </div>
             <!--end::Nav-->
 

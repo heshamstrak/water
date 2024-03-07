@@ -76,7 +76,7 @@
                                                     <div class="mfx-shop-menu-icon">
                                                         <a href="{{route('view_cart')}}">
                                                             <span class="mfx-shop-menu-icon-wrapper">
-                                                                <span class="mfx-shop-menu-cart-inner"><span class="mfx-shop-menu-cart-icon"></span><span class="mfx-shop-menu-cart-number">{{auth()->user()->carts()->count()}}</span></span>
+                                                                <span class="mfx-shop-menu-cart-inner"><span class="mfx-shop-menu-cart-icon"></span><span class="mfx-shop-menu-cart-number"></span></span>
                                                                 <span class="mfx-shop-menu-cart-totals"></span>
                                                             </span>
                                                         </a>
