@@ -41,10 +41,12 @@ class Product extends Model
     public function getCalculateDiscountAttribute()
     {
         if($this->discount_type == 0) {
-            $discountPercent = (($this->price - $this->discount) * 100) / $this->price;
+            $discountPercent = ($this->price - ($this->price * $this->discount/100));
             return $discountPercent;
         } elseif ($this->discount_type == 1) {
             return $price = $this->price - $this->discount;
+        } else {
+            return $this->price;
         }
         
     }// end of getCalculateDiscountAttribute

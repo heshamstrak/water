@@ -101,7 +101,7 @@
                                 <div class="col-3">
                                     @php $nameInput = 'discount_type' @endphp
                                     <div class="form-group">
-                                        <label class="text-capitalize">{{$nameInput}} <span class="text-danger">*</span></label>
+                                        <label class="text-capitalize">{{$nameInput}}</label>
                                         <select name="{{$nameInput}}" class="form-control">
                                             <option value="">Select Your Discount Type</option>
                                             <option value="0">Percent</option>
@@ -113,7 +113,7 @@
                                     {{-- discount --}} @php $nameInput = 'discount' @endphp
                                     <div class="form-group">
                                         <label class="text-capitalize">{{$nameInput}}</label>
-                                        <input type="text" name="{{$nameInput}}" autofocus class="form-control" value="{{ old($nameInput) }}" required />
+                                        <input type="text" name="{{$nameInput}}" autofocus class="form-control" value="{{ old($nameInput) }}" />
                                     </div>
                                 </div>
                             </div>

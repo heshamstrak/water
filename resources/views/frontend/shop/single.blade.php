@@ -303,7 +303,7 @@
                                                                                             <tr>
                                                                                                 <th class="label"><label for="ingredients">Ingredients</label></th>
                                                                                                 <td class="value">
-                                                                                                    <select id="ingredients" class="" name="ingredients" data-attribute_name="attribute_ingredients" data-show_option_none="yes">
+                                                                                                    <select id="ingredients" class="" name="ingredient_id" data-attribute_name="attribute_ingredients" data-show_option_none="yes">
                                                                                                         <option value="">Choose an option</option>
                                                                                                         @foreach($product->ingredients as $row)
                                                                                                             <option value="{{$row->id}}">{{$row->name}}</option>
@@ -314,7 +314,7 @@
                                                                                             <tr>
                                                                                                 <th class="label"><label for="weight">Weight</label></th>
                                                                                                 <td class="value">
-                                                                                                    <select id="weight" class="" name="weight" data-attribute_name="attribute_weight" data-show_option_none="yes">
+                                                                                                    <select id="weight" class="" name="weight_id" data-attribute_name="attribute_weight" data-show_option_none="yes">
                                                                                                         <option value="">Choose an option</option>
                                                                                                         @foreach($product->weights as $row)
                                                                                                             <option value="{{$row->id}}">{{$row->name}}</option>
@@ -339,7 +339,7 @@
 
                                                                                             <input type="hidden" name="add-to-cart" value="72" />
                                                                                             <input type="hidden" name="product_id" value="{{$product->id}}" />
-                                                                                            <input type="hidden" name="price" class="variation_id" value="{{$product->calculate_discount}}" />
+                                                                                            <input type="hidden" name="price" value="{{$product->calculate_discount == null ? $product->price : $product->calculate_discount}}" />
                                                                                         </div>
                                                                                     </div>
                                                                                 </form>
@@ -378,11 +378,7 @@
                                                                                 </a>
                                                                             </li>
                                                                             <li>
-                                                                                <a
-                                                                                    href="//pinterest.com/pin/create/button/?url={{$routeName}}&amp;media={{$product->id.'/'.$product->images->first()->image)}}"
-                                                                                    title="pinterest"
-                                                                                    target="_blank"
-                                                                                >
+                                                                                <a href="//pinterest.com/pin/create/button/?url={{$routeName}}&amp;media={{$product->id.'/'.$product->images->first()->image}}" title="pinterest" target="_blank">
                                                                                     <span class="mfxicon-pinterest"></span>
                                                                                 </a>
                                                                             </li>

@@ -60,7 +60,7 @@
                             <div class="row">
                                 <div class="col-6">
                                     {{-- ingredient --}}
-                                    @php $nameInput = 'ingredient' @endphp
+                                    @php $nameInput = 'ingredients' @endphp
                                     <div class="form-group">
                                         <label class="text-capitalize">{{$nameInput}} <span class="text-danger">*</span></label>
                                         <select class="js-example-basic-multiple" name="{{$nameInput}}[]" multiple="multiple" style="width: 100%">
@@ -73,7 +73,7 @@
                                 </div>
                                 <div class="col-6">
                                     {{-- ingredient --}}
-                                    @php $nameInput = 'weight' @endphp
+                                    @php $nameInput = 'weights' @endphp
                                     <div class="form-group">
                                         <label class="text-capitalize">{{$nameInput}} <span class="text-danger">*</span></label>
                                         <select class="js-example-basic-multiple" name="{{$nameInput}}[]" multiple="multiple" style="width: 100%" >
@@ -103,9 +103,9 @@
                                 <div class="col-3">
                                     @php $nameInput = 'discount_type' @endphp
                                     <div class="form-group">
-                                        <label class="text-capitalize">{{$nameInput}} <span class="text-danger">*</span></label>
+                                        <label class="text-capitalize">{{$nameInput}}</label>
                                         <select name="{{$nameInput}}" class="form-control">
-                                            <option value="">Select Your Discount Type</option>
+                                            <option value="" {{$product->{$nameInput} == null ? 'selected' : '' }}>Select Your Discount Type</option>
                                             <option value="0" {{$product->{$nameInput} == 0 ? 'selected' : '' }}>Percent</option>
                                             <option value="1" {{$product->{$nameInput} == 1 ? 'selected' : '' }}>Amount</option>
                                         </select>
@@ -115,7 +115,7 @@
                                     {{-- discount --}} @php $nameInput = 'discount' @endphp
                                     <div class="form-group">
                                         <label class="text-capitalize">{{$nameInput}}</label>
-                                        <input type="text" name="{{$nameInput}}" autofocus class="form-control" value="{{ old($nameInput, $product->{$nameInput}) }}" required />
+                                        <input type="text" name="{{$nameInput}}" autofocus class="form-control" value="{{ old($nameInput, $product->{$nameInput}) }}" />
                                     </div>
                                 </div>
                             </div>

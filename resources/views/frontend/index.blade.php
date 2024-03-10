@@ -129,7 +129,7 @@
                                                                                     </a>
                                                                                 </li>
                                                                                 <li class="elementor-icon-list-item">
-                                                                                    <a href="#">
+                                                                                    <a href="{{route('about')}}">
                                                                                         <span class="elementor-icon-list-icon"> <i aria-hidden="true" class="fas fa-circle"></i> </span>
                                                                                         <span class="elementor-icon-list-text">About</span>
                                                                                     </a>

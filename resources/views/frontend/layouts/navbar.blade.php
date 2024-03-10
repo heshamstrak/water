@@ -24,19 +24,19 @@
                                                 <div class="menu-container">
                                                     <ul id="menu-main-menu-1" class="mfx-primary-nav" data-menu="2">
                                                         <li class="close-nav"><a href="javascript:void(0);"></a></li>
-                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-7 current_page_item menu-item-14 menu-item-depth-0">
+                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home {{Route::is('home') ? 'current-menu-item current_page_item' : '' }} page-item-7 menu-item-14 menu-item-depth-0">
                                                             <a href="{{route('home')}}" aria-current="page"><span>Home</span></a>
                                                         </li>
-                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1868 menu-item-depth-0">
-                                                            <a href="https://milmaa.wpengine.com/about-us/"><span>About us</span></a>
+                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1868 menu-item-depth-0 {{Route::is('about') ? 'current-menu-item current_page_item' : '' }}">
+                                                            <a href="{{route('about')}}"><span>About us</span></a>
                                                         </li>
-                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-22240 menu-item-depth-0">
+                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-22240 menu-item-depth-0 {{Route::is('blog.index') ? 'current-menu-item current_page_item' : '' }}">
                                                             <a href="{{route('blog.index')}}"><span>Blog</span></a>
                                                         </li>
-                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-22212 menu-item-depth-0">
+                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-22212 menu-item-depth-0 {{Route::is('shop') ? 'current-menu-item current_page_item' : '' }}">
                                                             <a href="{{route('shop')}}"><span>Shop</span></a>
                                                         </li>
-                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1870 menu-item-depth-0">
+                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1870 menu-item-depth-0 {{Route::is('contact') ? 'current-menu-item current_page_item' : '' }}">
                                                             <a href="{{route('contact')}}"><span>Contact us</span></a>
                                                         </li>
                                                     </ul>

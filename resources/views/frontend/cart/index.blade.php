@@ -10,11 +10,12 @@
     <script>
     document.documentElement.className = document.documentElement.className + ' yes-js js_active js'
     </script>
-    <title>Cart &#8211; Milmaa</title>
+    <title>Cart &#8211; MWater</title>
     <meta name='robots' content='noindex, nofollow'/>
     <link rel='dns-prefetch' href='//fonts.googleapis.com'/>
     <link rel="alternate" type="application/rss+xml" title="Milmaa &raquo; Feed" href="https://milmaa.wpengine.com/feed/"/>
     <link rel="alternate" type="application/rss+xml" title="Milmaa &raquo; Comments Feed" href="https://milmaa.wpengine.com/comments/feed/"/>
+    
     <script type="text/javascript">
     /* <![CDATA[ */
     window._wpemojiSettings = {
@@ -6306,13 +6307,8 @@
 
                 <!-- **Header** -->
                 @include('frontend.layouts.navbar')
-                <!-- **Header - End ** -->
-
-                <!-- ** Slider ** -->
-
-                <!-- ** Slider End ** -->
-
-                <!-- ** Breadcrumb ** -->
+    
+                
                 <section class="main-title-section-wrapper ">
                     <div class="main-title-section-container">
                         <div class="container">
@@ -6320,7 +6316,7 @@
                                 <h1>Cart</h1>
                             </div>
                             <div class="breadcrumb">
-                                <a href="https://milmaa.wpengine.com/">Home</a>
+                                <a href="{{route('home')}}">Home</a>
                                 <span class="breadcrumb-default-delimiter"></span>
                                 <span class="current">Cart</span>
                             </div>
@@ -6340,155 +6336,134 @@
                     <!-- Primary -->
                     <section id="primary" class="content-full-width">
                         <!-- #post-20 -->
-                        <div id="post-20" class="post-20 page type-page status-publish hentry">
-                            <div class="woocommerce">
-                                <div class="woocommerce-notices-wrapper"></div>
-                                <form class="woocommerce-cart-form" action="{{route('cart.update')}}" method="post">
-                                    @csrf @method('post')
-                                    <table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents" cellspacing="0">
-                                        <thead>
-                                            <tr>
-                                                <th class="product-thumbnail">Product</th>
-                                                <th class="product-name">&nbsp;</th>
-                                                <th class="product-price">Price</th>
-                                                <th class="product-quantity">Quantity</th>
-                                                <th class="product-subtotal">Subtotal</th>
-                                                <th class="product-remove">&nbsp;</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-                                            @foreach ($carts as $cart)
-                                            <input type="hidden" value="{{$cart->id}}" name="cart_id">
-                                                <tr class="woocommerce-cart-form__cart-item cart_item">
-                                                    @php
-                                                        $routeName = route('shop.single', ['slug' => str_replace(' ', '-', $cart->product->name), 'product' => $cart->product_id] );
-                                                    @endphp
-                                                    <td class="product-thumbnail">
-                                                        <a href="{{$routeName}}">
-                                                            <img fetchpriority="high" decoding="async" width="488" height="1000" src="{{ Storage::url('uploads/products/'.$cart->product_id.'/'.$cart->product->images->first()->image) }}" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" sizes="(max-width: 488px) 100vw, 488px"/>
-                                                        </a>
-                                                    </td>
-
-                                                    <td class="product-name" data-title="Product">
-                                                        <a href="{{$routeName}}">{{$cart->product->name}}</a>
-                                                    </td>
-
-                                                    <td class="product-price" data-title="Price">
-                                                        <label>Price</label>
-                                                        <span class="woocommerce-Price-amount amount">
-                                                            <bdi>
-                                                                <span class="woocommerce-Price-currencySymbol">£</span>
-                                                                {{$cart->price}}
-                                                            </bdi>
-                                                        </span>
-                                                    </td>
-
-                                                    <td class="product-quantity" data-title="Quantity">
-                                                        <label>Quantity</label>
-                                                        <div class="quantity quantity-with-arrows">
-                                                            <label class="screen-reader-text" for="quantity_65e838b97ab84">{{$cart->product->name}} quantity</label>
-                                                            <input type="number" id="quantity_65e838b97ab84" class="input-text qty text" step="1" min="0" max="{{$cart->product->count}}" name="quantity" value="{{$cart->quantity}}" title="Qty" placeholder="" inputmode="numeric"/>
-                                                            <a class="plus arrow-plus" href="#">
-                                                                <i class="mfxicon-caret-up"></i>
-                                                            </a>
-                                                            <a class="minus arrow-minus" href="#">
-                                                                <i class="mfxicon-caret-down"></i>
-                                                            </a>
-
-                                                        </div>
-                                                    </td>
-
-                                                    <td class="product-subtotal" data-title="Subtotal">
-                                                        <label>Subtotal</label>
-                                                        <span class="woocommerce-Price-amount amount">
-                                                            <bdi>
-                                                                <span class="woocommerce-Price-currencySymbol">£</span>
-                                                                {{$cart->price}}
-                                                            </bdi>
-                                                        </span>
-                                                    </td>
-
-                                                    <td class="product-remove">
-                                                        <a href="{{route('cart.remove', $cart->id)}}" class="remove" aria-label="Remove this item" data-product_id="72" data-product_sku="woo-album">&times;</a>
-                                                    </td>
+                        @if($carts->count() > 0)
+                            <div id="post-20" class="post-20 page type-page status-publish hentry">
+                                <div class="woocommerce">
+                                    <div class="woocommerce-notices-wrapper"></div>
+                                    <form class="woocommerce-cart-form" action="{{route('cart.update')}}" method="post">
+                                        @csrf @method('post')
+                                        <table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th class="product-thumbnail">Product</th>
+                                                    <th class="product-name">&nbsp;</th>
+                                                    <th class="product-price">Price</th>
+                                                    <th class="product-quantity">Quantity</th>
+                                                    <th class="product-subtotal">Subtotal</th>
+                                                    <th class="product-remove">&nbsp;</th>
                                                 </tr>
-                                            @endforeach
+                                            </thead>
+                                            <tbody>
+
+                                                @foreach ($carts as $cart)
+                                                <input type="hidden" value="{{$cart->id}}" name="cart_id">
+                                                    <tr class="woocommerce-cart-form__cart-item cart_item">
+                                                        @php
+                                                            $routeName = route('shop.single', ['slug' => str_replace(' ', '-', $cart->product->name), 'product' => $cart->product_id] );
+                                                        @endphp
+                                                        <td class="product-thumbnail">
+                                                            <a href="{{$routeName}}">
+                                                                <img fetchpriority="high" decoding="async" width="488" height="1000" src="{{ Storage::url('uploads/products/'.$cart->product_id.'/'.$cart->product->images->first()->image) }}" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" sizes="(max-width: 488px) 100vw, 488px"/>
+                                                            </a>
+                                                        </td>
+
+                                                        <td class="product-name" data-title="Product">
+                                                            <a href="{{$routeName}}">{{$cart->product->name}}</a>
+                                                        </td>
+
+                                                        <td class="product-price" data-title="Price">
+                                                            <label>Price</label>
+                                                            <span class="woocommerce-Price-amount amount">
+                                                                <bdi>
+                                                                    <span class="woocommerce-Price-currencySymbol">£</span>
+                                                                    {{$cart->price}}
+                                                                </bdi>
+                                                            </span>
+                                                        </td>
+
+                                                        <td class="product-quantity" data-title="Quantity">
+                                                            <label>Quantity</label>
+                                                            <div class="quantity quantity-with-arrows">
+                                                                <label class="screen-reader-text" for="quantity_65e838b97ab84">{{$cart->product->name}} quantity</label>
+                                                                <input type="number" id="quantity_65e838b97ab84" class="input-text qty text" step="1" min="0" max="{{$cart->product->count}}" name="quantity" value="{{$cart->quantity}}" title="Qty" placeholder="" inputmode="numeric"/>
+                                                                <a class="plus arrow-plus" href="#">
+                                                                    <i class="mfxicon-caret-up"></i>
+                                                                </a>
+                                                                <a class="minus arrow-minus" href="#">
+                                                                    <i class="mfxicon-caret-down"></i>
+                                                                </a>
+
+                                                            </div>
+                                                        </td>
+
+                                                        <td class="product-subtotal" data-title="Subtotal">
+                                                            <label>Subtotal</label>
+                                                            <span class="woocommerce-Price-amount amount">
+                                                                <bdi>
+                                                                    <span class="woocommerce-Price-currencySymbol">£</span>
+                                                                    {{$cart->price}}
+                                                                </bdi>
+                                                            </span>
+                                                        </td>
+
+                                                        <td class="product-remove">
+                                                            <a href="{{route('cart.remove', $cart->id)}}" class="remove" aria-label="Remove this item" data-product_id="72" data-product_sku="woo-album">&times;</a>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
 
 
-                                        </tbody>
-                                    </table>
-
-                                    <div class="actions mfx-cart-button">
-
-                                        <button type="submit" class="button" name="update_cart" value="Update cart">Update cart</button>
-
-                                    </div>
-
-
-                                </form>
-
-                                <div class="cart-collaterals">
-                                    <div class="cart_totals ">
-
-                                        <h2>Cart totals</h2>
-
-                                        <table cellspacing="0" class="shop_table shop_table_responsive">
-
-                                            <tr class="cart-subtotal">
-                                                <th>Subtotal</th>
-                                                <td data-title="Subtotal">
-                                                    <span class="woocommerce-Price-amount amount">
-                                                        <bdi>
-                                                            <span class="woocommerce-Price-currencySymbol">£</span>
-                                                            90.00
-                                                        </bdi>
-                                                    </span>
-                                                </td>
-                                            </tr>
-
-                                            <tr class="woocommerce-shipping-totals shipping">
-                                                <th>Shipping</th>
-                                                <td data-title="Shipping">
-                                                    <ul id="shipping_method" class="woocommerce-shipping-methods">
-                                                        <li>
-                                                            <input type="hidden" name="shipping_method[0]" data-index="0" id="shipping_method_0_flat_rate1" value="flat_rate:1" class="shipping_method"/>
-                                                            <label for="shipping_method_0_flat_rate1">Flat rate</label>
-                                                        </li>
-                                                    </ul>
-                                                    <p class="woocommerce-shipping-destination">Shipping to <strong>Tamil Nadu</strong></p>
-                                                </td>
-                                            </tr>
-
-                                            <tr class="order-total">
-                                                <th>Total</th>
-                                                <td data-title="Total">
-                                                    <strong>
-                                                        <span class="woocommerce-Price-amount amount">
-                                                            <bdi>
-                                                                <span class="woocommerce-Price-currencySymbol">£</span>
-                                                                90.00
-                                                            </bdi>
-                                                        </span>
-                                                    </strong>
-                                                </td>
-                                            </tr>
-
+                                            </tbody>
                                         </table>
 
-                                        <div class="wc-proceed-to-checkout">
+                                        <div class="actions mfx-cart-button">
 
-                                            <a href="https://milmaa.wpengine.com/checkout/" class="checkout-button button alt wc-forward">
-                                            	Proceed to checkout</a>
+                                            <button type="submit" class="button" name="update_cart" value="Update cart">Update cart</button>
+
                                         </div>
+
+
+                                    </form>
+
+                                    <div class="cart-collaterals">
+                                        <div class="cart_totals ">
+
+                                            <h2>Cart totals</h2>
+
+                                            <table cellspacing="0" class="shop_table shop_table_responsive">
+
+                                                <tr class="order-total">
+                                                    <th>Total</th>
+                                                    <td data-title="Total">
+                                                        <strong>
+                                                            <span class="woocommerce-Price-amount amount">
+                                                                <bdi>
+                                                                    <span class="woocommerce-Price-currencySymbol">£</span>
+                                                                    {{$totalPrice}}
+                                                                </bdi>
+                                                            </span>
+                                                        </strong>
+                                                    </td>
+                                                </tr>
+
+                                            </table>
+
+                                            <div class="wc-proceed-to-checkout">
+                                                <a href="{{route('checkout')}}" class="checkout-button button alt wc-forward">Proceed to checkout</a>
+                                            </div>
+
+                                        </div>
+
 
                                     </div>
 
-
                                 </div>
-
                             </div>
-                        </div>
+                        @else
+                            <div class="woocommerce-notices-wrapper">
+                                <div class="woocommerce-message" role="alert">No Products Added in cart</div>
+                            </div>
+                        @endif
                         <!-- #post-20 -->
                         <section class="commententries rounded"></section>
                     </section>
@@ -6498,691 +6473,611 @@
             </div>
             <!-- **Main - End ** -->
 
-            <!-- **Footer** -->
-            <footer id="footer">
+              <!-- **Footer** -->
+              <footer id="footer">
                 <div class="container">
                     <div id="footer-139" class="mfx-footer-tpl footer-139">
                         <div data-elementor-type="wp-post" data-elementor-id="139" class="elementor elementor-139" data-elementor-settings="[]">
                             <div class="elementor-section-wrap">
-                                <section class="elementor-section elementor-top-section elementor-element elementor-element-e1cf60c elementor-section-content-middle elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="e1cf60c" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}">
+                                <section
+                                    class="elementor-section elementor-top-section elementor-element elementor-element-e1cf60c elementor-section-content-middle elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+                                    data-id="e1cf60c"
+                                    data-element_type="section"
+                                    data-settings='{"stretch_section":"section-stretched","background_background":"classic"}'
+                                    style="width: 1903px; left: -231.5px;"
+                                >
                                     <div class="elementor-container elementor-column-gap-no">
                                         <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-d4cde30" data-id="d4cde30" data-element_type="column">
                                             <div class="elementor-widget-wrap elementor-element-populated">
-                                                <section class="elementor-section elementor-inner-section elementor-element elementor-element-96949c8 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="96949c8" data-element_type="section">
+                                                <section
+                                                    class="elementor-section elementor-inner-section elementor-element elementor-element-96949c8 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+                                                    data-id="96949c8"
+                                                    data-element_type="section"
+                                                >
                                                     <div class="elementor-container elementor-column-gap-default">
                                                         <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-6c78291" data-id="6c78291" data-element_type="column">
                                                             <div class="elementor-widget-wrap elementor-element-populated">
-                                                                <div class="elementor-element elementor-element-b9239d5 elementor-align-left animated-slow footer-links elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="b9239d5" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;none&quot;,&quot;_animation_delay&quot;:700}" data-widget_type="icon-list.default">
+                                                                <div
+                                                                    class="elementor-element elementor-element-b9239d5 elementor-align-left animated-slow footer-links elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
+                                                                    data-id="b9239d5"
+                                                                    data-element_type="widget"
+                                                                    data-settings='{"_animation":"none","_animation_delay":700}'
+                                                                    data-widget_type="icon-list.default"
+                                                                >
                                                                     <div class="elementor-widget-container">
                                                                         <style>
-                                                                        .elementor-widget.elementor-icon-list--layout-inline .elementor-widget-container {
-                                                                            overflow:hidden
-                                                                        }
-
-                                                                        .elementor-widget .elementor-icon-list-items.elementor-inline-items {
-                                                                            margin-right: -8px;
-                                                                            margin-left:-8px
-                                                                        }
-
-                                                                        .elementor-widget .elementor-icon-list-items.elementor-inline-items .elementor-icon-list-item {
-                                                                            margin-right: 8px;
-                                                                            margin-left:8px
-                                                                        }
-
-                                                                        .elementor-widget .elementor-icon-list-items.elementor-inline-items .elementor-icon-list-item:after {
-                                                                            width: auto;
-                                                                            left: auto;
-                                                                            right: auto;
-                                                                            position: relative;
-                                                                            height: 100%;
-                                                                            border-top: 0;
-                                                                            border-bottom: 0;
-                                                                            border-right: 0;
-                                                                            border-left-width: 1px;
-                                                                            border-style: solid;
-                                                                            right:-8px
-                                                                        }
-
-                                                                        .elementor-widget .elementor-icon-list-items {
-                                                                            list-style-type: none;
-                                                                            margin: 0;
-                                                                            padding:0
-                                                                        }
-
-                                                                        .elementor-widget .elementor-icon-list-item {
-                                                                            margin: 0;
-                                                                            padding: 0;
-                                                                            position:relative
-                                                                        }
-
-                                                                        .elementor-widget .elementor-icon-list-item:after {
-                                                                            position: absolute;
-                                                                            bottom: 0;
-                                                                            width:100%
-                                                                        }
-
-                                                                        .elementor-widget .elementor-icon-list-item, .elementor-widget .elementor-icon-list-item a {
-                                                                            display: -webkit-box;
-                                                                            display: -ms-flexbox;
-                                                                            display: flex;
-                                                                            -webkit-box-align: center;
-                                                                            -ms-flex-align: center;
-                                                                            align-items: center;
-                                                                            font-size:inherit
-                                                                        }
-
-                                                                        .elementor-widget .elementor-icon-list-icon + .elementor-icon-list-text {
-                                                                            -ms-flex-item-align: center;
-                                                                            align-self: center;
-                                                                            padding-left:5px
-                                                                        }
-
-                                                                        .elementor-widget .elementor-icon-list-icon {
-                                                                            display: -webkit-box;
-                                                                            display: -ms-flexbox;
-                                                                            display:flex
-                                                                        }
-
-                                                                        .elementor-widget .elementor-icon-list-icon svg {
-                                                                            width: var(--e-icon-list-icon-size, 1em);
-                                                                            height:var(--e-icon-list-icon-size, 1em)
-                                                                        }
-
-                                                                        .elementor-widget .elementor-icon-list-icon i {
-                                                                            width: 1.25em;
-                                                                            font-size:var(--e-icon-list-icon-size)
-                                                                        }
-
-                                                                        .elementor-widget.elementor-widget-icon-list .elementor-icon-list-icon {
-                                                                            text-align:var(--e-icon-list-icon-align)
-                                                                        }
-
-                                                                        .elementor-widget.elementor-widget-icon-list .elementor-icon-list-icon svg {
-                                                                            margin:var(--e-icon-list-icon-margin, 0 calc(var(--e-icon-list-icon-size, 1em) * .25) 0 0)
-                                                                        }
-
-                                                                        .elementor-widget.elementor-list-item-link-full_width a {
-                                                                            width:100%
-                                                                        }
-
-                                                                        .elementor-widget.elementor-align-center .elementor-icon-list-item, .elementor-widget.elementor-align-center .elementor-icon-list-item a {
-                                                                            -webkit-box-pack: center;
-                                                                            -ms-flex-pack: center;
-                                                                            justify-content:center
-                                                                        }
-
-                                                                        .elementor-widget.elementor-align-center .elementor-icon-list-item:after {
-                                                                            margin:auto
-                                                                        }
-
-                                                                        .elementor-widget.elementor-align-center .elementor-inline-items {
-                                                                            -webkit-box-pack: center;
-                                                                            -ms-flex-pack: center;
-                                                                            justify-content:center
-                                                                        }
-
-                                                                        .elementor-widget.elementor-align-left .elementor-icon-list-item, .elementor-widget.elementor-align-left .elementor-icon-list-item a {
-                                                                            -webkit-box-pack: start;
-                                                                            -ms-flex-pack: start;
-                                                                            justify-content: flex-start;
-                                                                            text-align:left
-                                                                        }
-
-                                                                        .elementor-widget.elementor-align-left .elementor-inline-items {
-                                                                            -webkit-box-pack: start;
-                                                                            -ms-flex-pack: start;
-                                                                            justify-content:flex-start
-                                                                        }
-
-                                                                        .elementor-widget.elementor-align-right .elementor-icon-list-item, .elementor-widget.elementor-align-right .elementor-icon-list-item a {
-                                                                            -webkit-box-pack: end;
-                                                                            -ms-flex-pack: end;
-                                                                            justify-content: flex-end;
-                                                                            text-align:right
-                                                                        }
-
-                                                                        .elementor-widget.elementor-align-right .elementor-icon-list-items {
-                                                                            -webkit-box-pack: end;
-                                                                            -ms-flex-pack: end;
-                                                                            justify-content:flex-end
-                                                                        }
-
-                                                                        .elementor-widget:not(.elementor-align-right) .elementor-icon-list-item:after {
-                                                                            left:0
-                                                                        }
-
-                                                                        .elementor-widget:not(.elementor-align-left) .elementor-icon-list-item:after {
-                                                                            right:0
-                                                                        }
-
-                                                                        @media (max-width: 1024px) {
-                                                                            .elementor-widget.elementor-tablet-align-center .elementor-icon-list-item, .elementor-widget.elementor-tablet-align-center .elementor-icon-list-item a, .elementor-widget.elementor-tablet-align-center .elementor-icon-list-items {
+                                                                            .elementor-widget.elementor-icon-list--layout-inline .elementor-widget-container {
+                                                                                overflow: hidden;
+                                                                            }
+                                                                            .elementor-widget .elementor-icon-list-items.elementor-inline-items {
+                                                                                margin-right: -8px;
+                                                                                margin-left: -8px;
+                                                                            }
+                                                                            .elementor-widget .elementor-icon-list-items.elementor-inline-items .elementor-icon-list-item {
+                                                                                margin-right: 8px;
+                                                                                margin-left: 8px;
+                                                                            }
+                                                                            .elementor-widget .elementor-icon-list-items.elementor-inline-items .elementor-icon-list-item:after {
+                                                                                width: auto;
+                                                                                left: auto;
+                                                                                right: auto;
+                                                                                position: relative;
+                                                                                height: 100%;
+                                                                                border-top: 0;
+                                                                                border-bottom: 0;
+                                                                                border-right: 0;
+                                                                                border-left-width: 1px;
+                                                                                border-style: solid;
+                                                                                right: -8px;
+                                                                            }
+                                                                            .elementor-widget .elementor-icon-list-items {
+                                                                                list-style-type: none;
+                                                                                margin: 0;
+                                                                                padding: 0;
+                                                                            }
+                                                                            .elementor-widget .elementor-icon-list-item {
+                                                                                margin: 0;
+                                                                                padding: 0;
+                                                                                position: relative;
+                                                                            }
+                                                                            .elementor-widget .elementor-icon-list-item:after {
+                                                                                position: absolute;
+                                                                                bottom: 0;
+                                                                                width: 100%;
+                                                                            }
+                                                                            .elementor-widget .elementor-icon-list-item,
+                                                                            .elementor-widget .elementor-icon-list-item a {
+                                                                                display: -webkit-box;
+                                                                                display: -ms-flexbox;
+                                                                                display: flex;
+                                                                                -webkit-box-align: center;
+                                                                                -ms-flex-align: center;
+                                                                                align-items: center;
+                                                                                font-size: inherit;
+                                                                            }
+                                                                            .elementor-widget .elementor-icon-list-icon + .elementor-icon-list-text {
+                                                                                -ms-flex-item-align: center;
+                                                                                align-self: center;
+                                                                                padding-left: 5px;
+                                                                            }
+                                                                            .elementor-widget .elementor-icon-list-icon {
+                                                                                display: -webkit-box;
+                                                                                display: -ms-flexbox;
+                                                                                display: flex;
+                                                                            }
+                                                                            .elementor-widget .elementor-icon-list-icon svg {
+                                                                                width: var(--e-icon-list-icon-size, 1em);
+                                                                                height: var(--e-icon-list-icon-size, 1em);
+                                                                            }
+                                                                            .elementor-widget .elementor-icon-list-icon i {
+                                                                                width: 1.25em;
+                                                                                font-size: var(--e-icon-list-icon-size);
+                                                                            }
+                                                                            .elementor-widget.elementor-widget-icon-list .elementor-icon-list-icon {
+                                                                                text-align: var(--e-icon-list-icon-align);
+                                                                            }
+                                                                            .elementor-widget.elementor-widget-icon-list .elementor-icon-list-icon svg {
+                                                                                margin: var(--e-icon-list-icon-margin, 0 calc(var(--e-icon-list-icon-size, 1em) * 0.25) 0 0);
+                                                                            }
+                                                                            .elementor-widget.elementor-list-item-link-full_width a {
+                                                                                width: 100%;
+                                                                            }
+                                                                            .elementor-widget.elementor-align-center .elementor-icon-list-item,
+                                                                            .elementor-widget.elementor-align-center .elementor-icon-list-item a {
                                                                                 -webkit-box-pack: center;
                                                                                 -ms-flex-pack: center;
-                                                                                justify-content:center
+                                                                                justify-content: center;
                                                                             }
-
-                                                                            .elementor-widget.elementor-tablet-align-center .elementor-icon-list-item:after {
-                                                                                margin:auto
+                                                                            .elementor-widget.elementor-align-center .elementor-icon-list-item:after {
+                                                                                margin: auto;
                                                                             }
-
-                                                                            .elementor-widget.elementor-tablet-align-left .elementor-icon-list-items {
-                                                                                -webkit-box-pack: start;
-                                                                                -ms-flex-pack: start;
-                                                                                justify-content:flex-start
+                                                                            .elementor-widget.elementor-align-center .elementor-inline-items {
+                                                                                -webkit-box-pack: center;
+                                                                                -ms-flex-pack: center;
+                                                                                justify-content: center;
                                                                             }
-
-                                                                            .elementor-widget.elementor-tablet-align-left .elementor-icon-list-item, .elementor-widget.elementor-tablet-align-left .elementor-icon-list-item a {
+                                                                            .elementor-widget.elementor-align-left .elementor-icon-list-item,
+                                                                            .elementor-widget.elementor-align-left .elementor-icon-list-item a {
                                                                                 -webkit-box-pack: start;
                                                                                 -ms-flex-pack: start;
                                                                                 justify-content: flex-start;
-                                                                                text-align:left
+                                                                                text-align: left;
                                                                             }
-
-                                                                            .elementor-widget.elementor-tablet-align-right .elementor-icon-list-items {
-                                                                                -webkit-box-pack: end;
-                                                                                -ms-flex-pack: end;
-                                                                                justify-content:flex-end
-                                                                            }
-
-                                                                            .elementor-widget.elementor-tablet-align-right .elementor-icon-list-item, .elementor-widget.elementor-tablet-align-right .elementor-icon-list-item a {
-                                                                                -webkit-box-pack: end;
-                                                                                -ms-flex-pack: end;
-                                                                                justify-content: flex-end;
-                                                                                text-align:right
-                                                                            }
-
-                                                                            .elementor-widget:not(.elementor-tablet-align-right) .elementor-icon-list-item:after {
-                                                                                left:0
-                                                                            }
-
-                                                                            .elementor-widget:not(.elementor-tablet-align-left) .elementor-icon-list-item:after {
-                                                                                right:0
-                                                                            }
-                                                                        }
-
-                                                                        @media (max-width: 479px) {
-                                                                            .elementor-widget.elementor-mobile-align-center .elementor-icon-list-item, .elementor-widget.elementor-mobile-align-center .elementor-icon-list-item a, .elementor-widget.elementor-mobile-align-center .elementor-icon-list-items {
-                                                                                -webkit-box-pack: center;
-                                                                                -ms-flex-pack: center;
-                                                                                justify-content:center
-                                                                            }
-
-                                                                            .elementor-widget.elementor-mobile-align-center .elementor-icon-list-item:after {
-                                                                                margin:auto
-                                                                            }
-
-                                                                            .elementor-widget.elementor-mobile-align-left .elementor-icon-list-items {
-                                                                                -webkit-box-pack: start;
-                                                                                -ms-flex-pack: start;
-                                                                                justify-content:flex-start
-                                                                            }
-
-                                                                            .elementor-widget.elementor-mobile-align-left .elementor-icon-list-item, .elementor-widget.elementor-mobile-align-left .elementor-icon-list-item a {
+                                                                            .elementor-widget.elementor-align-left .elementor-inline-items {
                                                                                 -webkit-box-pack: start;
                                                                                 -ms-flex-pack: start;
                                                                                 justify-content: flex-start;
-                                                                                text-align:left
                                                                             }
-
-                                                                            .elementor-widget.elementor-mobile-align-right .elementor-icon-list-items {
-                                                                                -webkit-box-pack: end;
-                                                                                -ms-flex-pack: end;
-                                                                                justify-content:flex-end
-                                                                            }
-
-                                                                            .elementor-widget.elementor-mobile-align-right .elementor-icon-list-item, .elementor-widget.elementor-mobile-align-right .elementor-icon-list-item a {
+                                                                            .elementor-widget.elementor-align-right .elementor-icon-list-item,
+                                                                            .elementor-widget.elementor-align-right .elementor-icon-list-item a {
                                                                                 -webkit-box-pack: end;
                                                                                 -ms-flex-pack: end;
                                                                                 justify-content: flex-end;
-                                                                                text-align:right
+                                                                                text-align: right;
                                                                             }
-
-                                                                            .elementor-widget:not(.elementor-mobile-align-right) .elementor-icon-list-item:after {
-                                                                                left:0
+                                                                            .elementor-widget.elementor-align-right .elementor-icon-list-items {
+                                                                                -webkit-box-pack: end;
+                                                                                -ms-flex-pack: end;
+                                                                                justify-content: flex-end;
                                                                             }
-
-                                                                            .elementor-widget:not(.elementor-mobile-align-left) .elementor-icon-list-item:after {
-                                                                                right: 0
+                                                                            .elementor-widget:not(.elementor-align-right) .elementor-icon-list-item:after {
+                                                                                left: 0;
                                                                             }
-                                                                        }
+                                                                            .elementor-widget:not(.elementor-align-left) .elementor-icon-list-item:after {
+                                                                                right: 0;
+                                                                            }
+                                                                            @media (max-width: 1024px) {
+                                                                                .elementor-widget.elementor-tablet-align-center .elementor-icon-list-item,
+                                                                                .elementor-widget.elementor-tablet-align-center .elementor-icon-list-item a,
+                                                                                .elementor-widget.elementor-tablet-align-center .elementor-icon-list-items {
+                                                                                    -webkit-box-pack: center;
+                                                                                    -ms-flex-pack: center;
+                                                                                    justify-content: center;
+                                                                                }
+                                                                                .elementor-widget.elementor-tablet-align-center .elementor-icon-list-item:after {
+                                                                                    margin: auto;
+                                                                                }
+                                                                                .elementor-widget.elementor-tablet-align-left .elementor-icon-list-items {
+                                                                                    -webkit-box-pack: start;
+                                                                                    -ms-flex-pack: start;
+                                                                                    justify-content: flex-start;
+                                                                                }
+                                                                                .elementor-widget.elementor-tablet-align-left .elementor-icon-list-item,
+                                                                                .elementor-widget.elementor-tablet-align-left .elementor-icon-list-item a {
+                                                                                    -webkit-box-pack: start;
+                                                                                    -ms-flex-pack: start;
+                                                                                    justify-content: flex-start;
+                                                                                    text-align: left;
+                                                                                }
+                                                                                .elementor-widget.elementor-tablet-align-right .elementor-icon-list-items {
+                                                                                    -webkit-box-pack: end;
+                                                                                    -ms-flex-pack: end;
+                                                                                    justify-content: flex-end;
+                                                                                }
+                                                                                .elementor-widget.elementor-tablet-align-right .elementor-icon-list-item,
+                                                                                .elementor-widget.elementor-tablet-align-right .elementor-icon-list-item a {
+                                                                                    -webkit-box-pack: end;
+                                                                                    -ms-flex-pack: end;
+                                                                                    justify-content: flex-end;
+                                                                                    text-align: right;
+                                                                                }
+                                                                                .elementor-widget:not(.elementor-tablet-align-right) .elementor-icon-list-item:after {
+                                                                                    left: 0;
+                                                                                }
+                                                                                .elementor-widget:not(.elementor-tablet-align-left) .elementor-icon-list-item:after {
+                                                                                    right: 0;
+                                                                                }
+                                                                            }
+                                                                            @media (max-width: 479px) {
+                                                                                .elementor-widget.elementor-mobile-align-center .elementor-icon-list-item,
+                                                                                .elementor-widget.elementor-mobile-align-center .elementor-icon-list-item a,
+                                                                                .elementor-widget.elementor-mobile-align-center .elementor-icon-list-items {
+                                                                                    -webkit-box-pack: center;
+                                                                                    -ms-flex-pack: center;
+                                                                                    justify-content: center;
+                                                                                }
+                                                                                .elementor-widget.elementor-mobile-align-center .elementor-icon-list-item:after {
+                                                                                    margin: auto;
+                                                                                }
+                                                                                .elementor-widget.elementor-mobile-align-left .elementor-icon-list-items {
+                                                                                    -webkit-box-pack: start;
+                                                                                    -ms-flex-pack: start;
+                                                                                    justify-content: flex-start;
+                                                                                }
+                                                                                .elementor-widget.elementor-mobile-align-left .elementor-icon-list-item,
+                                                                                .elementor-widget.elementor-mobile-align-left .elementor-icon-list-item a {
+                                                                                    -webkit-box-pack: start;
+                                                                                    -ms-flex-pack: start;
+                                                                                    justify-content: flex-start;
+                                                                                    text-align: left;
+                                                                                }
+                                                                                .elementor-widget.elementor-mobile-align-right .elementor-icon-list-items {
+                                                                                    -webkit-box-pack: end;
+                                                                                    -ms-flex-pack: end;
+                                                                                    justify-content: flex-end;
+                                                                                }
+                                                                                .elementor-widget.elementor-mobile-align-right .elementor-icon-list-item,
+                                                                                .elementor-widget.elementor-mobile-align-right .elementor-icon-list-item a {
+                                                                                    -webkit-box-pack: end;
+                                                                                    -ms-flex-pack: end;
+                                                                                    justify-content: flex-end;
+                                                                                    text-align: right;
+                                                                                }
+                                                                                .elementor-widget:not(.elementor-mobile-align-right) .elementor-icon-list-item:after {
+                                                                                    left: 0;
+                                                                                }
+                                                                                .elementor-widget:not(.elementor-mobile-align-left) .elementor-icon-list-item:after {
+                                                                                    right: 0;
+                                                                                }
+                                                                            }
                                                                         </style>
                                                                         <ul class="elementor-icon-list-items">
                                                                             <li class="elementor-icon-list-item">
-                                                                                <a href="https://milmaa.wpengine.com/">
-
-                                                                                    <span class="elementor-icon-list-icon">
-                                                                                        <i aria-hidden="true" class="fas fa-circle"></i>
-                                                                                    </span>
+                                                                                <a href="{{route('home')}}">
+                                                                                    <span class="elementor-icon-list-icon"> <i aria-hidden="true" class="fas fa-circle"></i> </span>
                                                                                     <span class="elementor-icon-list-text">Home</span>
                                                                                 </a>
                                                                             </li>
                                                                             <li class="elementor-icon-list-item">
-                                                                                <a href="https://milmaa.wpengine.com/about-us/">
-
-                                                                                    <span class="elementor-icon-list-icon">
-                                                                                        <i aria-hidden="true" class="fas fa-circle"></i>
-                                                                                    </span>
+                                                                                <a href="{{route('shop')}}">
+                                                                                    <span class="elementor-icon-list-icon"> <i aria-hidden="true" class="fas fa-circle"></i> </span>
+                                                                                    <span class="elementor-icon-list-text">Shop</span>
+                                                                                </a>
+                                                                            </li>
+                                                                            <li class="elementor-icon-list-item">
+                                                                                <a href="{{route('about')}}">
+                                                                                    <span class="elementor-icon-list-icon"> <i aria-hidden="true" class="fas fa-circle"></i> </span>
                                                                                     <span class="elementor-icon-list-text">About</span>
                                                                                 </a>
                                                                             </li>
                                                                             <li class="elementor-icon-list-item">
-                                                                                <a href="https://milmaa.wpengine.com/our-flavors/">
-
-                                                                                    <span class="elementor-icon-list-icon">
-                                                                                        <i aria-hidden="true" class="fas fa-circle"></i>
-                                                                                    </span>
-                                                                                    <span class="elementor-icon-list-text">Services </span>
-                                                                                </a>
-                                                                            </li>
-                                                                            <li class="elementor-icon-list-item">
-                                                                                <a href="https://milmaa.wpengine.com/blog/">
-
-                                                                                    <span class="elementor-icon-list-icon">
-                                                                                        <i aria-hidden="true" class="fas fa-circle"></i>
-                                                                                    </span>
+                                                                                <a href="{{route('blog.index')}}">
+                                                                                    <span class="elementor-icon-list-icon"> <i aria-hidden="true" class="fas fa-circle"></i> </span>
                                                                                     <span class="elementor-icon-list-text">Blog</span>
                                                                                 </a>
                                                                             </li>
                                                                             <li class="elementor-icon-list-item">
-                                                                                <a href="https://milmaa.wpengine.com/contact-us/">
-
-                                                                                    <span class="elementor-icon-list-icon">
-                                                                                        <i aria-hidden="true" class="fas fa-circle"></i>
-                                                                                    </span>
+                                                                                <a href="{{route('contact')}}">
+                                                                                    <span class="elementor-icon-list-icon"> <i aria-hidden="true" class="fas fa-circle"></i> </span>
                                                                                     <span class="elementor-icon-list-text">Contact</span>
                                                                                 </a>
                                                                             </li>
                                                                         </ul>
                                                                     </div>
                                                                 </div>
-                                                                <div class="elementor-element elementor-element-7fae100 elementor-align-left animated-slow footer-links elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="7fae100" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;none&quot;,&quot;_animation_delay&quot;:700}" data-widget_type="icon-list.default">
-                                                                    <div class="elementor-widget-container">
-                                                                        <ul class="elementor-icon-list-items">
-                                                                            <li class="elementor-icon-list-item">
-                                                                                <a href="https://milmaa.wpengine.com/shop/">
-
-                                                                                    <span class="elementor-icon-list-icon">
-                                                                                        <i aria-hidden="true" class="fas fa-circle"></i>
-                                                                                    </span>
-                                                                                    <span class="elementor-icon-list-text">Shop</span>
-                                                                                </a>
-                                                                            </li>
-                                                                            <li class="elementor-icon-list-item">
-                                                                                <a href="https://milmaa.wpengine.com/privacy-policy/">
-
-                                                                                    <span class="elementor-icon-list-icon">
-                                                                                        <i aria-hidden="true" class="fas fa-circle"></i>
-                                                                                    </span>
-                                                                                    <span class="elementor-icon-list-text">Privacy Policy</span>
-                                                                                </a>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
+                                                                <div
+                                                                    class="elementor-element elementor-element-7fae100 elementor-align-left animated-slow footer-links elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
+                                                                    data-id="7fae100"
+                                                                    data-element_type="widget"
+                                                                    data-settings='{"_animation":"none","_animation_delay":700}'
+                                                                    data-widget_type="icon-list.default"
+                                                                >
+                                                                 
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-33d4e6d" data-id="33d4e6d" data-element_type="column">
                                                             <div class="elementor-widget-wrap elementor-element-populated">
-                                                                <div class="elementor-element elementor-element-9115bf6 animated-slow elementor-widget elementor-widget-image" data-id="9115bf6" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;none&quot;,&quot;_animation_delay&quot;:700}" data-widget_type="image.default">
+                                                                <div
+                                                                    class="elementor-element elementor-element-9115bf6 animated-slow elementor-widget elementor-widget-image"
+                                                                    data-id="9115bf6"
+                                                                    data-element_type="widget"
+                                                                    data-settings='{"_animation":"none","_animation_delay":700}'
+                                                                    data-widget_type="image.default"
+                                                                >
                                                                     <div class="elementor-widget-container">
                                                                         <style>
-                                                                        /*! elementor - v3.5.5 - 03-02-2022 */
-                                                                        .elementor-widget-image {
-                                                                            text-align:center
-                                                                        }
-
-                                                                        .elementor-widget-image a {
-                                                                            display: inline-block
-                                                                        }
-
-                                                                        .elementor-widget-image a img[src$=".svg"] {
-                                                                            width:48px
-                                                                        }
-
-                                                                        .elementor-widget-image img {
-                                                                            vertical-align: middle;
-                                                                            display: inline-block
-                                                                        }
+                                                                            /*! elementor - v3.5.5 - 03-02-2022 */
+                                                                            .elementor-widget-image {
+                                                                                text-align: center;
+                                                                            }
+                                                                            .elementor-widget-image a {
+                                                                                display: inline-block;
+                                                                            }
+                                                                            .elementor-widget-image a img[src$=".svg"] {
+                                                                                width: 48px;
+                                                                            }
+                                                                            .elementor-widget-image img {
+                                                                                vertical-align: middle;
+                                                                                display: inline-block;
+                                                                            }
                                                                         </style>
-                                                                        <img src="https://milmaa.wpengine.com/wp-content/uploads/2022/02/logo.png" title="" alt="logo"/>
+                                                                        <img src="{{Storage::url('public/uploads/settings/'.setting('logo_image'))}}" title="" alt="logo" />
                                                                     </div>
                                                                 </div>
-                                                                <div class="elementor-element elementor-element-6a2aaaf animated-slow elementor-widget elementor-widget-heading" data-id="6a2aaaf" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;none&quot;,&quot;_animation_delay&quot;:800}" data-widget_type="heading.default">
+                                                                <div
+                                                                    class="elementor-element elementor-element-6a2aaaf animated-slow elementor-widget elementor-widget-heading"
+                                                                    data-id="6a2aaaf"
+                                                                    data-element_type="widget"
+                                                                    data-settings='{"_animation":"none","_animation_delay":800}'
+                                                                    data-widget_type="heading.default"
+                                                                >
                                                                     <div class="elementor-widget-container">
                                                                         <h2 class="elementor-heading-title elementor-size-default">Follow Us:</h2>
                                                                     </div>
                                                                 </div>
-                                                                <div class="elementor-element elementor-element-043a2ea elementor-shape-circle footer-social animated-slow e-grid-align-tablet-left elementor-grid-0 e-grid-align-center elementor-widget elementor-widget-social-icons" data-id="043a2ea" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;none&quot;,&quot;_animation_delay&quot;:900}" data-widget_type="social-icons.default">
+                                                                <div
+                                                                    class="elementor-element elementor-element-043a2ea elementor-shape-circle footer-social animated-slow e-grid-align-tablet-left elementor-grid-0 e-grid-align-center elementor-widget elementor-widget-social-icons"
+                                                                    data-id="043a2ea"
+                                                                    data-element_type="widget"
+                                                                    data-settings='{"_animation":"none","_animation_delay":900}'
+                                                                    data-widget_type="social-icons.default"
+                                                                >
                                                                     <div class="elementor-widget-container">
                                                                         <style>
-                                                                        /*! elementor - v3.5.5 - 03-02-2022 */
-                                                                        .elementor-widget-social-icons.elementor-grid-0 .elementor-widget-container, .elementor-widget-social-icons.elementor-grid-mobile-0 .elementor-widget-container, .elementor-widget-social-icons.elementor-grid-tablet-0 .elementor-widget-container {
-                                                                            line-height: 1;
-                                                                            font-size:0
-                                                                        }
-
-                                                                        .elementor-widget-social-icons:not(.elementor-grid-0):not(.elementor-grid-tablet-0):not(.elementor-grid-mobile-0) .elementor-grid {
-                                                                            display:inline-grid
-                                                                        }
-
-                                                                        .elementor-widget-social-icons .elementor-grid {
-                                                                            grid-column-gap: var(--grid-column-gap, 5px);
-                                                                            grid-row-gap: var(--grid-row-gap, 5px);
-                                                                            grid-template-columns: var(--grid-template-columns);
-                                                                            -webkit-box-pack: var(--justify-content, center);
-                                                                            -ms-flex-pack: var(--justify-content, center);
-                                                                            justify-content: var(--justify-content, center);
-                                                                            justify-items:var(--justify-content, center)
-                                                                        }
-
-                                                                        .elementor-icon.elementor-social-icon {
-                                                                            font-size: var(--icon-size, 25px);
-                                                                            line-height: var(--icon-size, 25px);
-                                                                            width: calc(var(--icon-size, 25px) +(2 * var(--icon-padding, .5em)));
-                                                                            height:calc(var(--icon-size, 25px) +(2 * var(--icon-padding, .5em)))
-                                                                        }
-
-                                                                        .elementor-social-icon {
-                                                                            --e-social-icon-icon-color: #fff;
-                                                                            display: -webkit-inline-box;
-                                                                            display: -ms-inline-flexbox;
-                                                                            display: inline-flex;
-                                                                            background-color: #818a91;
-                                                                            -webkit-box-align: center;
-                                                                            -ms-flex-align: center;
-                                                                            align-items: center;
-                                                                            -webkit-box-pack: center;
-                                                                            -ms-flex-pack: center;
-                                                                            justify-content: center;
-                                                                            text-align: center;
-                                                                            cursor:pointer
-                                                                        }
-
-                                                                        .elementor-social-icon i {
-                                                                            color:var(--e-social-icon-icon-color)
-                                                                        }
-
-                                                                        .elementor-social-icon svg {
-                                                                            fill:var(--e-social-icon-icon-color)
-                                                                        }
-
-                                                                        .elementor-social-icon:last-child {
-                                                                            margin:0
-                                                                        }
-
-                                                                        .elementor-social-icon:hover {
-                                                                            opacity: .9;
-                                                                            color:#fff
-                                                                        }
-
-                                                                        .elementor-social-icon-android {
-                                                                            background-color:#a4c639
-                                                                        }
-
-                                                                        .elementor-social-icon-apple {
-                                                                            background-color:#999
-                                                                        }
-
-                                                                        .elementor-social-icon-behance {
-                                                                            background-color:#1769ff
-                                                                        }
-
-                                                                        .elementor-social-icon-bitbucket {
-                                                                            background-color:#205081
-                                                                        }
-
-                                                                        .elementor-social-icon-codepen {
-                                                                            background-color:#000
-                                                                        }
-
-                                                                        .elementor-social-icon-delicious {
-                                                                            background-color:#39f
-                                                                        }
-
-                                                                        .elementor-social-icon-deviantart {
-                                                                            background-color:#05cc47
-                                                                        }
-
-                                                                        .elementor-social-icon-digg {
-                                                                            background-color:#005be2
-                                                                        }
-
-                                                                        .elementor-social-icon-dribbble {
-                                                                            background-color:#ea4c89
-                                                                        }
-
-                                                                        .elementor-social-icon-elementor {
-                                                                            background-color:#d30c5c
-                                                                        }
-
-                                                                        .elementor-social-icon-envelope {
-                                                                            background-color:#ea4335
-                                                                        }
-
-                                                                        .elementor-social-icon-facebook, .elementor-social-icon-facebook-f {
-                                                                            background-color:#3b5998
-                                                                        }
-
-                                                                        .elementor-social-icon-flickr {
-                                                                            background-color:#0063dc
-                                                                        }
-
-                                                                        .elementor-social-icon-foursquare {
-                                                                            background-color:#2d5be3
-                                                                        }
-
-                                                                        .elementor-social-icon-free-code-camp, .elementor-social-icon-freecodecamp {
-                                                                            background-color:#006400
-                                                                        }
-
-                                                                        .elementor-social-icon-github {
-                                                                            background-color:#333
-                                                                        }
-
-                                                                        .elementor-social-icon-gitlab {
-                                                                            background-color:#e24329
-                                                                        }
-
-                                                                        .elementor-social-icon-globe {
-                                                                            background-color:#818a91
-                                                                        }
-
-                                                                        .elementor-social-icon-google-plus, .elementor-social-icon-google-plus-g {
-                                                                            background-color:#dd4b39
-                                                                        }
-
-                                                                        .elementor-social-icon-houzz {
-                                                                            background-color:#7ac142
-                                                                        }
-
-                                                                        .elementor-social-icon-instagram {
-                                                                            background-color:#262626
-                                                                        }
-
-                                                                        .elementor-social-icon-jsfiddle {
-                                                                            background-color:#487aa2
-                                                                        }
-
-                                                                        .elementor-social-icon-link {
-                                                                            background-color:#818a91
-                                                                        }
-
-                                                                        .elementor-social-icon-linkedin, .elementor-social-icon-linkedin-in {
-                                                                            background-color:#0077b5
-                                                                        }
-
-                                                                        .elementor-social-icon-medium {
-                                                                            background-color:#00ab6b
-                                                                        }
-
-                                                                        .elementor-social-icon-meetup {
-                                                                            background-color:#ec1c40
-                                                                        }
-
-                                                                        .elementor-social-icon-mixcloud {
-                                                                            background-color:#273a4b
-                                                                        }
-
-                                                                        .elementor-social-icon-odnoklassniki {
-                                                                            background-color:#f4731c
-                                                                        }
-
-                                                                        .elementor-social-icon-pinterest {
-                                                                            background-color:#bd081c
-                                                                        }
-
-                                                                        .elementor-social-icon-product-hunt {
-                                                                            background-color:#da552f
-                                                                        }
-
-                                                                        .elementor-social-icon-reddit {
-                                                                            background-color:#ff4500
-                                                                        }
-
-                                                                        .elementor-social-icon-rss {
-                                                                            background-color:#f26522
-                                                                        }
-
-                                                                        .elementor-social-icon-shopping-cart {
-                                                                            background-color:#4caf50
-                                                                        }
-
-                                                                        .elementor-social-icon-skype {
-                                                                            background-color:#00aff0
-                                                                        }
-
-                                                                        .elementor-social-icon-slideshare {
-                                                                            background-color:#0077b5
-                                                                        }
-
-                                                                        .elementor-social-icon-snapchat {
-                                                                            background-color:#fffc00
-                                                                        }
-
-                                                                        .elementor-social-icon-soundcloud {
-                                                                            background-color:#f80
-                                                                        }
-
-                                                                        .elementor-social-icon-spotify {
-                                                                            background-color:#2ebd59
-                                                                        }
-
-                                                                        .elementor-social-icon-stack-overflow {
-                                                                            background-color:#fe7a15
-                                                                        }
-
-                                                                        .elementor-social-icon-steam {
-                                                                            background-color:#00adee
-                                                                        }
-
-                                                                        .elementor-social-icon-stumbleupon {
-                                                                            background-color:#eb4924
-                                                                        }
-
-                                                                        .elementor-social-icon-telegram {
-                                                                            background-color:#2ca5e0
-                                                                        }
-
-                                                                        .elementor-social-icon-thumb-tack {
-                                                                            background-color:#1aa1d8
-                                                                        }
-
-                                                                        .elementor-social-icon-tripadvisor {
-                                                                            background-color:#589442
-                                                                        }
-
-                                                                        .elementor-social-icon-tumblr {
-                                                                            background-color:#35465c
-                                                                        }
-
-                                                                        .elementor-social-icon-twitch {
-                                                                            background-color:#6441a5
-                                                                        }
-
-                                                                        .elementor-social-icon-twitter {
-                                                                            background-color:#1da1f2
-                                                                        }
-
-                                                                        .elementor-social-icon-viber {
-                                                                            background-color:#665cac
-                                                                        }
-
-                                                                        .elementor-social-icon-vimeo {
-                                                                            background-color:#1ab7ea
-                                                                        }
-
-                                                                        .elementor-social-icon-vk {
-                                                                            background-color:#45668e
-                                                                        }
-
-                                                                        .elementor-social-icon-weibo {
-                                                                            background-color:#dd2430
-                                                                        }
-
-                                                                        .elementor-social-icon-weixin {
-                                                                            background-color:#31a918
-                                                                        }
-
-                                                                        .elementor-social-icon-whatsapp {
-                                                                            background-color:#25d366
-                                                                        }
-
-                                                                        .elementor-social-icon-wordpress {
-                                                                            background-color:#21759b
-                                                                        }
-
-                                                                        .elementor-social-icon-xing {
-                                                                            background-color:#026466
-                                                                        }
-
-                                                                        .elementor-social-icon-yelp {
-                                                                            background-color:#af0606
-                                                                        }
-
-                                                                        .elementor-social-icon-youtube {
-                                                                            background-color:#cd201f
-                                                                        }
-
-                                                                        .elementor-social-icon-500px {
-                                                                            background-color:#0099e5
-                                                                        }
-
-                                                                        .elementor-shape-rounded .elementor-icon.elementor-social-icon {
-                                                                            -webkit-border-radius: 10%;
-                                                                            border-radius:10%
-                                                                        }
-
-                                                                        .elementor-shape-circle .elementor-icon.elementor-social-icon {
-                                                                            -webkit-border-radius: 50%;
-                                                                            border-radius: 50%
-                                                                        }
+                                                                            /*! elementor - v3.5.5 - 03-02-2022 */
+                                                                            .elementor-widget-social-icons.elementor-grid-0 .elementor-widget-container,
+                                                                            .elementor-widget-social-icons.elementor-grid-mobile-0 .elementor-widget-container,
+                                                                            .elementor-widget-social-icons.elementor-grid-tablet-0 .elementor-widget-container {
+                                                                                line-height: 1;
+                                                                                font-size: 0;
+                                                                            }
+                                                                            .elementor-widget-social-icons:not(.elementor-grid-0):not(.elementor-grid-tablet-0):not(.elementor-grid-mobile-0) .elementor-grid {
+                                                                                display: inline-grid;
+                                                                            }
+                                                                            .elementor-widget-social-icons .elementor-grid {
+                                                                                grid-column-gap: var(--grid-column-gap, 5px);
+                                                                                grid-row-gap: var(--grid-row-gap, 5px);
+                                                                                grid-template-columns: var(--grid-template-columns);
+                                                                                -webkit-box-pack: var(--justify-content, center);
+                                                                                -ms-flex-pack: var(--justify-content, center);
+                                                                                justify-content: var(--justify-content, center);
+                                                                                justify-items: var(--justify-content, center);
+                                                                            }
+                                                                            .elementor-icon.elementor-social-icon {
+                                                                                font-size: var(--icon-size, 25px);
+                                                                                line-height: var(--icon-size, 25px);
+                                                                                width: calc(var(--icon-size, 25px) + (2 * var(--icon-padding, 0.5em)));
+                                                                                height: calc(var(--icon-size, 25px) + (2 * var(--icon-padding, 0.5em)));
+                                                                            }
+                                                                            .elementor-social-icon {
+                                                                                --e-social-icon-icon-color: #fff;
+                                                                                display: -webkit-inline-box;
+                                                                                display: -ms-inline-flexbox;
+                                                                                display: inline-flex;
+                                                                                background-color: #818a91;
+                                                                                -webkit-box-align: center;
+                                                                                -ms-flex-align: center;
+                                                                                align-items: center;
+                                                                                -webkit-box-pack: center;
+                                                                                -ms-flex-pack: center;
+                                                                                justify-content: center;
+                                                                                text-align: center;
+                                                                                cursor: pointer;
+                                                                            }
+                                                                            .elementor-social-icon i {
+                                                                                color: var(--e-social-icon-icon-color);
+                                                                            }
+                                                                            .elementor-social-icon svg {
+                                                                                fill: var(--e-social-icon-icon-color);
+                                                                            }
+                                                                            .elementor-social-icon:last-child {
+                                                                                margin: 0;
+                                                                            }
+                                                                            .elementor-social-icon:hover {
+                                                                                opacity: 0.9;
+                                                                                color: #fff;
+                                                                            }
+                                                                            .elementor-social-icon-android {
+                                                                                background-color: #a4c639;
+                                                                            }
+                                                                            .elementor-social-icon-apple {
+                                                                                background-color: #999;
+                                                                            }
+                                                                            .elementor-social-icon-behance {
+                                                                                background-color: #1769ff;
+                                                                            }
+                                                                            .elementor-social-icon-bitbucket {
+                                                                                background-color: #205081;
+                                                                            }
+                                                                            .elementor-social-icon-codepen {
+                                                                                background-color: #000;
+                                                                            }
+                                                                            .elementor-social-icon-delicious {
+                                                                                background-color: #39f;
+                                                                            }
+                                                                            .elementor-social-icon-deviantart {
+                                                                                background-color: #05cc47;
+                                                                            }
+                                                                            .elementor-social-icon-digg {
+                                                                                background-color: #005be2;
+                                                                            }
+                                                                            .elementor-social-icon-dribbble {
+                                                                                background-color: #ea4c89;
+                                                                            }
+                                                                            .elementor-social-icon-elementor {
+                                                                                background-color: #d30c5c;
+                                                                            }
+                                                                            .elementor-social-icon-envelope {
+                                                                                background-color: #ea4335;
+                                                                            }
+                                                                            .elementor-social-icon-facebook,
+                                                                            .elementor-social-icon-facebook-f {
+                                                                                background-color: #3b5998;
+                                                                            }
+                                                                            .elementor-social-icon-flickr {
+                                                                                background-color: #0063dc;
+                                                                            }
+                                                                            .elementor-social-icon-foursquare {
+                                                                                background-color: #2d5be3;
+                                                                            }
+                                                                            .elementor-social-icon-free-code-camp,
+                                                                            .elementor-social-icon-freecodecamp {
+                                                                                background-color: #006400;
+                                                                            }
+                                                                            .elementor-social-icon-github {
+                                                                                background-color: #333;
+                                                                            }
+                                                                            .elementor-social-icon-gitlab {
+                                                                                background-color: #e24329;
+                                                                            }
+                                                                            .elementor-social-icon-globe {
+                                                                                background-color: #818a91;
+                                                                            }
+                                                                            .elementor-social-icon-google-plus,
+                                                                            .elementor-social-icon-google-plus-g {
+                                                                                background-color: #dd4b39;
+                                                                            }
+                                                                            .elementor-social-icon-houzz {
+                                                                                background-color: #7ac142;
+                                                                            }
+                                                                            .elementor-social-icon-instagram {
+                                                                                background-color: #262626;
+                                                                            }
+                                                                            .elementor-social-icon-jsfiddle {
+                                                                                background-color: #487aa2;
+                                                                            }
+                                                                            .elementor-social-icon-link {
+                                                                                background-color: #818a91;
+                                                                            }
+                                                                            .elementor-social-icon-linkedin,
+                                                                            .elementor-social-icon-linkedin-in {
+                                                                                background-color: #0077b5;
+                                                                            }
+                                                                            .elementor-social-icon-medium {
+                                                                                background-color: #00ab6b;
+                                                                            }
+                                                                            .elementor-social-icon-meetup {
+                                                                                background-color: #ec1c40;
+                                                                            }
+                                                                            .elementor-social-icon-mixcloud {
+                                                                                background-color: #273a4b;
+                                                                            }
+                                                                            .elementor-social-icon-odnoklassniki {
+                                                                                background-color: #f4731c;
+                                                                            }
+                                                                            .elementor-social-icon-pinterest {
+                                                                                background-color: #bd081c;
+                                                                            }
+                                                                            .elementor-social-icon-product-hunt {
+                                                                                background-color: #da552f;
+                                                                            }
+                                                                            .elementor-social-icon-reddit {
+                                                                                background-color: #ff4500;
+                                                                            }
+                                                                            .elementor-social-icon-rss {
+                                                                                background-color: #f26522;
+                                                                            }
+                                                                            .elementor-social-icon-shopping-cart {
+                                                                                background-color: #4caf50;
+                                                                            }
+                                                                            .elementor-social-icon-skype {
+                                                                                background-color: #00aff0;
+                                                                            }
+                                                                            .elementor-social-icon-slideshare {
+                                                                                background-color: #0077b5;
+                                                                            }
+                                                                            .elementor-social-icon-snapchat {
+                                                                                background-color: #fffc00;
+                                                                            }
+                                                                            .elementor-social-icon-soundcloud {
+                                                                                background-color: #f80;
+                                                                            }
+                                                                            .elementor-social-icon-spotify {
+                                                                                background-color: #2ebd59;
+                                                                            }
+                                                                            .elementor-social-icon-stack-overflow {
+                                                                                background-color: #fe7a15;
+                                                                            }
+                                                                            .elementor-social-icon-steam {
+                                                                                background-color: #00adee;
+                                                                            }
+                                                                            .elementor-social-icon-stumbleupon {
+                                                                                background-color: #eb4924;
+                                                                            }
+                                                                            .elementor-social-icon-telegram {
+                                                                                background-color: #2ca5e0;
+                                                                            }
+                                                                            .elementor-social-icon-thumb-tack {
+                                                                                background-color: #1aa1d8;
+                                                                            }
+                                                                            .elementor-social-icon-tripadvisor {
+                                                                                background-color: #589442;
+                                                                            }
+                                                                            .elementor-social-icon-tumblr {
+                                                                                background-color: #35465c;
+                                                                            }
+                                                                            .elementor-social-icon-twitch {
+                                                                                background-color: #6441a5;
+                                                                            }
+                                                                            .elementor-social-icon-twitter {
+                                                                                background-color: #1da1f2;
+                                                                            }
+                                                                            .elementor-social-icon-viber {
+                                                                                background-color: #665cac;
+                                                                            }
+                                                                            .elementor-social-icon-vimeo {
+                                                                                background-color: #1ab7ea;
+                                                                            }
+                                                                            .elementor-social-icon-vk {
+                                                                                background-color: #45668e;
+                                                                            }
+                                                                            .elementor-social-icon-weibo {
+                                                                                background-color: #dd2430;
+                                                                            }
+                                                                            .elementor-social-icon-weixin {
+                                                                                background-color: #31a918;
+                                                                            }
+                                                                            .elementor-social-icon-whatsapp {
+                                                                                background-color: #25d366;
+                                                                            }
+                                                                            .elementor-social-icon-wordpress {
+                                                                                background-color: #21759b;
+                                                                            }
+                                                                            .elementor-social-icon-xing {
+                                                                                background-color: #026466;
+                                                                            }
+                                                                            .elementor-social-icon-yelp {
+                                                                                background-color: #af0606;
+                                                                            }
+                                                                            .elementor-social-icon-youtube {
+                                                                                background-color: #cd201f;
+                                                                            }
+                                                                            .elementor-social-icon-500px {
+                                                                                background-color: #0099e5;
+                                                                            }
+                                                                            .elementor-shape-rounded .elementor-icon.elementor-social-icon {
+                                                                                -webkit-border-radius: 10%;
+                                                                                border-radius: 10%;
+                                                                            }
+                                                                            .elementor-shape-circle .elementor-icon.elementor-social-icon {
+                                                                                -webkit-border-radius: 50%;
+                                                                                border-radius: 50%;
+                                                                            }
                                                                         </style>
                                                                         <div class="elementor-social-icons-wrapper elementor-grid">
+                                                                            @if(setting('facebook') != null)
                                                                             <span class="elementor-grid-item">
-                                                                                <a class="elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-repeater-item-be9923c" href="#" target="_blank">
+                                                                                <a class="elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-repeater-item-be9923c" href="{{setting('facebook')}}" target="_blank">
                                                                                     <span class="elementor-screen-only">Facebook</span>
                                                                                     <i class="fab fa-facebook"></i>
                                                                                 </a>
                                                                             </span>
+                                                                            @endif
+                                                                            @if(setting('facebook') != null)
                                                                             <span class="elementor-grid-item">
-                                                                                <a class="elementor-icon elementor-social-icon elementor-social-icon-twitter elementor-repeater-item-7103459" href="#" target="_blank">
+                                                                                <a class="elementor-icon elementor-social-icon elementor-social-icon-twitter elementor-repeater-item-7103459" href="{{setting('twitter')}}" target="_blank">
                                                                                     <span class="elementor-screen-only">Twitter</span>
                                                                                     <i class="fab fa-twitter"></i>
                                                                                 </a>
                                                                             </span>
+                                                                            @endif
+                                                                            @if(setting('facebook') != null)
                                                                             <span class="elementor-grid-item">
-                                                                                <a class="elementor-icon elementor-social-icon elementor-social-icon-linkedin elementor-repeater-item-1a7e1fa" href="#" target="_blank">
+                                                                                <a class="elementor-icon elementor-social-icon elementor-social-icon-linkedin elementor-repeater-item-1a7e1fa" href="{{setting('linkedin')}}" target="_blank">
                                                                                     <span class="elementor-screen-only">Linkedin</span>
                                                                                     <i class="fab fa-linkedin"></i>
                                                                                 </a>
                                                                             </span>
+                                                                            @endif
+                                                                            @if(setting('facebook') != null)
                                                                             <span class="elementor-grid-item">
-                                                                                <a class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-12d0085" href="#" target="_blank">
+                                                                                <a class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-12d0085" href="{{setting('instagram')}}" target="_blank">
                                                                                     <span class="elementor-screen-only">Instagram</span>
                                                                                     <i class="fab fa-instagram"></i>
                                                                                 </a>
                                                                             </span>
+                                                                            @endif
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -7190,55 +7085,57 @@
                                                         </div>
                                                         <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-e50dae3" data-id="e50dae3" data-element_type="column">
                                                             <div class="elementor-widget-wrap elementor-element-populated">
-                                                                <div class="elementor-element elementor-element-d4f7429 animated-slow elementor-widget elementor-widget-text-editor" data-id="d4f7429" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;none&quot;,&quot;_animation_delay&quot;:700}" data-widget_type="text-editor.default">
+                                                                <div
+                                                                    class="elementor-element elementor-element-d4f7429 animated-slow elementor-widget elementor-widget-text-editor"
+                                                                    data-id="d4f7429"
+                                                                    data-element_type="widget"
+                                                                    data-settings='{"_animation":"none","_animation_delay":700}'
+                                                                    data-widget_type="text-editor.default"
+                                                                >
                                                                     <div class="elementor-widget-container">
                                                                         <style>
-                                                                        /*! elementor - v3.5.5 - 03-02-2022 */
-                                                                        .elementor-widget-text-editor.elementor-drop-cap-view-stacked .elementor-drop-cap {
-                                                                            background-color: #818a91;
-                                                                            color:#fff
-                                                                        }
-
-                                                                        .elementor-widget-text-editor.elementor-drop-cap-view-framed .elementor-drop-cap {
-                                                                            color: #818a91;
-                                                                            border: 3px solid;
-                                                                            background-color:transparent
-                                                                        }
-
-                                                                        .elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap {
-                                                                            margin-top:8px
-                                                                        }
-
-                                                                        .elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap-letter {
-                                                                            width: 1em;
-                                                                            height:1em
-                                                                        }
-
-                                                                        .elementor-widget-text-editor .elementor-drop-cap {
-                                                                            float: left;
-                                                                            text-align: center;
-                                                                            line-height: 1;
-                                                                            font-size:50px
-                                                                        }
-
-                                                                        .elementor-widget-text-editor .elementor-drop-cap-letter {
-                                                                            display: inline-block
-                                                                        }
+                                                                            /*! elementor - v3.5.5 - 03-02-2022 */
+                                                                            .elementor-widget-text-editor.elementor-drop-cap-view-stacked .elementor-drop-cap {
+                                                                                background-color: #818a91;
+                                                                                color: #fff;
+                                                                            }
+                                                                            .elementor-widget-text-editor.elementor-drop-cap-view-framed .elementor-drop-cap {
+                                                                                color: #818a91;
+                                                                                border: 3px solid;
+                                                                                background-color: transparent;
+                                                                            }
+                                                                            .elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap {
+                                                                                margin-top: 8px;
+                                                                            }
+                                                                            .elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap-letter {
+                                                                                width: 1em;
+                                                                                height: 1em;
+                                                                            }
+                                                                            .elementor-widget-text-editor .elementor-drop-cap {
+                                                                                float: left;
+                                                                                text-align: center;
+                                                                                line-height: 1;
+                                                                                font-size: 50px;
+                                                                            }
+                                                                            .elementor-widget-text-editor .elementor-drop-cap-letter {
+                                                                                display: inline-block;
+                                                                            }
                                                                         </style>
-                                                                        				932 Galvin St. Pompano Beach, 
-                                                                        FL 33060						
+                                                                        {{setting('address')}}
                                                                     </div>
                                                                 </div>
-                                                                <div class="elementor-element elementor-element-5ac8d63 animated-slow elementor-widget elementor-widget-text-editor" data-id="5ac8d63" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;none&quot;,&quot;_animation_delay&quot;:700}" data-widget_type="text-editor.default">
-                                                                    <div class="elementor-widget-container">
-
-                                                                        							Call us: 
-                                                                        <strong>(334) 336 3346</strong>
-                                                                    </div>
+                                                                <div class="elementor-element elementor-element-5ac8d63 animated-slow elementor-widget elementor-widget-text-editor" data-id="5ac8d63" data-element_type="widget" data-settings='{"_animation":"none","_animation_delay":700}' data-widget_type="text-editor.default">
+                                                                    <div class="elementor-widget-container">Call us: <strong>{{setting('phone')}}</strong></div>
                                                                 </div>
-                                                                <div class="elementor-element elementor-element-ac83ba4 animated-slow elementor-widget elementor-widget-text-editor" data-id="ac83ba4" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;none&quot;,&quot;_animation_delay&quot;:700}" data-widget_type="text-editor.default">
+                                                                <div
+                                                                    class="elementor-element elementor-element-ac83ba4 animated-slow elementor-widget elementor-widget-text-editor"
+                                                                    data-id="ac83ba4"
+                                                                    data-element_type="widget"
+                                                                    data-settings='{"_animation":"none","_animation_delay":700}'
+                                                                    data-widget_type="text-editor.default"
+                                                                >
                                                                     <div class="elementor-widget-container">
-                                                                        <a href="mailto:milmaa@example.com">milmaa@example.com</a>
+                                                                        <a href="mailto:{{setting('email')}}">{{setting('email')}}</a>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -7249,13 +7146,8 @@
                                                     <div class="elementor-container elementor-column-gap-no">
                                                         <div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-0f4cc35" data-id="0f4cc35" data-element_type="column">
                                                             <div class="elementor-widget-wrap elementor-element-populated">
-                                                                <div class="elementor-element elementor-element-b48c336 animated-slow elementor-widget elementor-widget-text-editor" data-id="b48c336" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;none&quot;,&quot;_animation_delay&quot;:900}" data-widget_type="text-editor.default">
-                                                                    <div class="elementor-widget-container">
-
-                                                                        							© 
-                                                                        <a href="https://themeforest.net/user/designthemes/portfolio">DesignThemes</a>
-                                                                         2022						
-                                                                    </div>
+                                                                <div class="elementor-element elementor-element-b48c336 animated-slow elementor-widget elementor-widget-text-editor" data-id="b48c336" data-element_type="widget" data-settings='{"_animation":"none","_animation_delay":900}' data-widget_type="text-editor.default">
+                                                                    <div class="elementor-widget-container">© <a href="https://thetailorsdev.com">The Tailors Dev</a> 2024</div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -7270,6 +7162,7 @@
                     </div>
                 </div>
             </footer>
+            
             <!-- **Footer - End** -->
         </div>
         <!-- **Inner Wrapper - End** -->

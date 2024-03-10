@@ -9,30 +9,55 @@ use App\Models\Cart;
 class CartController extends Controller
 {
     public function index() {
-        $carts = Cart::where('user_id', auth()->user()->id)->get();
-        return view('frontend.cart.index', compact('carts'));
+        if(auth()->check()) {
+            $totalPrice = Cart::where('user_id', auth()->user()->id)->sum(\DB::raw('price * quantity'));
+            $carts = Cart::where('user_id', auth()->user()->id)->get();
+            return view('frontend.cart.index', compact('carts', 'totalPrice'));
+        } else {
+            return redirect()->route('login.user');
+        }
+       
     }
 
     public function addToCart(Request $request) {
-        $cart = Cart::where('product_id',$request->product_id)->where('user_id',auth()->user()->id)->first();
-        if($cart == null) {
-            Cart::create(['product_id'=>$request->product_id,'user_id'=>auth()->user()->id,'quantity'=>$request->quantity,'price'=>$request->price]);
-            return redirect()->back()->with('success', 'add to cart successfily');
+        if(auth()->check()) {
+            $cart = Cart::where('product_id',$request->product_id)->where('user_id',auth()->user()->id)->first();
+            if($cart == null) {
+                Cart::create([
+                    'product_id'    => $request->product_id,
+                    'weight_id'     => $request->weight_id != null ? $request->weight_id : null,
+                    'ingredient_id' => $request->ingredient_id != null ? $request->ingredient_id : null,
+                    'user_id'       => auth()->user()->id,
+                    'quantity'      => $request->quantity,
+                    'price'         => $request->price,
+                ]);
+                return redirect()->back()->with('success', 'add to cart successfily');
+            } else {
+                return redirect()->back()->with('success', 'this product is exist in cart');
+            }
         } else {
-            return redirect()->back()->with('success', 'this product is exist in cart');
+            return redirect()->route('login.user');
         }
     }
 
     public function update(Request $request) {
-        $cart = Cart::find($request->cart_id);
-        $cart->update(['quantity' => $request->quantity]);
-        return redirect()->back()->with('success', 'update cart successfily');
+        if(auth()->check()) {
+            $cart = Cart::find($request->cart_id);
+            $cart->update(['quantity' => $request->quantity]);
+            return redirect()->back()->with('success', 'update cart successfily');
+        } else {
+            return redirect()->route('login.user');
+        }
 
     }
 
     public function remove($id) {
-        $cart = Cart::find($id);
-        $cart->delete();
-        return redirect()->back()->with('success', 'remove from cart successfily');
+        if(auth()->check()) {
+            $cart = Cart::find($id);
+            $cart->delete();
+            return redirect()->back()->with('success', 'remove from cart successfily');
+        } else {
+            return redirect()->route('login.user');
+        }
     }
 }
