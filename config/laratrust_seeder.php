@@ -22,6 +22,7 @@ return [
             'ingredients'   => 'c,r,u,d',
             'categories'    => 'c,r,u,d',
             'products'      => 'c,r,u,d',
+            'orders'        => 'c,r,u,d',
             'settings'      => 'c,r,u,d',
         ],
         'admin' => [],

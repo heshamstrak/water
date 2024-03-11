@@ -2,6 +2,11 @@
 
 <div id="post-1862" class="post-1862 page type-page status-publish hentry">
 	<div data-elementor-type="wp-page" data-elementor-id="1862" class="elementor elementor-1862" data-elementor-settings="[]">
+		@if (session('success'))
+		<div class="woocommerce-notices-wrapper">
+			<div class="woocommerce-message" role="alert"> {{session('success')}}</div>
+		</div>
+		@endif
 		<div class="elementor-section-wrap">
 			<section
 				class="elementor-section elementor-top-section elementor-element elementor-element-f0fbbf9 elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default"

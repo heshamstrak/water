@@ -6,7 +6,8 @@
         <div class="woocommerce-checkout-header">
             <div class="woocommerce-notices-wrapper"></div>
         </div>
-        <form name="checkout" method="post" class="checkout woocommerce-checkout" action="https://milmaa.wpengine.com/checkout/" enctype="multipart/form-data">
+        <form name="checkout" method="post" class="checkout woocommerce-checkout" action="{{route('order')}}" enctype="multipart/form-data">
+            @csrf @method('post')
             <div class="col2-set" id="customer_details">
                 <div class="col-1">
                     <div class="woocommerce-billing-fields">
@@ -19,7 +20,7 @@
                             <p class="form-row notes" id="order_comments_field" data-priority="">
                                 <label for="order_comments" class="">Order notes&nbsp;<span class="optional">(optional)</span></label>
                                 <span class="woocommerce-input-wrapper">
-                                    <textarea name="order_comments" class="input-text" id="order_comments" placeholder="Notes about your order, e.g. special notes for delivery." rows="2" cols="5"></textarea>
+                                    <textarea name="notes" class="input-text" id="order_comments" placeholder="Notes about your order, e.g. special notes for delivery." rows="2" cols="5"></textarea>
                                 </span>
                             </p>
                         </div>
@@ -31,22 +32,22 @@
                 <div id="order_review" class="woocommerce-checkout-review-order">
                     <table class="shop_table woocommerce-checkout-review-order-table">
                         <tbody>
-                            @foreach(auth()->user()->carts() as $cart)
+                            @foreach(auth()->user()->carts as $cart)
                             <tr class="cart_item">
                                 <td class="product-name">
-                                    <img fetchpriority="high" decoding="async" width="488" height="1000" src="https://milmaa.wpengine.com/wp-content/uploads/2022/01/shop-9.png" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"   />
+                                    <img fetchpriority="high" decoding="async" width="488" height="1000" src="{{ Storage::url('uploads/products/'.$cart->product_id.'/'.$cart->product->images->first()->image) }}" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"   />
                                     <div class="checkout-review-order-details">
-                                        <span class="checkout-review-order-title">Almond Milk - Almond, 150 ml</span> <strong class="product-quantity">&times;&nbsp;1</strong>
+                                        <span class="checkout-review-order-title">{{$cart->product->name . ' - ' . $cart->product->category->name . ', ' . $cart->weight->name}}</span> <strong class="product-quantity">&times;&nbsp;{{$cart->quantity}}</strong>
                                         <div class="product-total">
                                             <span class="woocommerce-Price-amount amount">
-                                                <bdi><span class="woocommerce-Price-currencySymbol">&#8377;</span>90.00</bdi>
+                                                <bdi><span class="woocommerce-Price-currencySymbol">£</span>{{$cart->price * $cart->quantity}}</bdi>
                                             </span>
                                         </div>
                                     </div>
                                 </td>
                                 <td class="product-total">
                                     <span class="woocommerce-Price-amount amount">
-                                        <bdi><span class="woocommerce-Price-currencySymbol">&#8377;</span>90.00</bdi>
+                                        <bdi><span class="woocommerce-Price-currencySymbol">£</span>{{$cart->price * $cart->quantity}}.00</bdi>
                                     </span>
                                 </td>
                             </tr>
@@ -57,19 +58,8 @@
                                 <th>Subtotal</th>
                                 <td>
                                     <span class="woocommerce-Price-amount amount">
-                                        <bdi><span class="woocommerce-Price-currencySymbol">&#8377;</span>90.00</bdi>
+                                        <bdi><span class="woocommerce-Price-currencySymbol">£</span>{{$totalPrice}}</bdi>
                                     </span>
-                                </td>
-                            </tr>
-                            <tr class="woocommerce-shipping-totals shipping">
-                                <th>Shipping</th>
-                                <td data-title="Shipping">
-                                    <ul id="shipping_method" class="woocommerce-shipping-methods">
-                                        <li>
-                                            <input type="hidden" name="shipping_method[0]" data-index="0" id="shipping_method_0_flat_rate1" value="flat_rate:1" class="shipping_method" />
-                                            <label for="shipping_method_0_flat_rate1">Flat rate</label>
-                                        </li>
-                                    </ul>
                                 </td>
                             </tr>
                             <tr class="order-total">
@@ -77,7 +67,7 @@
                                 <td>
                                     <strong>
                                         <span class="woocommerce-Price-amount amount">
-                                            <bdi><span class="woocommerce-Price-currencySymbol">&#8377;</span>90.00</bdi>
+                                            <bdi><span class="woocommerce-Price-currencySymbol">£</span>{{$totalPrice}}</bdi>
                                         </span>
                                     </strong>
                                 </td>

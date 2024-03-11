@@ -10,7 +10,7 @@
         <script>
             document.documentElement.className = document.documentElement.className + " yes-js js_active js";
         </script>
-        <title>Almond Milk &#8211; Milmaa</title>
+        <title>{{$product->name}} &#8211; MWater</title>
         <meta name="robots" content="noindex, nofollow" />
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
         <link rel="alternate" type="application/rss+xml" title="Milmaa &raquo; Feed" href="https://milmaa.wpengine.com/feed/" />
@@ -566,7 +566,7 @@
                                                                     >
                                                                         <div class="elementor-widget-container">
                                                         
-                                                                            <img src="https://milmaa.wpengine.com/wp-content/uploads/2022/02/logo.png" title="" alt="logo" />
+                                                                            <img src="{{Storage::url('public/uploads/settings/'.setting('logo_image'))}}" title="" alt="logo" />
                                                                         </div>
                                                                     </div>
                                                                     <div

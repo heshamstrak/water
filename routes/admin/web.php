@@ -54,14 +54,19 @@ Route::middleware(['auth','role:admin|super_admin'])->group(function () {
             Route::delete('/products/bulk_delete', 'ProductController@bulkDelete')->name('products.bulk_delete');
             Route::resource('products', 'ProductController');
 
+            //Product routes
+            Route::get('/orders/data', 'OrderController@data')->name('orders.data');
+            Route::delete('/orders/bulk_delete', 'OrderController@bulkDelete')->name('ordersorders.bulk_delete');
+            Route::resource('orders', 'OrderController');
 
 
-            // //Contact Us routes
-            // Route::get('/contacts/data', 'ContactController@data')->name('contacts.data');
-            // Route::delete('/contacts/bulk_delete', 'ContactController@bulkDelete')->name('contacts.bulk_delete');
-            // Route::get('/contacts/{contact}', 'ContactController@reply')->name('contacts.reply');
-            // Route::post('/contacts/{contact}', 'ContactController@store_reply')->name('contacts.reply.store');
-            // Route::resource('contacts', 'ContactController');
+
+            //Contact Us routes
+            Route::get('/contacts/data', 'ContactController@data')->name('contacts.data');
+            Route::delete('/contacts/bulk_delete', 'ContactController@bulkDelete')->name('contacts.bulk_delete');
+            Route::get('/contacts/reply/{contact}', 'ContactController@reply')->name('contacts.reply');
+            Route::post('/contacts/reply/{contact}', 'ContactController@store_reply')->name('contacts.reply.store');
+            Route::resource('contacts', 'ContactController');
 
             //setting routes
             Route::get('/settings/general', 'SettingController@general')->name('settings.general');

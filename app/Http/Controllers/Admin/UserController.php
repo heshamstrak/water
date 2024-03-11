@@ -26,8 +26,8 @@ class UserController extends Controller
 
     public function data()
     {
-        $users = User::where('type', 'user')->select();
-
+        $users = User::where('type', 'user')->get();
+        
         return DataTables::of($users)
             ->addColumn('record_select', 'admin.users.data_table.record_select')
             ->editColumn('created_at', function (User $user) {
@@ -51,7 +51,6 @@ class UserController extends Controller
         $requestData['password'] = bcrypt($request->password);
 
         User::create($requestData);
-
         session()->flash('success', __('site.added_successfully'));
         return redirect()->route('admin.users.index');
 

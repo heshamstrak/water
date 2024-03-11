@@ -63,7 +63,7 @@
                                                         <div class="mfx-search-menu-icon">
                                                             <a href="javascript:void(0)" class="mfx-search-icon"><i class="mfxicon-search"></i></a>
                                                             <div class="mfx-search-form-container">
-                                                                <form method="get" id="searchform" action="https://milmaa.wpengine.com/">
+                                                                <form method="get" id="searchform" action="{{route('home')}}">
                                                                     <input id="s" name="s" type="text" value="Enter Keyword" class="text_input" onblur="if(this.value==''){this.value='Enter Keyword';}" onfocus="if(this.value =='Enter Keyword') {this.value=''; }"/>
                                                                     <input name="submit" type="submit" value="Go" />
                                                                 </form>

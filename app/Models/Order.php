@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Cart extends Model
+class Order extends Model
 {
     use HasFactory;
-    protected $fillable = ['user_id', 'product_id', 'quantity', 'price', 'weight_id', 'ingredient_id'];
+    protected $fillable = ['user_id', 'product_id', 'quantity', 'price', 'weight_id', 'ingredient_id', 'notes', 'type'];
 
     public function product()
     {
@@ -23,6 +23,11 @@ class Cart extends Model
     public function weight()
     {
         return $this->belongsTo(Weight::class);
+    }
+    
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
     
 }

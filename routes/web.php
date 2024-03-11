@@ -33,7 +33,9 @@ Route::get('/cart', [App\Http\Controllers\CartController::class, 'index'])->name
 Route::get('/cart/remove/{id}', [App\Http\Controllers\CartController::class, 'remove'])->name('cart.remove');
 Route::post('/cart/update', [App\Http\Controllers\CartController::class, 'update'])->name('cart.update');
 
-Route::view('checkout', 'frontend.checkout.checkout')->name('checkout');
+//Order Route
+Route::get('checkout', [App\Http\Controllers\OrderController::class, 'checkout'])->name('checkout');
+Route::post('order', [App\Http\Controllers\OrderController::class, 'order'])->name('order');
 
 //Blog Route
 Route::get('blog', [App\Http\Controllers\BlogController::class, 'index'])->name('blog.index');

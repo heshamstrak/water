@@ -1,8 +1,13 @@
 @extends('frontend.index')
 @section('content')
+@if (session('success'))
+<div class="woocommerce-notices-wrapper">
+    <div class="woocommerce-message" role="alert">{{session('success')}}</div>
+</div>
+@endif
 <header class="woocommerce-products-header"></header>
 <div class="woocommerce-notices-wrapper"></div>
-<div class="product-loop-sorting"  style="display: inline; width 30%;">
+{{-- <div class="product-loop-sorting"  style="display: inline; width 30%;">
     <div class="product-loop-sorting-item"  style="display: inline;">
         <form class="woocommerce-ordering" method="get" style="width: 30%; display: inline-block;">
             <select name="orderby" class="orderby select2-hidden-accessible" aria-label="Shop order" data-select2-id="select2-data-1-kuzj" tabindex="-1" aria-hidden="true">
@@ -21,7 +26,7 @@
             Showing 1–6 of {{count($products)}} results
         </p>
     </div>
-</div>
+</div> --}}
 <section class="elementor-section elementor-top-section elementor-element elementor-element-533c407 elementor-section-full_width elementor-section-stretched elementor-section-height-default elementor-section-height-default" data-id="533c407" data-element_type="section" data-settings='{"stretch_section":"section-stretched","background_background":"classic"}'>
     <div class="elementor-container elementor-column-gap-default">
         <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-503b180" data-id="503b180" data-element_type="column">
