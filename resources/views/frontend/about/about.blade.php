@@ -28,7 +28,7 @@
                                         <div class="elementor-widget-wrap elementor-element-populated">
                                             <div class="elementor-element elementor-element-8a5a3fb animated-slow elementor-widget elementor-widget-heading" data-id="8a5a3fb" data-element_type="widget" data-settings='{"_animation":"none","_animation_delay":600}' data-widget_type="heading.default">
                                                 <div class="elementor-widget-container">
-                                                    <h2 class="elementor-heading-title elementor-size-default">{{setting('title_facts')}}</h2>
+                                                    <h2 class="elementor-heading-title elementor-size-default" style="color: #62b7d6">{{setting('title_facts')}}</h2>
                                                 </div>
                                             </div>
                                         </div>
@@ -71,21 +71,26 @@
                                 <div class="elementor-container elementor-column-gap-default">
                                     <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-67f5651" data-id="67f5651" data-element_type="column">
                                         <div class="elementor-widget-wrap elementor-element-populated">
-                                            <div class="elementor-element elementor-element-9c9380a elementor-position-left elementor-vertical-align-middle animated-slow elementor-invisible elementor-widget elementor-widget-image-box" data-id="9c9380a" data-element_type="widget" data-settings='{"_animation":"fadeInLeft","_animation_delay":500}' data-widget_type="image-box.default">
+                                            @foreach($products->where('type', 3) as $product)
+                                            @php
+                                                $routeName = route('shop.single', ['slug' => str_replace(' ', '-', $product->name), 'product' => $product->id] );
+                                            @endphp
+                                            <div class="elementor-element elementor-element-d22edb7 elementor-position-left elementor-vertical-align-middle animated-slow elementor-invisible elementor-widget elementor-widget-image-box" data-id="d22edb7" data-element_type="widget" data-settings='{"_animation":"fadeInLeft","_animation_delay":500}' data-widget_type="image-box.default">
                                                 <div class="elementor-widget-container">
                                                     <div class="elementor-image-box-wrapper">
                                                         <figure class="elementor-image-box-img">
-                                                            <a href="https://milmaa.wpengine.com/product/soya-milk/">
-                                                                <img decoding="async" width="220" height="190" src="https://milmaa.wpengine.com/wp-content/uploads/2021/12/ico-1.png" class="attachment-full size-full" alt=""/>
+                                                            <a href="{{$routeName}}">
+                                                                <img loading="lazy" decoding="async" width="220" height="190" src="{{$product->icon_path}}" class="attachment-full size-full"/>
                                                             </a>
                                                         </figure>
                                                         <div class="elementor-image-box-content">
-                                                            <h3 class="elementor-image-box-title"><a href="https://milmaa.wpengine.com/product/soya-milk/">Soy Milk</a></h3>
-                                                            <p class="elementor-image-box-description">Help support healthy muscles and organs. Rich in Omega3</p>
+                                                            <h3 class="elementor-image-box-title"><a href="{{$routeName}}">{{$product->name}}</a></h3>
+                                                            <p class="elementor-image-box-description">{{Str::words($product->main_description, 10, ' ....')}}</p>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                            @endforeach
                                         </div>
                                     </div>
                                     <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-dbef420" data-id="dbef420" data-element_type="column">
@@ -134,13 +139,13 @@
                     </div>
                 </div>
             </section>
-            <section class="elementor-section elementor-top-section elementor-element elementor-element-533c407 elementor-section-full_width elementor-section-stretched elementor-section-height-default elementor-section-height-default" data-id="533c407" data-element_type="section" data-settings='{"stretch_section":"section-stretched","background_background":"classic"}'>
+            <section class="elementor-section elementor-top-section elementor-element elementor-element-533c407 elementor-section-full_width elementor-section-stretched elementor-section-height-default elementor-section-height-default" data-id="533c407" data-element_type="section" data-settings='{"stretch_section":"section-stretched","background_background":"classic"}' style="background-color: #62b7d6">
                 <div class="elementor-container elementor-column-gap-default">
                     <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-503b180" data-id="503b180" data-element_type="column">
                         <div class="elementor-widget-wrap elementor-element-populated">
                             <div class="elementor-element elementor-element-65bd9cc fullwidth-title animated-slow elementor-invisible elementor-widget elementor-widget-heading" data-id="65bd9cc" data-element_type="widget" data-settings='{"_animation":"bounceIn","_animation_delay":600}' data-widget_type="heading.default">
                                 <div class="elementor-widget-container">
-                                    <h2 class="elementor-heading-title elementor-size-default">{{setting('title_slogan')}}</h2>
+                                    <h2 class="elementor-heading-title elementor-size-default" style="color:#fff">{{setting('title_slogan')}}</h2>
                                 </div>
                             </div>
                         </div>

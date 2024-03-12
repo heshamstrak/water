@@ -5,7 +5,7 @@
     --mfxSecondaryColorRgb: 235, 70, 148;
     --mfxTertiaryColor: #ebd4ae;
     --mfxTertiaryColorRgb: 235, 212, 174;
-    --mfxBodyBGColor: #f5ead8;
+    --mfxBodyBGColor: #66f3ed;
     --mfxBodyBGColorRgb: 245, 234, 216;
     --mfxBodyTxtColor: #4b4b4b;
     --mfxBodyTxtColorRgb: 75, 75, 75;
@@ -98,7 +98,7 @@ body {
     --wp--preset--color--primary: #023373;
     --wp--preset--color--secondary: #eb4694;
     --wp--preset--color--tertiary: #ebd4ae;
-    --wp--preset--color--body-bg: #f5ead8;
+    --wp--preset--color--body-bg: #66f3ed;
     --wp--preset--color--body-text: #4b4b4b;
     --wp--preset--color--alternate: #023373;
     --wp--preset--color--transparent: rgba(0, 0, 0, 0);
@@ -392,7 +392,7 @@ body {
     --wp--preset--color--primary: #023373;
     --wp--preset--color--secondary: #eb4694;
     --wp--preset--color--tertiary: #ebd4ae;
-    --wp--preset--color--body-bg: #f5ead8;
+    --wp--preset--color--body-bg: #66f3ed;
     --wp--preset--color--body-text: #4b4b4b;
     --wp--preset--color--alternate: #023373;
     --wp--preset--color--transparent: rgba(0, 0, 0, 0);
@@ -1059,7 +1059,7 @@ body .is-layout-grid > * {
     border-radius: 50%;
 }
 body.custom-background {
-    background-color: #f5ead8;
+    background-color: #66f3ed;
 }
 
 .woocommerce-product-gallery {
@@ -1369,7 +1369,7 @@ h1.entry-title {
 
 .elementor-22218 .elementor-element.elementor-element-9db23d0:not(.elementor-motion-effects-element-type-background),
 .elementor-22218 .elementor-element.elementor-element-9db23d0 > .elementor-motion-effects-container > .elementor-motion-effects-layer {
-    background-color: #f5ead8;
+    background-color: #66f3ed;
 }
 .elementor-22218 .elementor-element.elementor-element-9db23d0 {
     transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
@@ -1384,7 +1384,7 @@ h1.entry-title {
 }
 .elementor-8 .elementor-element.elementor-element-42dc83b:not(.elementor-motion-effects-element-type-background),
 .elementor-8 .elementor-element.elementor-element-42dc83b > .elementor-motion-effects-container > .elementor-motion-effects-layer {
-    background-color: #f2daac;
+    background-color: #62b7d6;
 }
 .elementor-8 .elementor-element.elementor-element-42dc83b {
     transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
@@ -6355,6 +6355,7 @@ div#milmaa-51e6d15 img {
     width: calc(100vw);
     -moz-transform: translateX(-50%);
     -webkit-transform: translateX(-50%);
+    background-color: #62b7d6;
 }
 .woocommerce div.product .mfx-product-tabs .woocommerce-tabs ul.tabs {
     clear: both;
@@ -12496,6 +12497,7 @@ div[class*="thumb-container"] .swiper-wrapper .swiper-slide.swiper-slide-active 
     width: calc(100vw);
     -moz-transform: translateX(-50%);
     -webkit-transform: translateX(-50%);
+    background-color: #62b7d6;
 }
 .woocommerce div.product .mfx-product-tabs .woocommerce-tabs ul.tabs {
     clear: both;

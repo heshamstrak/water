@@ -9,7 +9,7 @@
     </div>
     <div class="card-body">
         
-        <form method="post" action="{{ route('admin.'.$name.'.update', $blog->id) }}">
+        <form method="post" action="{{ route('admin.'.$name.'.update', $blog->id) }}"  enctype="multipart/form-data">
             <div class="card-body">
                 @csrf
                 @method('put')

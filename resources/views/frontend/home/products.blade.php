@@ -1,10 +1,10 @@
-<section class="elementor-section elementor-top-section elementor-element elementor-element-533c407 elementor-section-full_width elementor-section-stretched elementor-section-height-default elementor-section-height-default" data-id="533c407" data-element_type="section" data-settings='{"stretch_section":"section-stretched","background_background":"classic"}'>
+<section class="elementor-section elementor-top-section elementor-element elementor-element-533c407 elementor-section-full_width elementor-section-stretched elementor-section-height-default elementor-section-height-default" data-id="533c407" data-element_type="section" data-settings='{"stretch_section":"section-stretched","background_background":"classic"}' style="background-color: #62b7d6;">
     <div class="elementor-container elementor-column-gap-default">
         <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-503b180" data-id="503b180" data-element_type="column">
             <div class="elementor-widget-wrap elementor-element-populated">
                 <div class="elementor-element elementor-element-65bd9cc fullwidth-title animated-slow elementor-invisible elementor-widget elementor-widget-heading" data-id="65bd9cc" data-element_type="widget" data-settings='{"_animation":"bounceIn","_animation_delay":600}' data-widget_type="heading.default">
                     <div class="elementor-widget-container">
-                        <h2 class="elementor-heading-title elementor-size-default">{{setting('title_slogan')}}</h2>
+                        <h2 class="elementor-heading-title elementor-size-default" style="color:#fff">{{setting('title_slogan')}}</h2>
                     </div>
                 </div>
             </div>

@@ -29,111 +29,16 @@
                         </style>
                         <div class="elementor-image-gallery">
                             <div id="gallery-1" class="gallery galleryid-7 gallery-columns-4 gallery-size-shop_catalog">
-                                <figure class="gallery-item">
-                                    <div class="gallery-icon portrait">
-                                        <a
-                                            data-elementor-open-lightbox="yes"
-                                            data-elementor-lightbox-slideshow="e2a7277"
-                                            data-elementor-lightbox-title="blog-1"
-                                            href="https://milmaa.wpengine.com/wp-content/uploads/2021/12/blog-1.jpg"
-                                        >
-                                            <img
-                                                loading="lazy"
-                                                decoding="async"
-                                                width="1000"
-                                                height="1000"
-                                                src="https://milmaa.wpengine.com/wp-content/uploads/2021/12/blog-1-1000x1000.jpg"
-                                                class="attachment-shop_catalog size-shop_catalog"
-                                                alt=""
-                                                srcset="
-                                                    https://milmaa.wpengine.com/wp-content/uploads/2021/12/blog-1-1000x1000.jpg 1000w,
-                                                    https://milmaa.wpengine.com/wp-content/uploads/2021/12/blog-1-150x150.jpg    150w,
-                                                    https://milmaa.wpengine.com/wp-content/uploads/2021/12/blog-1-600x600.jpg    600w,
-                                                    https://milmaa.wpengine.com/wp-content/uploads/2021/12/blog-1-100x100.jpg    100w
-                                                "
-                                                sizes="(max-width: 1000px) 100vw, 1000px"
-                                            />
-                                        </a>
-                                    </div>
-                                </figure>
-                                <figure class="gallery-item">
-                                    <div class="gallery-icon portrait">
-                                        <a
-                                            data-elementor-open-lightbox="yes"
-                                            data-elementor-lightbox-slideshow="e2a7277"
-                                            data-elementor-lightbox-title="blog-8"
-                                            href="https://milmaa.wpengine.com/wp-content/uploads/2022/01/blog-8.jpg"
-                                        >
-                                            <img
-                                                loading="lazy"
-                                                decoding="async"
-                                                width="1000"
-                                                height="1000"
-                                                src="https://milmaa.wpengine.com/wp-content/uploads/2022/01/blog-8-1000x1000.jpg"
-                                                class="attachment-shop_catalog size-shop_catalog"
-                                                alt=""
-                                                srcset="
-                                                    https://milmaa.wpengine.com/wp-content/uploads/2022/01/blog-8-1000x1000.jpg 1000w,
-                                                    https://milmaa.wpengine.com/wp-content/uploads/2022/01/blog-8-150x150.jpg    150w,
-                                                    https://milmaa.wpengine.com/wp-content/uploads/2022/01/blog-8-100x100.jpg    100w
-                                                "
-                                                sizes="(max-width: 1000px) 100vw, 1000px"
-                                            />
-                                        </a>
-                                    </div>
-                                </figure>
-                                <figure class="gallery-item">
-                                    <div class="gallery-icon portrait">
-                                        <a
-                                            data-elementor-open-lightbox="yes"
-                                            data-elementor-lightbox-slideshow="e2a7277"
-                                            data-elementor-lightbox-title="blog-6"
-                                            href="https://milmaa.wpengine.com/wp-content/uploads/2022/01/blog-6.jpg"
-                                        >
-                                            <img
-                                                loading="lazy"
-                                                decoding="async"
-                                                width="1000"
-                                                height="1000"
-                                                src="https://milmaa.wpengine.com/wp-content/uploads/2022/01/blog-6-1000x1000.jpg"
-                                                class="attachment-shop_catalog size-shop_catalog"
-                                                alt=""
-                                                srcset="
-                                                    https://milmaa.wpengine.com/wp-content/uploads/2022/01/blog-6-1000x1000.jpg 1000w,
-                                                    https://milmaa.wpengine.com/wp-content/uploads/2022/01/blog-6-150x150.jpg    150w,
-                                                    https://milmaa.wpengine.com/wp-content/uploads/2022/01/blog-6-100x100.jpg    100w
-                                                "
-                                                sizes="(max-width: 1000px) 100vw, 1000px"
-                                            />
-                                        </a>
-                                    </div>
-                                </figure>
-                                <figure class="gallery-item">
-                                    <div class="gallery-icon portrait">
-                                        <a
-                                            data-elementor-open-lightbox="yes"
-                                            data-elementor-lightbox-slideshow="e2a7277"
-                                            data-elementor-lightbox-title="blog-5"
-                                            href="https://milmaa.wpengine.com/wp-content/uploads/2022/01/blog-5.jpg"
-                                        >
-                                            <img
-                                                loading="lazy"
-                                                decoding="async"
-                                                width="1000"
-                                                height="1000"
-                                                src="https://milmaa.wpengine.com/wp-content/uploads/2022/01/blog-5-1000x1000.jpg"
-                                                class="attachment-shop_catalog size-shop_catalog"
-                                                alt=""
-                                                srcset="
-                                                    https://milmaa.wpengine.com/wp-content/uploads/2022/01/blog-5-1000x1000.jpg 1000w,
-                                                    https://milmaa.wpengine.com/wp-content/uploads/2022/01/blog-5-150x150.jpg    150w,
-                                                    https://milmaa.wpengine.com/wp-content/uploads/2022/01/blog-5-100x100.jpg    100w
-                                                "
-                                                sizes="(max-width: 1000px) 100vw, 1000px"
-                                            />
-                                        </a>
-                                    </div>
-                                </figure>
+                                @foreach ($galleries as $key => $gallery)
+                                    <figure class="gallery-item">
+                                        <div class="gallery-icon portrait">
+                                            <a data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="e2a7277" data-elementor-lightbox-title="gallery-{{$key+1}}" href="{{$gallery->image_path}}">
+                                                <img loading="lazy" decoding="async" width="1000" height="1000" src="{{$gallery->image_path}}" class="attachment-shop_catalog size-shop_catalog" sizes="(max-width: 1000px) 100vw, 1000px" />
+                                            </a>
+                                        </div>
+                                    </figure>
+                                @endforeach
+                      
                             </div>
                         </div>
                     </div>

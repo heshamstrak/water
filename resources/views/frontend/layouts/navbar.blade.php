@@ -3,7 +3,7 @@
         <div id="header-8" class="mfx-header-tpl header-8">
             <div data-elementor-type="wp-post" data-elementor-id="8" class="elementor elementor-8" data-elementor-settings="[]">
                 <div class="elementor-section-wrap">
-                    <section class="elementor-section elementor-top-section elementor-element elementor-element-42dc83b elementor-section-content-middle header-on-slider elementor-section-full_width elementor-section-stretched elementor-section-height-default elementor-section-height-default" data-id="42dc83b" data-element_type="section" data-settings='{"stretch_section":"section-stretched","background_background":"classic"}'>
+                    <section class="elementor-section elementor-top-section elementor-element elementor-element-42dc83b elementor-section-content-middle header-on-slider elementor-section-full_width elementor-section-stretched elementor-section-height-default elementor-section-height-default" data-id="42dc83b" data-element_type="section" data-settings='{"stretch_section":"section-stretched","background_background":"classic"}' style="background-color: #fff">
                         <div class="elementor-container elementor-column-gap-no">
                             <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-be8f0e0 logo-section" data-id="be8f0e0" data-element_type="column">
                                 <div class="elementor-widget-wrap elementor-element-populated">
@@ -95,3 +95,17 @@
         </div>
     </div>
 </header>
+
+<style>
+    .mfx-header-menu .mfx-primary-nav>li.current-menu-item>a, .mfx-header-menu .mfx-primary-nav>li.current-page-item>a, .mfx-header-menu .mfx-primary-nav>li.current-menu-ancestor>a, .mfx-header-menu .mfx-primary-nav>li.current-page-ancestor>a, .mfx-header-menu .mfx-primary-nav>li.current_menu_item>a, .mfx-header-menu .mfx-primary-nav>li.current_page_item>a, .mfx-header-menu .mfx-primary-nav>li.current_menu_ancestor>a, .mfx-header-menu .mfx-primary-nav>li.current_page_ancestor>a {
+        background-color: #62b7d6
+    }
+
+    .woocommerce ul.products.default-shop li.product .product-thumb .image:before {
+        background-color: #62b7d6;
+    }
+
+    .elementor-139 .elementor-element.elementor-element-e1cf60c:not(.elementor-motion-effects-element-type-background), .elementor-139 .elementor-element.elementor-element-e1cf60c > .elementor-motion-effects-container > .elementor-motion-effects-layer {
+        background-image: none !important;
+    }
+</style>

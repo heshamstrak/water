@@ -16,29 +16,18 @@
 				<div class="elementor-container elementor-column-gap-no">
 					<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-ee08579" data-id="ee08579" data-element_type="column">
 						<div class="elementor-widget-wrap elementor-element-populated">
-							<div
-								class="elementor-element elementor-element-72ab736 has-primary-color big-title animated-slow elementor-widget elementor-widget-heading"
-								data-id="72ab736"
-								data-element_type="widget"
-								data-settings='{"_animation":"none","_animation_delay":500}'
-								data-widget_type="heading.default"
-							>
+							<div class="elementor-element elementor-element-72ab736 has-primary-color big-title animated-slow elementor-widget elementor-widget-heading" data-id="72ab736" data-element_type="widget" data-settings='{"_animation":"none","_animation_delay":500}' data-widget_type="heading.default">
 								<div class="elementor-widget-container">
 									<h2 class="elementor-heading-title elementor-size-default">Come visit us</h2>
 								</div>
 							</div>
-							<section
-								class="elementor-section elementor-inner-section elementor-element elementor-element-b4bd2ef elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-								data-id="b4bd2ef"
-								data-element_type="section"
-							>
+							<section class="elementor-section elementor-inner-section elementor-element elementor-element-b4bd2ef elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="b4bd2ef" data-element_type="section">
 								<div class="elementor-container elementor-column-gap-default">
 									<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-9523308" data-id="9523308" data-element_type="column">
 										<div class="elementor-widget-wrap elementor-element-populated">
 											<div class="elementor-element elementor-element-5d01b15 elementor-widget elementor-widget-text-editor" data-id="5d01b15" data-element_type="widget" data-widget_type="text-editor.default">
 												<div class="elementor-widget-container">
 													<style>
-														/*! elementor - v3.5.5 - 03-02-2022 */
 														.elementor-widget-text-editor.elementor-drop-cap-view-stacked .elementor-drop-cap{background-color:#818a91;color:#fff}.elementor-widget-text-editor.elementor-drop-cap-view-framed .elementor-drop-cap{color:#818a91;border:3px solid;background-color:transparent}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap{margin-top:8px}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap-letter{width:1em;height:1em}.elementor-widget-text-editor .elementor-drop-cap{float:left;text-align:center;line-height:1;font-size:50px}.elementor-widget-text-editor .elementor-drop-cap-letter{display:inline-block}
 													</style>
 													<strong>{{setting('address')}}</strong>
@@ -46,11 +35,7 @@
 											</div>
 										</div>
 									</div>
-									<div
-										class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-64ad4e8 elementor-hidden-tablet elementor-hidden-mobile_extra elementor-hidden-mobile"
-										data-id="64ad4e8"
-										data-element_type="column"
-									>
+									<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-64ad4e8 elementor-hidden-tablet elementor-hidden-mobile_extra elementor-hidden-mobile" data-id="64ad4e8" data-element_type="column">
 										<div class="elementor-widget-wrap"></div>
 									</div>
 								</div>
@@ -115,71 +100,17 @@
 					</div>
 					<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-bdf5d16" data-id="bdf5d16" data-element_type="column">
 						<div class="elementor-widget-wrap elementor-element-populated">
-							<div
-								class="elementor-element elementor-element-c55af87 res-hide position-behind animated-slow elementor-absolute elementor-widget__width-auto elementor-widget elementor-widget-image animated zoomIn"
-								data-id="c55af87"
-								data-element_type="widget"
-								data-settings='{"_animation":"zoomIn","_animation_delay":500,"_position":"absolute"}'
-								data-widget_type="image.default"
-							>
+							<div class="elementor-element elementor-element-8b7a73e animated-slow elementor-widget elementor-widget-image animated fadeIn" data-id="8b7a73e" data-element_type="widget" data-settings='{"_animation":"fadeIn"}' data-widget_type="image.default">
 								<div class="elementor-widget-container">
-									<style>
-										/*! elementor - v3.5.5 - 03-02-2022 */
-										.elementor-widget-image{text-align:center}.elementor-widget-image a{display:inline-block}.elementor-widget-image a img[src$=".svg"]{width:48px}.elementor-widget-image img{vertical-align:middle;display:inline-block}
-									</style>
-									<img
-										fetchpriority="high"
-										decoding="async"
-										width="366"
-										height="347"
-										src="https://milmaa.wpengine.com/wp-content/uploads/2021/12/img-21.png"
-										class="attachment-full size-full"
-										alt=""
-										srcset="https://milmaa.wpengine.com/wp-content/uploads/2021/12/img-21.png 366w, https://milmaa.wpengine.com/wp-content/uploads/2021/12/img-21-300x284.png 300w"
-										sizes="(max-width: 366px) 100vw, 366px"
-									/>
+									<img decoding="async" width="654" height="865" src="{{Storage::url('public/uploads/settings/'.setting('contact_image'))}}" class="attachment-full size-full" sizes="(max-width: 654px) 100vw, 654px"/>
 								</div>
 							</div>
-							<div
-								class="elementor-element elementor-element-8b7a73e animated-slow elementor-widget elementor-widget-image animated fadeIn"
-								data-id="8b7a73e"
-								data-element_type="widget"
-								data-settings='{"_animation":"fadeIn"}'
-								data-widget_type="image.default"
-							>
-								<div class="elementor-widget-container">
-									<img
-										decoding="async"
-										width="654"
-										height="865"
-										src="https://milmaa.wpengine.com/wp-content/uploads/2021/12/img-20.png"
-										class="attachment-full size-full"
-										alt=""
-										srcset="https://milmaa.wpengine.com/wp-content/uploads/2021/12/img-20.png 654w, https://milmaa.wpengine.com/wp-content/uploads/2021/12/img-20-227x300.png 227w"
-										sizes="(max-width: 654px) 100vw, 654px"
-									/>
-								</div>
-							</div>
-							<div
-								class="elementor-element elementor-element-00e80a9 res-hide position-behind animated-slow elementor-absolute elementor-widget__width-auto elementor-widget elementor-widget-image animated zoomIn"
-								data-id="00e80a9"
-								data-element_type="widget"
-								data-settings='{"_animation":"zoomIn","_animation_delay":900,"_position":"absolute"}'
-								data-widget_type="image.default"
-							>
-								<div class="elementor-widget-container">
-									<img decoding="async" width="191" height="202" src="https://milmaa.wpengine.com/wp-content/uploads/2021/12/img-22.png" class="attachment-full size-full" alt="" />
-								</div>
-							</div>
+					
 						</div>
 					</div>
 				</div>
 			</section>
-			<section
-				class="elementor-section elementor-top-section elementor-element elementor-element-1d3f3a4 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-				data-id="1d3f3a4"
-				data-element_type="section"
-			>
+			<section class="elementor-section elementor-top-section elementor-element elementor-element-1d3f3a4 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="1d3f3a4" data-element_type="section">
 				<div class="elementor-container elementor-column-gap-default">
 					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-4c6e7d5" data-id="4c6e7d5" data-element_type="column">
 						<div class="elementor-widget-wrap elementor-element-populated">
@@ -194,13 +125,7 @@
 					</div>
 				</div>
 			</section>
-			<section
-				class="elementor-section elementor-top-section elementor-element elementor-element-80f9b95 newsletter-section elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-				data-id="80f9b95"
-				data-element_type="section"
-				data-settings='{"background_background":"classic"}'
-			>
-			</section>
+
 		</div>
 	</div>
 </div>

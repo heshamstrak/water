@@ -9,6 +9,17 @@
     </div>
     <div class="card-body">
         {!!$order->notes != null ? '<h4>'.$order->notes.'</h4>' : ''!!}
+        <div class="row">
+            <div class="col-md-4">
+                <h6>User Name : {{$order->user->name}}</h6>
+            </div>
+            <div class="col-md-4">
+                <h6>Phone : {{$order->user->phone}}</h6>
+            </div>
+            <div class="col-md-4">
+                <h6>Address : {{$order->user->address_one . ', ' . $order->user->city }}{{$order->user->address_two != null ? ' | ' . $order->user->address_two . ', ' . $order->user->city : ''}}</h6>
+            </div>
+        </div>
         <hr>
         <table class="table">
             <thead>

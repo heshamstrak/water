@@ -243,7 +243,7 @@
         --wp--preset--color--primary: #023373;
         --wp--preset--color--secondary: #eb4694;
         --wp--preset--color--tertiary: #ebd4ae;
-        --wp--preset--color--body-bg: #f5ead8;
+        --wp--preset--color--body-bg: #66f3ed;
         --wp--preset--color--body-text: #4b4b4b;
         --wp--preset--color--alternate: #023373;
         --wp--preset--color--transparent: rgba(0, 0, 0, 0);
@@ -627,7 +627,7 @@
         --mfxSecondaryColorRgb: 235, 70, 148;
         --mfxTertiaryColor: #ebd4ae;
         --mfxTertiaryColorRgb: 235, 212, 174;
-        --mfxBodyBGColor: #f5ead8;
+        --mfxBodyBGColor: #66f3ed;
         --mfxBodyBGColorRgb: 245, 234, 216;
         --mfxBodyTxtColor: #4b4b4b;
         --mfxBodyTxtColorRgb: 75, 75, 75;
@@ -5489,7 +5489,7 @@
     </noscript>
     <style type="text/css" id="custom-background-css">
     body.custom-background {
-        background-color: #f5ead8;
+        background-color: #66f3ed;
     }
     </style>
     <link rel="icon" href="https://milmaa.wpengine.com/wp-content/uploads/2021/12/favicon.png" sizes="32x32"/>

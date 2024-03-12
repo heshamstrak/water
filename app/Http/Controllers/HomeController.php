@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Blog;
 use App\Models\Product;
+use App\Models\Gallery;
 class HomeController extends Controller
 {
 
@@ -12,6 +13,7 @@ class HomeController extends Controller
     {
         $blogs = Blog::latest()->take(4)->get();
         $products = Product::latest()->take(3)->get();
-        return view('frontend.home', compact('blogs', 'products'));
+        $galleries = Gallery::get();
+        return view('frontend.home', compact('blogs', 'products', 'galleries'));
     }
 }

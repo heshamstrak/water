@@ -54,10 +54,15 @@ Route::middleware(['auth','role:admin|super_admin'])->group(function () {
             Route::delete('/products/bulk_delete', 'ProductController@bulkDelete')->name('products.bulk_delete');
             Route::resource('products', 'ProductController');
 
-            //Product routes
+            //Orders routes
             Route::get('/orders/data', 'OrderController@data')->name('orders.data');
-            Route::delete('/orders/bulk_delete', 'OrderController@bulkDelete')->name('ordersorders.bulk_delete');
+            Route::delete('/orders/bulk_delete', 'OrderController@bulkDelete')->name('orders.bulk_delete');
             Route::resource('orders', 'OrderController');
+
+            //Galleries routes
+            Route::get('/galleries/data', 'GalleryController@data')->name('galleries.data');
+            Route::delete('/galleries/bulk_delete', 'GalleryController@bulkDelete')->name('galleries.bulk_delete');
+            Route::resource('galleries', 'GalleryController');
 
 
 
