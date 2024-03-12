@@ -63,7 +63,7 @@
                <div class="brand flex-column-auto " id="kt_brand">
                   <!--begin::Logo-->
                   <a href="{{route('admin.home')}}" class="brand-logo">
-                  <img alt="Logo" src="{{Storage::url('public/uploads/settings/'.setting('logo_image'))}}"/>
+                  <img alt="Logo" src="{{Storage::url('public/uploads/settings/'.setting('logo_image'))}}" style="width: 185px"/>
                   </a>
                   <!--end::Logo-->
                   <!--begin::Toggle-->
