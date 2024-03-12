@@ -45,7 +45,7 @@
         @php
             $routeName = route('shop.single', ['slug' => str_replace(' ', '-', $product->name), 'product' => $product->id] );
         @endphp
-        <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-639d5db mfx-custom-image-caption" data-id="639d5db" data-element_type="column">
+        <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-639d5db mfx-custom-image-caption" data-id="639d5db" data-element_type="column" style="background-color: #62b7d6">
             <div class="elementor-widget-wrap elementor-element-populated">
                 <div class="elementor-element elementor-element-5a84dd2 animated-slow elementor-invisible elementor-widget elementor-widget-image" data-id="5a84dd2" data-element_type="widget" data-settings='{"_animation":"fadeIn"}' data-widget_type="image.default">
                     <div class="elementor-widget-container">
