@@ -23,7 +23,7 @@
                             <div class="elementor-widget-wrap elementor-element-populated">
                                 <div class="elementor-element elementor-element-8a5a3fb animated-slow elementor-invisible elementor-widget elementor-widget-heading" data-id="8a5a3fb" data-element_type="widget" data-settings='{"_animation":"fadeIn","_animation_delay":600}' data-widget_type="heading.default">
                                     <div class="elementor-widget-container">
-                                        <h2 class="elementor-heading-title elementor-size-default">{{setting('title_facts')}}</h2>
+                                        <h2 class="elementor-heading-title elementor-size-default" style="color:#62b7d6">{{setting('title_facts')}}</h2>
                                     </div>
                                 </div>
                             </div>
