@@ -166,7 +166,7 @@ body {
     --wp--preset--color--primary: #023373;
     --wp--preset--color--secondary: #eb4694;
     --wp--preset--color--tertiary: #ebd4ae;
-    --wp--preset--color--body-bg: #66f3ed;
+    --wp--preset--color--body-bg: #fff;
     --wp--preset--color--body-text: #4b4b4b;
     --wp--preset--color--alternate: #023373;
     --wp--preset--color--transparent: rgba(0, 0, 0, 0);
@@ -726,7 +726,7 @@ form.submitting .wpcf7-spinner {
     --mfxSecondaryColorRgb: 235, 70, 148;
     --mfxTertiaryColor: #ebd4ae;
     --mfxTertiaryColorRgb: 235, 212, 174;
-    --mfxBodyBGColor: #66f3ed;
+    --mfxBodyBGColor: #fff;
     --mfxBodyBGColorRgb: 245, 234, 216;
     --mfxBodyTxtColor: #4b4b4b;
     --mfxBodyTxtColorRgb: 75, 75, 75;
@@ -1836,7 +1836,7 @@ h1.entry-title {
 }
 
 body.custom-background {
-    background-color: #66f3ed;
+    background-color: #fff;
 }
 
 div#milmaa-51e6d15 img {
@@ -2344,7 +2344,7 @@ div#milmaa-51e6d15 img {
 
 .elementor-22218 .elementor-element.elementor-element-9db23d0:not(.elementor-motion-effects-element-type-background),
 .elementor-22218 .elementor-element.elementor-element-9db23d0 > .elementor-motion-effects-container > .elementor-motion-effects-layer {
-    background-color: #66f3ed;
+    background-color: #fff;
 }
 .elementor-22218 .elementor-element.elementor-element-9db23d0 {
     transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
