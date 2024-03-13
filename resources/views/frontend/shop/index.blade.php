@@ -83,18 +83,18 @@
                                                             @if($product->discount_type == 0)
                                                             <del aria-hidden="true">
                                                                 <span class="woocommerce-Price-amount amount">
-                                                                    <bdi><span class="woocommerce-Price-currencySymbol">£</span>{{$product->price}}</bdi>
+                                                                    <bdi><span class="woocommerce-Price-currencySymbol"> EGP </span>{{$product->price}}</bdi>
                                                                 </span>
                                                             </del>
                                                             <ins>
                                                                 <span class="woocommerce-Price-amount amount">
-                                                                    <bdi><span class="woocommerce-Price-currencySymbol">£</span>{{$product->calculate_discount}}</bdi>
+                                                                    <bdi><span class="woocommerce-Price-currencySymbol"> EGP </span>{{$product->calculate_discount}}</bdi>
                                                                 </span>
                                                             </ins>
                                                             @else
                                                                 <ins>
                                                                     <span class="woocommerce-Price-amount amount">
-                                                                        <bdi><span class="woocommerce-Price-currencySymbol">£</span>{{$product->price}}</bdi>
+                                                                        <bdi><span class="woocommerce-Price-currencySymbol"> EGP </span>{{$product->price}}</bdi>
                                                                     </span>
                                                                 </ins>
                                                             @endif

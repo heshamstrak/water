@@ -203,7 +203,7 @@
 <link rel="stylesheet" id="wpacu-combined-css-head-1" href="https://milmaa.wpengine.com/wp-content/cache/asset-cleanup/css/head-e2b5c3e0d1f43b0bf796ee33c72a6411e3e31c6e.css" type="text/css" media="all" />
 <link rel="stylesheet" id="woocommerce-smallscreen-css" href="https://milmaa.wpengine.com/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css?ver=6.2.2" type="text/css" media="only screen and (max-width: 768px)" />
 
-<link rel="stylesheet" href="{{asset('frontend/css/style.css')}}">
 <link rel="stylesheet" href="{{asset('frontend/css/about-us.css')}}">
+<link rel="stylesheet" href="{{asset('frontend/css/style.css')}}">
 
 @endpush

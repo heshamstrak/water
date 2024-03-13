@@ -287,9 +287,9 @@ body {
     --wp--preset--color--vivid-cyan-blue: #0693e3;
     --wp--preset--color--vivid-purple: #9b51e0;
     --wp--preset--color--primary: #023373;
-    --wp--preset--color--secondary: #eb4694;
+    --wp--preset--color--secondary: #5fb7d7;
     --wp--preset--color--tertiary: #ebd4ae;
-    --wp--preset--color--body-bg: #fff;
+    --wp--preset--color--body-bg: #ededed;
     --wp--preset--color--body-text: #4b4b4b;
     --wp--preset--color--alternate: #023373;
     --wp--preset--color--transparent: rgba(0, 0, 0, 0);
@@ -711,11 +711,11 @@ form.submitting .wpcf7-spinner {
 :root {
     --mfxPrimaryColor: #023373;
     --mfxPrimaryColorRgb: 2, 51, 115;
-    --mfxSecondaryColor: #eb4694;
+    --mfxSecondaryColor: #5fb7d7;
     --mfxSecondaryColorRgb: 235, 70, 148;
     --mfxTertiaryColor: #ebd4ae;
     --mfxTertiaryColorRgb: 235, 212, 174;
-    --mfxBodyBGColor: #fff;
+    --mfxBodyBGColor: #ededed;
     --mfxBodyBGColorRgb: 245, 234, 216;
     --mfxBodyTxtColor: #4b4b4b;
     --mfxBodyTxtColorRgb: 75, 75, 75;
@@ -723,7 +723,7 @@ form.submitting .wpcf7-spinner {
     --mfxHeadAltColorRgb: 2, 51, 115;
     --mfxLinkColor: #4b4b4b;
     --mfxLinkColorRgb: 75, 75, 75;
-    --mfxLinkHoverColor: #eb4694;
+    --mfxLinkHoverColor: #5fb7d7;
     --mfxLinkHoverColorRgb: 235, 70, 148;
     --mfxBorderColor: #e9d4b2;
     --mfxBorderColorRgb: 233, 212, 178;
@@ -1619,7 +1619,7 @@ a {
     color: #4b4b4b;
 }
 a:hover {
-    color: #eb4694;
+    color: #5fb7d7;
 }
 h1 {
     font-family: "Lilita One", cursive;
@@ -1668,7 +1668,7 @@ h6 {
     color: #4b4b4b;
 }
 .breadcrumb a:hover {
-    color: #eb4694;
+    color: #5fb7d7;
 }
 .main-title-section-wrapper > .main-title-section-bg {
     background-attachment: inherit;
@@ -1682,7 +1682,7 @@ h6 {
 
 .elementor-kit-6 {
     --e-global-color-primary: #023373;
-    --e-global-color-secondary: #eb4694;
+    --e-global-color-secondary: #5fb7d7;
     --e-global-color-text: #4b4b4b;
     --e-global-color-accent: #ffffff;
     --e-global-color-f13a82a: #ebd4ae;
@@ -1737,7 +1737,7 @@ h1.entry-title {
 }
 
 body.custom-background {
-    background-color: #fff;
+    background-color: #ededed;
 }
 
 div#milmaa-51e6d15 img {
@@ -2231,7 +2231,7 @@ div#milmaa-51e6d15 img {
 
 .elementor-22218 .elementor-element.elementor-element-9db23d0:not(.elementor-motion-effects-element-type-background),
 .elementor-22218 .elementor-element.elementor-element-9db23d0 > .elementor-motion-effects-container > .elementor-motion-effects-layer {
-    background-color: #fff;
+    background-color: #ededed;
 }
 .elementor-22218 .elementor-element.elementor-element-9db23d0 {
     transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;

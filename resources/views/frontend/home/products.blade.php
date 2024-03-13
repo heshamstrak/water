@@ -1,4 +1,4 @@
-<section class="elementor-section elementor-top-section elementor-element elementor-element-533c407 elementor-section-full_width elementor-section-stretched elementor-section-height-default elementor-section-height-default" data-id="533c407" data-element_type="section" data-settings='{"stretch_section":"section-stretched","background_background":"classic"}' style="background-color: #62b7d6;">
+<section class="elementor-section elementor-top-section elementor-element elementor-element-533c407 elementor-section-full_width elementor-section-stretched elementor-section-height-default elementor-section-height-default" data-id="533c407" data-element_type="section" data-settings='{"stretch_section":"section-stretched","background_background":"classic"}' style="background-color: #83d1d9;">
     <div class="elementor-container elementor-column-gap-default">
         <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-503b180" data-id="503b180" data-element_type="column">
             <div class="elementor-widget-wrap elementor-element-populated">
@@ -54,18 +54,18 @@
                                                         @if($product->discount_type == 0)
                                                         <del aria-hidden="true">
                                                             <span class="woocommerce-Price-amount amount">
-                                                                <bdi><span class="woocommerce-Price-currencySymbol">£</span>{{$product->price}}</bdi>
+                                                                <bdi><span class="woocommerce-Price-currencySymbol"> EGP </span>{{$product->price}}</bdi>
                                                             </span>
                                                         </del>
                                                         <ins>
                                                             <span class="woocommerce-Price-amount amount">
-                                                                <bdi><span class="woocommerce-Price-currencySymbol">£</span>{{$product->calculate_discount}}</bdi>
+                                                                <bdi><span class="woocommerce-Price-currencySymbol"> EGP </span>{{$product->calculate_discount}}</bdi>
                                                             </span>
                                                         </ins>
                                                         @else
                                                             <ins>
                                                                 <span class="woocommerce-Price-amount amount">
-                                                                    <bdi><span class="woocommerce-Price-currencySymbol">£</span>{{$product->price}}</bdi>
+                                                                    <bdi><span class="woocommerce-Price-currencySymbol"> EGP </span>{{$product->price}}</bdi>
                                                                 </span>
                                                             </ins>
                                                         @endif

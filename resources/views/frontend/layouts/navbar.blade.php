@@ -102,7 +102,7 @@
     }
 
     .woocommerce ul.products.default-shop li.product .product-thumb .image:before {
-        background-color: #62b7d6;
+        background-color: #83d1d9;
     }
 
     .elementor-139 .elementor-element.elementor-element-e1cf60c:not(.elementor-motion-effects-element-type-background), .elementor-139 .elementor-element.elementor-element-e1cf60c > .elementor-motion-effects-container > .elementor-motion-effects-layer {

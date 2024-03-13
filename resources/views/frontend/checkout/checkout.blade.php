@@ -40,14 +40,14 @@
                                         <span class="checkout-review-order-title">{{$cart->product->name . ' - ' . $cart->product->category->name . ', ' . $cart->weight->name}}</span> <strong class="product-quantity">&times;&nbsp;{{$cart->quantity}}</strong>
                                         <div class="product-total">
                                             <span class="woocommerce-Price-amount amount">
-                                                <bdi><span class="woocommerce-Price-currencySymbol">£</span>{{$cart->price * $cart->quantity}}</bdi>
+                                                <bdi><span class="woocommerce-Price-currencySymbol"> EGP </span>{{$cart->price * $cart->quantity}}</bdi>
                                             </span>
                                         </div>
                                     </div>
                                 </td>
                                 <td class="product-total">
                                     <span class="woocommerce-Price-amount amount">
-                                        <bdi><span class="woocommerce-Price-currencySymbol">£</span>{{$cart->price * $cart->quantity}}.00</bdi>
+                                        <bdi><span class="woocommerce-Price-currencySymbol"> EGP </span>{{$cart->price * $cart->quantity}}.00</bdi>
                                     </span>
                                 </td>
                             </tr>
@@ -58,7 +58,7 @@
                                 <th>Subtotal</th>
                                 <td>
                                     <span class="woocommerce-Price-amount amount">
-                                        <bdi><span class="woocommerce-Price-currencySymbol">£</span>{{$totalPrice}}</bdi>
+                                        <bdi><span class="woocommerce-Price-currencySymbol"> EGP </span>{{$totalPrice}}</bdi>
                                     </span>
                                 </td>
                             </tr>
@@ -67,7 +67,7 @@
                                 <td>
                                     <strong>
                                         <span class="woocommerce-Price-amount amount">
-                                            <bdi><span class="woocommerce-Price-currencySymbol">£</span>{{$totalPrice}}</bdi>
+                                            <bdi><span class="woocommerce-Price-currencySymbol"> EGP </span>{{$totalPrice}}</bdi>
                                         </span>
                                     </strong>
                                 </td>
