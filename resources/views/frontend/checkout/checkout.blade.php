@@ -140,7 +140,7 @@
 <script type="text/javascript" src="https://milmaa.wpengine.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
 
 
-<link rel="stylesheet" href="{{asset('frontend/css/style.css')}}">
 <link rel="stylesheet" href="{{asset('frontend/css/checkout.css')}}">
+<link rel="stylesheet" href="{{asset('frontend/css/style.css')}}">
 
 @endpush

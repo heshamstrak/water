@@ -2863,7 +2863,10 @@ h6 {
     line-height: 1.3;
 }
 .main-title-section h1 {
-    color: #023373;
+    color: #3c8eb2;
+}
+.woocommerce div.product .mfx-product-summary>div:first-child .product_title {
+    color: #3c8eb2 !important;
 }
 .breadcrumb,
 .breadcrumb span.current {

@@ -48,11 +48,6 @@
                                     </div>
                                 </div>
                             </section>
-                            <div class="elementor-element elementor-element-2d8800e animated-slow elementor-widget__width-auto elementor-absolute res-hide elementor-hidden-tablet elementor-hidden-mobile_extra elementor-hidden-mobile elementor-invisible elementor-widget elementor-widget-image" data-id="2d8800e" data-element_type="widget" data-settings='{"_animation":"bounceInRight","_animation_delay":500,"_position":"absolute"}' data-widget_type="image.default">
-                                <div class="elementor-widget-container">
-                                    <img decoding="async" width="402" height="423" src="https://milmaa.wpengine.com/wp-content/uploads/2021/12/img-14.png" class="attachment-full size-full"/>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>

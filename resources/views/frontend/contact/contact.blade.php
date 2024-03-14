@@ -136,7 +136,7 @@
 <link rel="stylesheet" id="woocommerce-smallscreen-css" href="https://milmaa.wpengine.com/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css?ver=6.2.2" type="text/css" media="only screen and (max-width: 768px)" />
 
 
-<link rel="stylesheet" href="{{asset('frontend/css/style.css')}}">
 <link rel="stylesheet" href="{{asset('frontend/css/contact-us.css')}}">
+<link rel="stylesheet" href="{{asset('frontend/css/style.css')}}">
 
 @endpush

@@ -58,21 +58,65 @@
                                     <div class="elementor-element elementor-element-3bb619b elementor-align-right elementor-mobile-align-center elementor-widget elementor-widget-mfx-header-icons" data-id="3bb619b" data-element_type="widget" data-widget_type="mfx-header-icons.default">
                                         <div class="elementor-widget-container">
                                             <div class="woocommerce mfx-header-icons-list">
-                                                <div class="mfx-header-icons-list-item search-item search-overlay">
-                                                    <div class="mfx-header-icons-list-item search-item search-overlay">
-                                                        <div class="mfx-search-menu-icon">
-                                                            <a href="javascript:void(0)" class="mfx-search-icon"><i class="mfxicon-search"></i></a>
-                                                            <div class="mfx-search-form-container">
-                                                                <form method="get" id="searchform" action="{{route('home')}}">
-                                                                    <input id="s" name="s" type="text" value="Enter Keyword" class="text_input" onblur="if(this.value==''){this.value='Enter Keyword';}" onfocus="if(this.value =='Enter Keyword') {this.value=''; }"/>
-                                                                    <input name="submit" type="submit" value="Go" />
-                                                                </form>
-                                                                <div class="mfx-search-form-close"></div>
+                                                <div class="mfx-header-icons-list-item cart-item">
+                                                    @if(auth()->check() && auth()->user()->carts()->count() > 0)
+                                                    @php
+                                                        $totalPrice = App\Models\Cart::where('user_id', auth()->user()->id)->sum(\DB::raw('price * quantity'));
+                                                    @endphp
+                                                    <div class="mfx-header-icons-list-item cart-item">
+                                                        <div class="mfx-shop-menu-icon">
+                                                            <a href="{{route('view_cart')}}">
+                                                                <span class="mfx-shop-menu-icon-wrapper">
+                                                                    <span class="mfx-shop-menu-cart-inner"><span class="mfx-shop-menu-cart-icon"></span><span class="mfx-shop-menu-cart-number">{{auth()->user()->carts()->count()}}</span></span>
+                                                                    <span class="mfx-shop-menu-cart-totals">
+                                                                        <span class="woocommerce-Price-amount amount">
+                                                                            <bdi><span class="woocommerce-Price-currencySymbol">EGP </span>{{$totalPrice}}</bdi>
+                                                                        </span>
+                                                                    </span>
+                                                                </span>
+                                                            </a>
+                                                            <div class="mfx-shop-menu-cart-content-wrapper">
+                                                                <div class="mfx-shop-menu-cart-content">
+                                                                    <ul class="woocommerce-mini-cart cart_list product_list_widget">
+                                                                        @foreach (auth()->user()->carts()->get() as $row)
+                                                                        @php
+                                                                            $routeName = route('shop.single', ['slug' => str_replace(' ', '-', $row->product->name), 'product' => $row->product->id] );
+                                                                        @endphp
+                                                                        <li class="woocommerce-mini-cart-item mini_cart_item">
+                                                                            <a href="{{$routeName}}">
+                                                                                <img width="488" height="1000" src="{{ Storage::url('uploads/products/'.$row->product->id.'/'.$row->product->images->first()->image) }}" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" sizes="(max-width: 488px) 100vw, 488px" />
+                                                                                {{$row->product->name}} - {{$row->product->category->name}}, {{$row->weight->name}}
+                                                                            </a>
+                                                                            <span class="quantity">
+                                                                                {{$row->quantity}} ×
+                                                                                <span class="woocommerce-Price-amount amount">
+                                                                                    <bdi><span class="woocommerce-Price-currencySymbol">EGP {{$row->price * $row->quantity}}</span></bdi>
+                                                                                </span>
+                                                                            </span>
+                                                                        </li>
+                                                                        @endforeach
+                                                                
+                                               
+                                                                    </ul>
+                                                    
+                                                                    <div class="woocommerce-mini-cart-footer">
+                                                                        <p class="woocommerce-mini-cart__total total">
+                                                                            <strong>Subtotal:</strong>
+                                                                            <span class="woocommerce-Price-amount amount">
+                                                                                <bdi><span class="woocommerce-Price-currencySymbol">EGP </span>{{$totalPrice}}</bdi>
+                                                                            </span>
+                                                                        </p>
+                                                    
+                                                                        <p class="woocommerce-mini-cart__buttons buttons">
+                                                                            <a href="{{route('view_cart')}}" class="button wc-forward">View cart</a>
+                                                                            <a href="{{route('checkout')}}" class="button checkout wc-forward">Checkout</a>
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="mfx-header-icons-list-item cart-item">
+                                                    @else
                                                     <div class="mfx-shop-menu-icon">
                                                         <a href="{{route('view_cart')}}">
                                                             <span class="mfx-shop-menu-icon-wrapper">
@@ -82,6 +126,8 @@
                                                         </a>
                                                         <div class="mfx-shop-menu-cart-content-wrapper"><div class="mfx-shop-menu-cart-content">No products added!</div></div>
                                                     </div>
+                                                    @endif
+                                                 
                                                 </div>
                                             </div>
                                         </div>

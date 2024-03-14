@@ -240,12 +240,12 @@
         --wp--preset--color--pale-cyan-blue: #8ed1fc;
         --wp--preset--color--vivid-cyan-blue: #0693e3;
         --wp--preset--color--vivid-purple: #9b51e0;
-        --wp--preset--color--primary: #023373;
+        --wp--preset--color--primary: #3c8eb2;
         --wp--preset--color--secondary: #5fb7d7;
         --wp--preset--color--tertiary: #ebd4ae;
         --wp--preset--color--body-bg: #ededed;
         --wp--preset--color--body-text: #4b4b4b;
-        --wp--preset--color--alternate: #023373;
+        --wp--preset--color--alternate: #3c8eb2;
         --wp--preset--color--transparent: rgba(0, 0, 0, 0);
         --wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg, rgba(6, 147, 227, 1) 0%, rgb(155, 81, 224) 100%);
         --wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg, rgb(122, 220, 180) 0%, rgb(0, 208, 130) 100%);
@@ -621,7 +621,7 @@
     <link rel='stylesheet' id='milmaa-css' href='https://milmaa.wpengine.com/wp-content/themes/milmaa/style.css?ver=1.0.0' type='text/css' media='all'/>
     <style id='milmaa-inline-css' type='text/css'>
     :root {
-        --mfxPrimaryColor: #023373;
+        --mfxPrimaryColor: #3c8eb2;
         --mfxPrimaryColorRgb: 2, 51, 115;
         --mfxSecondaryColor: #5fb7d7;
         --mfxSecondaryColorRgb: 235, 70, 148;
@@ -631,14 +631,14 @@
         --mfxBodyBGColorRgb: 245, 234, 216;
         --mfxBodyTxtColor: #4b4b4b;
         --mfxBodyTxtColorRgb: 75, 75, 75;
-        --mfxHeadAltColor: #023373;
+        --mfxHeadAltColor: #3c8eb2;
         --mfxHeadAltColorRgb: 2, 51, 115;
         --mfxLinkColor: #4b4b4b;
         --mfxLinkColorRgb: 75, 75, 75;
         --mfxLinkHoverColor: #5fb7d7;
         --mfxLinkHoverColorRgb: 235, 70, 148;
-        --mfxBorderColor: #e9d4b2;
-        --mfxBorderColorRgb: 233, 212, 178;
+        --mfxBorderColor: #83d1d8;
+        --mfxBorderColorRgb: 131, 209, 216;
         --mfxAccentTxtColor: #ffffff;
         --mfxAccentTxtColorRgb: 255, 255, 255;
         --mfxFontTypo_Base: "Sen", sans-serif;
@@ -5441,7 +5441,7 @@
     }
 
     .main-title-section h1 {
-        color: #023373;
+        color: #3c8eb2;
     }
 
     .breadcrumb, .breadcrumb span.current {
@@ -6472,9 +6472,13 @@
                 <!-- ** Container End ** -->
             </div>
             <!-- **Main - End ** -->
-
+            <style>
+                .elementor-139 .elementor-element.elementor-element-043a2ea .elementor-social-icon {
+                    background-color: #3c8eb2 !important;
+                }
+            </style>
               <!-- **Footer** -->
-              <footer id="footer">
+              <footer id="footer" style="background-color: #83d1d8">
                 <div class="container">
                     <div id="footer-139" class="mfx-footer-tpl footer-139">
                         <div data-elementor-type="wp-post" data-elementor-id="139" class="elementor elementor-139" data-elementor-settings="[]">

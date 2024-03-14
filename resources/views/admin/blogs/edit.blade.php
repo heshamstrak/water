@@ -24,7 +24,7 @@
                 {{--description--}}
                 <div class="form-group">
                     <label>Description <span class="text-danger">*</span></label>
-                    <textarea name="description" class="form-control" cols="30" rows="10">{{ old('description', $blog->description) }}</textarea>
+                    <textarea name="description"  id="editor" class="form-control" cols="30" rows="10">{{ old('description', $blog->description) }}</textarea>
                 </div>
 
 
@@ -49,5 +49,9 @@
 @endsection
 
 
-
+@push('js')
+    <script>
+        ClassicEditor.create(document.querySelector("#editor"));
+    </script>
+@endpush
 

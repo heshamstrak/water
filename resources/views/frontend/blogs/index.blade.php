@@ -40,7 +40,7 @@
                                                         </h4>
                                                     </div>
                                                     <!-- Entry Title -->
-                                                    <div class="entry-body"><p>{{Str::words($blog->description, 30, ' ....')}}</p></div>
+                                                    <div class="entry-body"><p style="overflow:hidden">{{strip_tags(Str::words($blog->description, 30, ' ....'))}}</p></div>
                                                 </article>
                                             </div>
                                             @endforeach

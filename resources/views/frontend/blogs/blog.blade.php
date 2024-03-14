@@ -111,8 +111,8 @@
 						<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-81808d0" data-id="81808d0" data-element_type="column">
 							<div class="elementor-widget-wrap elementor-element-populated">
 								<div class="elementor-element elementor-element-f188cae elementor-widget elementor-widget-text-editor" data-id="f188cae" data-element_type="widget" data-widget_type="text-editor.default">
-									<div class="elementor-widget-container">
-									{{$blog->description}}
+									<div class="elementor-widget-container" style="word-wrap:break-word;">
+									{!!$blog->description!!}
 									</div>
 								</div>
 								<div class="elementor-element elementor-element-0fd8fa5 elementor-widget elementor-widget-spacer" data-id="0fd8fa5" data-element_type="widget" data-widget_type="spacer.default">
@@ -138,7 +138,7 @@
 <link rel="stylesheet" id="wpacu-combined-css-head-1" href="https://milmaa.wpengine.com/wp-content/cache/asset-cleanup/css/head-c49574b9d2f1ebaf7500c5f9db90bef478fce0d3.css" type="text/css" media="all" />
 <link rel="stylesheet" id="woocommerce-smallscreen-css" href="https://milmaa.wpengine.com/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css?ver=6.2.2" type="text/css" media="only screen and (max-width: 768px)" />
 
-<link rel="stylesheet" href="{{asset('frontend/css/style.css')}}">
 <link rel="stylesheet" href="{{asset('frontend/css/blog-detail.css')}}">
+<link rel="stylesheet" href="{{asset('frontend/css/style.css')}}">
 
 @endpush
