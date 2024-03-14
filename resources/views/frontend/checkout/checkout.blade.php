@@ -37,8 +37,8 @@
                                 <td class="product-name">
                                     <img fetchpriority="high" decoding="async" width="488" height="1000" src="{{ Storage::url('uploads/products/'.$cart->product_id.'/'.$cart->product->images->first()->image) }}" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"   />
                                     <div class="checkout-review-order-details">
-                                        <span class="checkout-review-order-title">{{$cart->product->name . ' - ' . $cart->product->category->name . ', ' . $cart->weight->name}}</span> <strong class="product-quantity">&times;&nbsp;{{$cart->quantity}}</strong>
-                                        <div class="product-total">
+                                        <span class="checkout-review-order-title">{{$cart->product->name . ' - ' . $cart->product->category->name}}{{ $cart->weight != null ? ', ' . $cart->weight->name : ''}}</span> <strong class="product-quantity">&times;&nbsp;{{$cart->quantity}}</strong>
+                                        <div class="product-total">cart
                                             <span class="woocommerce-Price-amount amount">
                                                 <bdi><span class="woocommerce-Price-currencySymbol"> EGP </span>{{$cart->price * $cart->quantity}}</bdi>
                                             </span>
