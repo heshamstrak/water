@@ -84,8 +84,7 @@
                                                                         @endphp
                                                                         <li class="woocommerce-mini-cart-item mini_cart_item">
                                                                             <a href="{{$routeName}}">
-                                                                                <img width="488" height="1000" src="{{ Storage::url('uploads/products/'.$row->product->id.'/'.$row->product->images->first()->image) }}" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" sizes="(max-width: 488px) 100vw, 488px" />
-                                                                                {{$row->product->name}} - {{$row->product->category->name}}, {{$row->weight != null ? $row->weight->name : ''}}
+                                                                                <img width="488" height="1000" src="{{ Storage::url('uploads/products/'.$row->product->id.'/'.$row->product->images->first()->image) }}" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" sizes="(max-width: 488px) 100vw, 488px" /> {{$row->product->name}} - {{$row->product->category->name}}, {{$row->weight != null ? $row->weight->name : ''}}
                                                                             </a>
                                                                             <span class="quantity">
                                                                                 {{$row->quantity}} ×

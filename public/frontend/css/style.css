@@ -14351,3 +14351,14 @@ div[class*="thumb-container"] .swiper-wrapper .swiper-slide.swiper-slide-active 
     border-color: #5fb7d7 !important;
 }
 
+.elementor-7 .elementor-element.elementor-element-21edd76:not(.elementor-motion-effects-element-type-background) {
+    background-color: #62b7d6 !important;
+}
+
+.default-btn .elementor-button {
+    background-color: #83d1d9 !important;
+}
+
+.elementor-7 .elementor-element.elementor-element-82e6b4b > .elementor-widget-container {
+    color: #ededed;
+}
