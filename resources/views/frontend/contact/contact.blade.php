@@ -1,4 +1,7 @@
-@extends('frontend.index') @section('content')
+@extends('frontend.index')
+@section('background', Storage::url('public/uploads/settings/'.setting('contact_header_image')))
+@section('title', 'Contact Us')
+@section('content')
 
 <div id="post-1862" class="post-1862 page type-page status-publish hentry">
 	<div data-elementor-type="wp-page" data-elementor-id="1862" class="elementor elementor-1862" data-elementor-settings="[]">

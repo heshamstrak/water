@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->text('shipping_description')->nullable();
             $table->text('small_image')->nullable();
+            $table->text('ingredients')->nullable();
             $table->text('icon')->nullable();
             $table->integer('count');
             $table->integer('type')->default(1);

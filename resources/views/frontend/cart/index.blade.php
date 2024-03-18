@@ -6308,8 +6308,12 @@
                 <!-- **Header** -->
                 @include('frontend.layouts.navbar')
     
-                
-                <section class="main-title-section-wrapper ">
+                <style>
+                    #header-wrapper.header-top-absolute .main-title-section-wrapper:before {
+                        content: none;
+                    }
+                </style>
+                <section class="main-title-section-wrapper " style="background: url({{Storage::url('public/uploads/settings/'.setting('cart_header_image'))}}); background-size:cover">
                     <div class="main-title-section-container">
                         <div class="container">
                             <div class="main-title-section">
@@ -6786,7 +6790,7 @@
                                                                                 display: inline-block;
                                                                             }
                                                                         </style>
-                                                                        <img src="{{Storage::url('public/uploads/settings/'.setting('logo_image'))}}" title="" alt="logo" />
+                                                                        <img src="{{Storage::url('public/uploads/settings/'.setting('footer_logo_image'))}}" title="" alt="logo" />
                                                                     </div>
                                                                 </div>
                                                                 <div

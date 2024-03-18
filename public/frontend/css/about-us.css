@@ -163,12 +163,12 @@ body {
     --wp--preset--color--pale-cyan-blue: #8ed1fc;
     --wp--preset--color--vivid-cyan-blue: #0693e3;
     --wp--preset--color--vivid-purple: #9b51e0;
-    --wp--preset--color--primary: #023373;
+    --wp--preset--color--primary: #3c8eb2;;
     --wp--preset--color--secondary: #5fb7d7;
     --wp--preset--color--tertiary: #ebd4ae;
     --wp--preset--color--body-bg: #ededed;
     --wp--preset--color--body-text: #4b4b4b;
-    --wp--preset--color--alternate: #023373;
+    --wp--preset--color--alternate: #3c8eb2;;
     --wp--preset--color--transparent: rgba(0, 0, 0, 0);
     --wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg, rgba(6, 147, 227, 1) 0%, rgb(155, 81, 224) 100%);
     --wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg, rgb(122, 220, 180) 0%, rgb(0, 208, 130) 100%);
@@ -585,7 +585,7 @@ form.submitting .wpcf7-spinner {
 }
 
 :root {
-    --mfxPrimaryColor: #023373;
+    --mfxPrimaryColor: #3c8eb2;;
     --mfxPrimaryColorRgb: 2, 51, 115;
     --mfxSecondaryColor: #5fb7d7;
     --mfxSecondaryColorRgb: 235, 70, 148;
@@ -595,7 +595,7 @@ form.submitting .wpcf7-spinner {
     --mfxBodyBGColorRgb: 245, 234, 216;
     --mfxBodyTxtColor: #4b4b4b;
     --mfxBodyTxtColorRgb: 75, 75, 75;
-    --mfxHeadAltColor: #023373;
+    --mfxHeadAltColor: #3c8eb2;;
     --mfxHeadAltColorRgb: 2, 51, 115;
     --mfxLinkColor: #4b4b4b;
     --mfxLinkColorRgb: 75, 75, 75;
@@ -1977,14 +1977,14 @@ h6 {
     line-height: 1.3;
 }
 .main-title-section h1 {
-    color: #023373;
+    color: #3c8eb2;
 }
 .breadcrumb,
 .breadcrumb span.current {
-    color: #4b4b4b;
+    color: #fff;
 }
 .breadcrumb a {
-    color: #4b4b4b;
+    color: #fff;
 }
 .breadcrumb a:hover {
     color: #5fb7d7;
@@ -2000,7 +2000,7 @@ h6 {
 }
 
 .elementor-kit-6 {
-    --e-global-color-primary: #023373;
+    --e-global-color-primary: #3c8eb2;;
     --e-global-color-secondary: #5fb7d7;
     --e-global-color-text: #4b4b4b;
     --e-global-color-accent: #ffffff;

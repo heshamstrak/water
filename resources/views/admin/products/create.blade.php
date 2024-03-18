@@ -55,21 +55,15 @@
                                 <textarea name="{{$nameInput}}" id="editor" class="form-control" cols="30" rows="10">{{ old($nameInput) }}</textarea>
                             </div>
 
+                            {{-- ingredient --}}
+                            @php $nameInput = 'ingredients' @endphp
+                            <div class="form-group">
+                                <label class="text-capitalize">{{$nameInput}} <span class="text-danger">*</span></label>
+                                <textarea name="{{$nameInput}}" id="editor3" class="form-control" cols="30" rows="10">{{ old($nameInput) }}</textarea>
+                            </div>
+                            
                             <div class="row">
-                                <div class="col-6">
-                                    {{-- ingredient --}}
-                                    @php $nameInput = 'ingredients' @endphp
-                                    <div class="form-group">
-                                        <label class="text-capitalize">{{$nameInput}} <span class="text-danger">*</span></label>
-                                        <select class="js-example-basic-multiple" name="{{$nameInput}}[]" multiple="multiple" style="width: 100%">
-                                            <option value="">Select Ingredient</option>
-                                            @foreach($ingredients as $row)
-                                                <option value="{{$row->id}}">{{$row->name}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-6">
+                                <div class="col-12">
                                     {{-- ingredient --}}
                                     @php $nameInput = 'weights' @endphp
                                     <div class="form-group">
@@ -202,6 +196,7 @@
         $('.dropify').dropify();
     });
     ClassicEditor.create(document.querySelector("#editor"));
+    ClassicEditor.create(document.querySelector("#editor3"));
     ClassicEditor.create(document.querySelector("#editor2"));
     $(".input-images-2").imageUploader({
         imagesInputName: "images",

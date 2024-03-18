@@ -1,4 +1,7 @@
-@extends('frontend.index') @section('content')
+@extends('frontend.index')
+@section('background', Storage::url('public/uploads/settings/'.setting('blog_header_image')))
+@section('title', setting('title_blog'))
+@section('content')
 <div id="post-22239" class="post-22239 page type-page status-publish hentry">
 	<div data-elementor-type="wp-page" data-elementor-id="22239" class="elementor elementor-22239" data-elementor-settings="[]">
 		<div class="elementor-section-wrap">

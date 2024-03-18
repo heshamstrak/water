@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <link rel="profile" href="https://gmpg.org/xfn/11" />
-        <title>@yield('title', 'Home')</title>
+        <title>MWater | @yield('title', 'Home')</title>
         <meta name="robots" content="noindex, nofollow" />
         <link rel="dns-prefetch" href="http://fonts.googleapis.com/" />
         <link rel="alternate" type="application/rss+xml" title="Milmaa &raquo; Feed" href="https://milmaa.wpengine.com/feed/" />
@@ -28,10 +28,10 @@
         <link rel="shortlink" href="https://milmaa.wpengine.com/" />
         <link rel="alternate" type="application/json+oembed" href="https://milmaa.wpengine.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fmilmaa.wpengine.com%2F" />
         <link rel="alternate" type="text/xml+oembed" href="https://milmaa.wpengine.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fmilmaa.wpengine.com%2F&amp;format=xml" />
-        <link rel="icon" href="https://milmaa.wpengine.com/wp-content/uploads/2021/12/favicon.png" sizes="32x32" />
-        <link rel="icon" href="https://milmaa.wpengine.com/wp-content/uploads/2021/12/favicon.png" sizes="192x192" />
-        <link rel="apple-touch-icon" href="https://milmaa.wpengine.com/wp-content/uploads/2021/12/favicon.png" />
-        <meta name="msapplication-TileImage" content="https://milmaa.wpengine.com/wp-content/uploads/2021/12/favicon.png" />
+        <link rel="icon" href="{{asset('frontend/icon m water.png')}}" sizes="32x32" />
+        <link rel="icon" href="{{asset('frontend/icon m water.png')}}" sizes="192x192" />
+        <link rel="apple-touch-icon" href="{{asset('frontend/icon m water.png')}}" />
+        <meta name="msapplication-TileImage" content="{{asset('frontend/icon m water.png')}}" />
         @stack('css')
     </head>
 
@@ -53,11 +53,16 @@
                     <!-- ** Slider End ** -->
 
                     <!-- ** Breadcrumb ** -->
-                    <section class="main-title-section-wrapper">
+                    <style>
+                        #header-wrapper.header-top-absolute .main-title-section-wrapper:before {
+                            content: none
+                        }
+                    </style>
+                    <section class="main-title-section-wrapper" style="{{Route::is('home') ? '' : 'display: block' }}; background:url(@yield('background')); background-size: cover" >
                         <div class="main-title-section-container">
                             <div class="container">
-                                <div class="main-title-section"><h1>Home</h1></div>
-                                <div class="breadcrumb"><a href="{{route('home')}}">Home</a><span class="breadcrumb-default-delimiter"></span><span class="current">Home</span></div>
+                                <div class="main-title-section"><h1>@yield('title')</h1></div>
+                                <div class="breadcrumb"><a href="{{route('home')}}">Home</a><span class="breadcrumb-default-delimiter"></span><span class="current">@yield('title')</span></div>
                             </div>
                         </div>
                         <div class="main-title-section-bg"></div>
@@ -72,10 +77,9 @@
                     <div class="container">
                         <!-- Primary -->
                         <section id="primary" class="content-full-width">
-                            <!-- #post-7 -->
-              
+                            <!--#post-7-->
                             @yield('content')
-                            <!-- #post-7 -->
+                            <!--#post-7-->
                             <section class="commententries rounded"></section>
                         </section>
                         <!-- Primary End -->

@@ -50,6 +50,12 @@ class SettingController extends Controller
             $request->logo_image->store('public/uploads/settings/');
             $requestData['logo_image'] = $request->logo_image->hashName();
         }
+        if ($request->footer_logo_image) {
+            
+            setting('footer_logo_image') != null ? Storage::disk('local')->delete('public/uploads/' . setting('footer_logo_image')) : '';
+            $request->footer_logo_image->store('public/uploads/settings/');
+            $requestData['footer_logo_image'] = $request->footer_logo_image->hashName();
+        }
 
         if ($request->header_image) {
             setting('header_image') != null ? Storage::disk('local')->delete('public/uploads/settings/' . setting('header_image')) : '';
@@ -67,6 +73,49 @@ class SettingController extends Controller
             $request->about_image->store('public/uploads/settings');
             $requestData['about_image'] = $request->about_image->hashName();
         }
+        
+        if ($request->blog_header_image) {
+            setting('blog_header_image') != null ? Storage::disk('local')->delete('public/uploads/settings/' . setting('blog_header_image')) : '';
+            $request->blog_header_image->store('public/uploads/settings');
+            $requestData['blog_header_image'] = $request->blog_header_image->hashName();
+        }
+        
+        if ($request->about_header_image) {
+            setting('about_header_image') != null ? Storage::disk('local')->delete('public/uploads/settings/' . setting('about_header_image')) : '';
+            $request->about_header_image->store('public/uploads/settings');
+            $requestData['about_header_image'] = $request->about_header_image->hashName();
+        }
+        
+        if ($request->shop_header_image) {
+            setting('shop_header_image') != null ? Storage::disk('local')->delete('public/uploads/settings/' . setting('shop_header_image')) : '';
+            $request->shop_header_image->store('public/uploads/settings');
+            $requestData['shop_header_image'] = $request->shop_header_image->hashName();
+        }
+        
+        if ($request->contact_header_image) {
+            setting('contact_header_image') != null ? Storage::disk('local')->delete('public/uploads/settings/' . setting('contact_header_image')) : '';
+            $request->contact_header_image->store('public/uploads/settings');
+            $requestData['contact_header_image'] = $request->contact_header_image->hashName();
+        }
+          
+        if ($request->cart_header_image) {
+            setting('cart_header_image') != null ? Storage::disk('local')->delete('public/uploads/settings/' . setting('cart_header_image')) : '';
+            $request->cart_header_image->store('public/uploads/settings');
+            $requestData['cart_header_image'] = $request->cart_header_image->hashName();
+        }
+
+        if ($request->checkout_header_image) {
+            setting('checkout_header_image') != null ? Storage::disk('local')->delete('public/uploads/settings/' . setting('checkout_header_image')) : '';
+            $request->checkout_header_image->store('public/uploads/settings');
+            $requestData['checkout_header_image'] = $request->checkout_header_image->hashName();
+        }
+
+        if ($request->product_header_image) {
+            setting('product_header_image') != null ? Storage::disk('local')->delete('public/uploads/settings/' . setting('product_header_image')) : '';
+            $request->product_header_image->store('public/uploads/settings');
+            $requestData['product_header_image'] = $request->product_header_image->hashName();
+        }
+
         setting($requestData)->save();
         session()->flash('success', __('Update Successfully'));
         return redirect()->back();

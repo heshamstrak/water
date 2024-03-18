@@ -27,7 +27,6 @@ class CartController extends Controller
                 Cart::create([
                     'product_id'    => $request->product_id,
                     'weight_id'     => $request->weight_id != null ? $request->weight_id : null,
-                    'ingredient_id' => $request->ingredient_id != null ? $request->ingredient_id : null,
                     'user_id'       => auth()->user()->id,
                     'quantity'      => $request->quantity,
                     'price'         => $request->price,

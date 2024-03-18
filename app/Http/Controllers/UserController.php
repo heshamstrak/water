@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
@@ -21,8 +22,13 @@ class UserController extends Controller
 
         if(Auth::attempt($credentials))
         {
+            $previousUrl = Session::get('previous_url');
             $request->session()->regenerate();
-            return redirect()->back()->withSuccess('You have successfully logged in!');
+            if($previousUrl != null) {
+                return redirect()->to($previousUrl)->withSuccess('You have successfully logged in!');
+            } else {
+                return redirect()->back()->withSuccess('You have successfully logged in!');
+            }
         }
 
         return back()->withErrors(['email' => 'Your provided credentials do not match in our records.', ])->onlyInput('email');

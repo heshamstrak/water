@@ -69,7 +69,7 @@
                                                 <div class="elementor-widget-wrap elementor-element-populated">
                                                     <div class="elementor-element elementor-element-9115bf6 animated-slow elementor-widget elementor-widget-image" data-id="9115bf6" data-element_type="widget" data-settings='{"_animation":"none","_animation_delay":700}' data-widget_type="image.default">
                                                         <div class="elementor-widget-container">
-                                                            <img src="{{Storage::url('public/uploads/settings/'.setting('logo_image'))}}" title="" alt="logo" />
+                                                            <img src="{{Storage::url('public/uploads/settings/'.setting('footer_logo_image'))}}" title="" alt="logo" />
                                                         </div>
                                                     </div>
                                                     <div class="elementor-element elementor-element-6a2aaaf animated-slow elementor-widget elementor-widget-heading" data-id="6a2aaaf" data-element_type="widget" data-settings='{"_animation":"none","_animation_delay":800}' data-widget_type="heading.default">

@@ -1,4 +1,6 @@
 @extends('frontend.index')
+@section('background', Storage::url('public/uploads/settings/'.setting('shop_header_image')))
+@section('title', 'Shop')
 @section('content')
 @if (session('success'))
 <div class="woocommerce-notices-wrapper">

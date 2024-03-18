@@ -75,7 +75,6 @@ class ProductController extends Controller
         }
 
         $product = Product::create($requestData);
-        $product->ingredients()->sync($request->ingredients);
         $product->weights()->sync($request->weights);
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $image) {
@@ -113,7 +112,6 @@ class ProductController extends Controller
             $requestData['small_image'] = $request->small_image->hashName();
         }
         $product->update($requestData);
-        $product->ingredients()->sync($request->ingredients);
         $product->weights()->sync($request->weights);
         session()->flash('success', __('Update Successfully'));
         return redirect()->route('admin.'.$this->name.'.index');

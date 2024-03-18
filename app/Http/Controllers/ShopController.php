@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use Illuminate\Support\Facades\Session;
+
 class ShopController extends Controller
 {
     public function index() {
@@ -12,6 +14,12 @@ class ShopController extends Controller
     }
 
     public function single(Product $product) {
-        return view('frontend.shop.single', compact('product'));
+        if(auth()->check()) {
+            return view('frontend.shop.single', compact('product'));
+        } else {
+            Session::put('previous_url', url()->full());
+            return view('frontend.shop.single', compact('product'));
+        }
+        
     }
 }

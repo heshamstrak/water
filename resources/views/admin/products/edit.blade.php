@@ -57,21 +57,17 @@
                                 <label class="text-capitalize">{{$nameInput}} <span class="text-danger">*</span></label>
                                 <textarea name="{{$nameInput}}" id="editor" class="form-control" cols="30" rows="10">{{ old($nameInput, $product->{$nameInput}) }}</textarea>
                             </div>
+
+                            {{-- ingredient --}}
+                            @php $nameInput = 'ingredients' @endphp
+                            <div class="form-group">
+                                <label class="text-capitalize">{{$nameInput}} <span class="text-danger">*</span></label>
+                                <textarea name="{{$nameInput}}" id="editor3" class="form-control" cols="30" rows="10">{{ old($nameInput, $product->{$nameInput}) }}</textarea>
+                            </div>
+
                             <div class="row">
-                                <div class="col-6">
-                                    {{-- ingredient --}}
-                                    @php $nameInput = 'ingredients' @endphp
-                                    <div class="form-group">
-                                        <label class="text-capitalize">{{$nameInput}} <span class="text-danger">*</span></label>
-                                        <select class="js-example-basic-multiple" name="{{$nameInput}}[]" multiple="multiple" style="width: 100%">
-                                            <option value="">Select Ingredient</option>
-                                            @foreach($ingredients as $row)
-                                                <option value="{{$row->id}}" {{ $product->ingredients->contains($row->id) ? 'selected' : '' }}>{{$row->name}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-6">
+                      
+                                <div class="col-12">
                                     {{-- ingredient --}}
                                     @php $nameInput = 'weights' @endphp
                                     <div class="form-group">
@@ -202,6 +198,7 @@
     });
     ClassicEditor.create(document.querySelector("#editor"));
     ClassicEditor.create(document.querySelector("#editor2"));
+    ClassicEditor.create(document.querySelector("#editor3"));
       
       let preloaded = [
           @foreach ($product->images as $image)

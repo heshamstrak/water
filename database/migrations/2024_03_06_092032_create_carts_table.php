@@ -22,9 +22,6 @@ return new class extends Migration
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
 
-            $table->unsignedBigInteger('ingredient_id')->nullable();
-            $table->foreign('ingredient_id')->references('id')->on('ingredients')->onDelete('cascade');
-
             $table->unsignedBigInteger('weight_id')->nullable();
             $table->foreign('weight_id')->references('id')->on('weights')->onDelete('cascade');
 

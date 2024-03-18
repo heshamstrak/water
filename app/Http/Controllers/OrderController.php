@@ -23,7 +23,6 @@ class OrderController extends Controller
                     'quantity'=>$cart->quantity,
                     'price'=>$cart->price,
                     'weight_id'=>$cart->weight_id != null ? $cart->weight_id : null,
-                    'ingredient_id'=>$cart->ingredient_id != null ? $cart->ingredient_id : null,
                     'notes'=>$request->notes != null ? $request->notes : null,
                 ]);
             }

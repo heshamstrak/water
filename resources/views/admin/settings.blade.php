@@ -241,6 +241,11 @@
                         <label class="text-capitalize">Logo Image</label>
                         <input type="file" name="{{$name}}" id="input-file-now" class="{{$name}}" data-show-remove="false" @if(setting($name) != null) data-default-file="{{Storage::url('public/uploads/settings/'.setting($name))}}" data-show-remove="false" alue="{{ old($name, setting($name)) }}"@endif  data-height="250"/>
                       </div> 
+                      @php $name = 'footer_logo_image' @endphp
+                      <div class="form-group">
+                        <label class="text-capitalize">Footer Logo Image</label>
+                        <input type="file" name="{{$name}}" id="input-file-now" class="{{$name}}" data-show-remove="false" @if(setting($name) != null) data-default-file="{{Storage::url('public/uploads/settings/'.setting($name))}}" data-show-remove="false" alue="{{ old($name, setting($name)) }}"@endif  data-height="250"/>
+                      </div> 
                       @php $name = 'header_image' @endphp
                       <div class="form-group">
                         <label class="text-capitalize">Header Image</label>
@@ -251,6 +256,55 @@
                         <label class="text-capitalize">Home Background Image</label>
                         <input type="file" name="{{$name}}" id="input-file-now" class="{{$name}}" data-show-remove="false" @if(setting($name) != null) data-default-file="{{Storage::url('public/uploads/settings/'.setting($name))}}" data-show-remove="false" alue="{{ old($name, setting($name)) }}"@endif  data-height="250"/>
                       </div>  --}}
+                      <div class="row">
+                        <div class="col-6">
+                          @php $name = 'about_header_image' @endphp
+                          <div class="form-group">
+                            <label class="text-capitalize">About Header Image</label>
+                            <input type="file" name="{{$name}}" id="input-file-now" class="{{$name}}" data-show-remove="false" @if(setting($name) != null) data-default-file="{{Storage::url('public/uploads/settings/'.setting($name))}}" data-show-remove="false" alue="{{ old($name, setting($name)) }}"@endif  data-height="250"/>
+                          </div> 
+                        </div>
+                        <div class="col-6">
+                          @php $name = 'shop_header_image' @endphp
+                          <div class="form-group">
+                            <label class="text-capitalize">Shop Header Image</label>
+                            <input type="file" name="{{$name}}" id="input-file-now" class="{{$name}}" data-show-remove="false" @if(setting($name) != null) data-default-file="{{Storage::url('public/uploads/settings/'.setting($name))}}" data-show-remove="false" alue="{{ old($name, setting($name)) }}"@endif  data-height="250"/>
+                          </div> 
+                        </div>
+                        <div class="col-6">
+                          @php $name = 'blog_header_image' @endphp
+                          <div class="form-group">
+                            <label class="text-capitalize">Blog Header Image</label>
+                            <input type="file" name="{{$name}}" id="input-file-now" class="{{$name}}" data-show-remove="false" @if(setting($name) != null) data-default-file="{{Storage::url('public/uploads/settings/'.setting($name))}}" data-show-remove="false" alue="{{ old($name, setting($name)) }}"@endif  data-height="250"/>
+                          </div> 
+                        </div>
+                        <div class="col-6">
+                          @php $name = 'contact_header_image' @endphp
+                          <div class="form-group">
+                            <label class="text-capitalize">Contact Header Image</label>
+                            <input type="file" name="{{$name}}" id="input-file-now" class="{{$name}}" data-show-remove="false" @if(setting($name) != null) data-default-file="{{Storage::url('public/uploads/settings/'.setting($name))}}" data-show-remove="false" alue="{{ old($name, setting($name)) }}"@endif  data-height="250"/>
+                          </div> 
+                        </div>
+                        <div class="col-6">
+                          @php $name = 'cart_header_image' @endphp
+                          <div class="form-group">
+                            <label class="text-capitalize">Cart Header Image</label>
+                            <input type="file" name="{{$name}}" id="input-file-now" class="{{$name}}" data-show-remove="false" @if(setting($name) != null) data-default-file="{{Storage::url('public/uploads/settings/'.setting($name))}}" data-show-remove="false" alue="{{ old($name, setting($name)) }}"@endif  data-height="250"/>
+                          </div> 
+                        </div>
+                        <div class="col-6">
+                          @php $name = 'checkout_header_image' @endphp
+                          <div class="form-group">
+                            <label class="text-capitalize">Checkout Header Image</label>
+                            <input type="file" name="{{$name}}" id="input-file-now" class="{{$name}}" data-show-remove="false" @if(setting($name) != null) data-default-file="{{Storage::url('public/uploads/settings/'.setting($name))}}" data-show-remove="false" alue="{{ old($name, setting($name)) }}"@endif  data-height="250"/>
+                          </div> 
+                        </div>
+                      </div>
+                      @php $name = 'product_header_image' @endphp
+                      <div class="form-group">
+                        <label class="text-capitalize">Single Product Header Image</label>
+                        <input type="file" name="{{$name}}" id="input-file-now" class="{{$name}}" data-show-remove="false" @if(setting($name) != null) data-default-file="{{Storage::url('public/uploads/settings/'.setting($name))}}" data-show-remove="false" alue="{{ old($name, setting($name)) }}"@endif  data-height="250"/>
+                      </div> 
                   </div>
         
                   <hr>
@@ -307,7 +361,7 @@
 {{-- <script src="{{asset('admin_assets')}}/js/scripts/forms/wizard-steps.min.js"></script> --}}
 <script>
   $(document).ready(function(){
-    $('.logo_image, .header_image, .about_image, .contact_image').dropify();
+    $('.logo_image, .cart_header_image, .checkout_header_image, .product_header_image, .about_header_image, .blog_header_image, .shop_header_image, .contact_header_image, .footer_logo_image, .header_image, .about_image, .contact_image').dropify();
   });
 
   $(".number-tab-stepss").steps({

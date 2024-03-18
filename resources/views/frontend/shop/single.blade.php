@@ -141,10 +141,10 @@
         <link rel="alternate" type="application/json+oembed" href="https://milmaa.wpengine.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fmilmaa.wpengine.com%2Fproduct%2Falmond-milk%2F" />
         <link rel="alternate" type="text/xml+oembed" href="https://milmaa.wpengine.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fmilmaa.wpengine.com%2Fproduct%2Falmond-milk%2F&#038;format=xml" />
 
-        <link rel="icon" href="https://milmaa.wpengine.com/wp-content/uploads/2021/12/favicon.png" sizes="32x32" />
-        <link rel="icon" href="https://milmaa.wpengine.com/wp-content/uploads/2021/12/favicon.png" sizes="192x192" />
-        <link rel="apple-touch-icon" href="https://milmaa.wpengine.com/wp-content/uploads/2021/12/favicon.png" />
-        <meta name="msapplication-TileImage" content="https://milmaa.wpengine.com/wp-content/uploads/2021/12/favicon.png" />
+        <link rel="icon" href="{{asset('frontend/icon m water.png')}}" sizes="32x32" />
+        <link rel="icon" href="{{asset('frontend/icon m water.png')}}" sizes="192x192" />
+        <link rel="apple-touch-icon" href="{{asset('frontend/icon m water.png')}}" />
+        <meta name="msapplication-TileImage" content="{{asset('frontend/icon m water.png')}}" />
         <link rel="stylesheet" href="{{asset('frontend')}}/css/products.css">
         <link rel="stylesheet" href="{{asset('frontend')}}/css/style.css">
     </head>
@@ -169,7 +169,12 @@
                     <!-- ** Slider End ** -->
 
                     <!-- ** Breadcrumb ** -->
-                    <section class="main-title-section-wrapper">
+                    <style>
+                        #header-wrapper.header-top-absolute .main-title-section-wrapper:before {
+                            content: none
+                        }
+                    </style>
+                    <section class="main-title-section-wrapper" style="background: url({{Storage::url('public/uploads/settings/'.setting('product_header_image'))}}); background-size: cover">
                         <div class="main-title-section-container">
                             <div class="container">
                                 <div class="main-title-section"><h1>{{$product->name}}</h1></div>
@@ -293,6 +298,13 @@
                                                                             {{$product->main_description}}
                                                                         </p>
                                                                     </div>
+                                                                    <hr>
+                                                                    <h5 style="color:#3c8eb2">Ingredients</h5>
+                                                                    <div class="woocommerce-product-details__short-description">
+                                                                        <p>
+                                                                            {!!$product->ingredients!!}
+                                                                        </p>
+                                                                    </div>
                                                                     <div class="product-buttons-wrapper product-button product-button-cart style-bgfill align-inline hide-button-text">
                                                                         <div class="wc_inline_buttons">
                                                                             <div class="wcwl_btn_wrapper wc_btn_inline">
@@ -300,17 +312,7 @@
                                                                                    @csrf @method('post')
                                                                                     <table class="variations" cellspacing="0">
                                                                                         <tbody>
-                                                                                            <tr>
-                                                                                                <th class="label"><label for="ingredients">Ingredients</label></th>
-                                                                                                <td class="value">
-                                                                                                    <select id="ingredients" class="" name="ingredient_id" data-attribute_name="attribute_ingredients" data-show_option_none="yes">
-                                                                                                        <option value="">Choose an option</option>
-                                                                                                        @foreach($product->ingredients as $row)
-                                                                                                            <option value="{{$row->id}}">{{$row->name}}</option>
-                                                                                                        @endforeach
-                                                                                                    </select>
-                                                                                                </td>
-                                                                                            </tr>
+                                                                                
                                                                                             <tr>
                                                                                                 <th class="label"><label for="weight">Weight</label></th>
                                                                                                 <td class="value">

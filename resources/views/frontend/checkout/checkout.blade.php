@@ -1,4 +1,7 @@
-@extends('frontend.index') @section('content')
+@extends('frontend.index')
+@section('background', Storage::url('public/uploads/settings/'.setting('checkout_header_image')))
+@section('title', 'Checkout')
+@section('content')
 
 <div id="post-21" class="post-21 page type-page status-publish hentry">
     <div class="woocommerce">
