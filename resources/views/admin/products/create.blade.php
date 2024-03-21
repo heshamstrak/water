@@ -151,6 +151,12 @@
                                 <label class="text-capitalize">Shipping Description<span class="text-danger">*</span></label>
                                 <textarea id="editor2" name="{{$nameInput}}" class="form-control" cols="30" rows="10">{{ old($nameInput) }}</textarea>
                             </div>
+
+                            {{-- discount --}} @php $nameInput = 'shipping_price' @endphp
+                            <div class="form-group">
+                                <label class="text-capitalize">Shipping Price</label>
+                                <input type="text" name="{{$nameInput}}" autofocus class="form-control" value="{{ old($nameInput) }}" placeholder="Free"/>
+                            </div>
                         </div>
 
                         <div class="tab-pane fade" id="kt_tab_pane_6_4" role="tabpanel" aria-labelledby="kt_tab_pane_6_4">

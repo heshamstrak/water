@@ -5492,10 +5492,10 @@
         background-color: #ededed;
     }
     </style>
-    <link rel="icon" href="https://milmaa.wpengine.com/wp-content/uploads/2021/12/favicon.png" sizes="32x32"/>
-    <link rel="icon" href="https://milmaa.wpengine.com/wp-content/uploads/2021/12/favicon.png" sizes="192x192"/>
-    <link rel="apple-touch-icon" href="https://milmaa.wpengine.com/wp-content/uploads/2021/12/favicon.png"/>
-    <meta name="msapplication-TileImage" content="https://milmaa.wpengine.com/wp-content/uploads/2021/12/favicon.png"/>
+    <link rel="icon" href="{{asset('frontend/icon m water.png')}}" sizes="32x32"/>
+    <link rel="icon" href="{{asset('frontend/icon m water.png')}}" sizes="192x192"/>
+    <link rel="apple-touch-icon" href="{{asset('frontend/icon m water.png')}}"/>
+    <meta name="msapplication-TileImage" content="{{asset('frontend/icon m water.png')}}"/>
     <style id='milmaa-woo-non-archive-inline-css' type='text/css'>
 
         /*--------------------------------------------------------------*/
@@ -6310,7 +6310,7 @@
     
                 <style>
                     #header-wrapper.header-top-absolute .main-title-section-wrapper:before {
-                        content: none;
+                        content: none
                     }
                 </style>
                 <section class="main-title-section-wrapper " style="background: url({{Storage::url('public/uploads/settings/'.setting('cart_header_image'))}}); background-size:cover">

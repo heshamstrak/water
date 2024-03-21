@@ -35,6 +35,7 @@ class ProductRequest extends FormRequest
             'category_id'           => 'required',
             'type'                  => 'required',
             'icon'                  => 'sometimes|nullable',
+            'shipping_price'        => 'sometimes|nullable',
             'small_image'           => 'sometimes|nullable',
             'ingredients'           => 'sometimes|nullable',
             'weights'               => 'sometimes|nullable',

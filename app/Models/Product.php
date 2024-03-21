@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Storage;
 class Product extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'main_description', 'description', 'ingredients', 'shipping_description', 'small_image', 'icon','type','count', 'visitor', 'price', 'discount', 'discount_type', 'category_id'];
+    protected $fillable = ['name', 'main_description', 'description', 'ingredients', 'shipping_description', 'small_image', 'shipping_price', 'icon','type','count', 'visitor', 'price', 'discount', 'discount_type', 'category_id'];
     protected $appends = ['calculate_discount', 'icon_path', 'image_path'];
 
     //attr

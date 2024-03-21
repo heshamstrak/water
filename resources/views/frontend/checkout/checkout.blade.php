@@ -65,12 +65,20 @@
                                     </span>
                                 </td>
                             </tr>
+                            <tr class="cart-subtotal">
+                                <th>Shipping</th>
+                                <td>
+                                    <span class="woocommerce-Price-amount amount">
+                                        <bdi><span class="woocommerce-Price-currencySymbol"> EGP </span>{{isset($cart->product->shipping_price) ? $cart->product->shipping_price : 'Free'}}</bdi>
+                                    </span>
+                                </td>
+                            </tr>
                             <tr class="order-total">
                                 <th>Total</th>
                                 <td>
                                     <strong>
                                         <span class="woocommerce-Price-amount amount">
-                                            <bdi><span class="woocommerce-Price-currencySymbol"> EGP </span>{{$totalPrice}}</bdi>
+                                            <bdi><span class="woocommerce-Price-currencySymbol"> EGP </span>{{isset($cart->product->shipping_price) ? $totalPrice + $cart->product->shipping_price : $totalPrice}}</bdi>
                                         </span>
                                     </strong>
                                 </td>
